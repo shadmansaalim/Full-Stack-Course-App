@@ -3,7 +3,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 const Header = () => {
     return (
-        <Navbar className="shadow-lg" expand="lg">
+        <Navbar className="shadow-lg mb-5" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">
                     <img
