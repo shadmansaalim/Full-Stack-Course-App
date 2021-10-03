@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 const Introduction = () => {
     return (
-        <Container>
+        <section className="mb-5">
             <Row className="d-flex align-items-center">
                 <Col md="7" lg="7" xl="5" className="mx-auto">
                     <div>
@@ -18,7 +18,7 @@ const Introduction = () => {
                     </div>
                 </Col>
             </Row>
-        </Container>
+        </section>
     );
 };
 
