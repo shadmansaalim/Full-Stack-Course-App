@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Course = (props) => {
+    // Destructuring data from props
     const { name, img, instructor, rating, peopleRated, previousPrice, discountedPrice } = props.course;
     return (
         <Col>
+            {/* Creating card to display */}
             <Card className="h-100">
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
@@ -17,6 +19,7 @@ const Course = (props) => {
                         <small>{instructor}</small>
                         <div className="d-flex justify-content-center mt-1">
                             <span className="me-1 rating">{rating}</span>
+                            {/* Giving the rating dynamically using react rating */}
                             <Rating
                                 className="me-1"
                                 initialRating={rating}
@@ -35,6 +38,7 @@ const Course = (props) => {
 
                     </Card.Text>
                 </Card.Body>
+                {/* Adding a button to add class */}
                 <Card.Footer>
                     <Button variant="primary">Add to Class <FontAwesomeIcon icon={faPlusCircle} /></Button>
                 </Card.Footer>

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-
+        // Website Footer
         <footer className="text-center text-lg-start text-white" style={{ backgroundColor: '#45526e' }}>
             <div className="container p-4 pb-0">
 

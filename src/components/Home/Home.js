@@ -8,13 +8,16 @@ import { Row, Col, Accordion } from 'react-bootstrap';
 import './Home.css'
 
 const Home = () => {
+    //Declaring the state for courses 
     const [courses, setCourses] = useState([]);
+    //Fetching data from JSON File kept in Public Folder
     useEffect(() => {
         fetch('./courseData.JSON')
             .then(res => res.json())
             .then(data => setCourses(data))
 
     }, []);
+    //Filtering courses to only show 6 courses in the Home Page
     const displayCourses = courses.filter(course => courses.indexOf(course) < 6);
     return (
         <Container className="mb-5">
@@ -23,6 +26,7 @@ const Home = () => {
                 <h1 className="headline mb-5 text-start">Explore Top Courses</h1>
                 <Row xs={1} lg={3} className="g-4">
                     {
+                        //Mapping over the displayCourses array and calling the Course component which creates card
                         displayCourses.map(course => <Course
                             key={course.name}
                             course={course}
@@ -30,6 +34,7 @@ const Home = () => {
                     }
                 </Row>
             </section>
+            {/* Added a Accordion using React Bootstrap for better UI/UX */}
             <section style={{ marginTop: 120 }}>
                 <h1 className="headline mb-3 text-start ms-lg-4">Why Udemy?</h1>
                 <Row className="d-flex justfiy-content-around align-items-center">

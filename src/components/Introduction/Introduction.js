@@ -3,6 +3,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 
 const Introduction = () => {
     return (
+        // First User Attraction of the website which introduces user to the website
         <section className="mb-5">
             <Row className="d-flex align-items-center">
                 <Col md="7" lg="7" xl="5" className="mx-auto">

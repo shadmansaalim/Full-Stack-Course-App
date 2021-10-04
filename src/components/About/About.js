@@ -5,6 +5,7 @@ const About = () => {
     return (
         <section>
             <Container>
+                {/* About Details Information */}
                 <section style={{ marginTop: 120 }} className="mb-5">
                     <Row className="d-flex align-items-center">
                         <Col lg="6">
@@ -17,6 +18,7 @@ const About = () => {
                 </section>
 
             </Container>
+            {/* Carousel Slider to show more Information */}
             <section className="bg-dark text-white p-3" style={{ marginTop: 120 }}>
                 <Carousel>
                     <Carousel.Item>
