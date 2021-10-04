@@ -11,6 +11,7 @@ import Home from './components/Home/Home';
 import Services from './components/Services/Services';
 import About from './components/About/About';
 import Footer from './components/Footer/Footer';
+import MyClasses from './components/MyClasses/MyClasses';
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route exact path="/services">
             <Services></Services>
+          </Route>
+          <Route exact path="/my-classes">
+            <MyClasses></MyClasses>
           </Route>
           <Route exact path="/about">
             <About></About>
