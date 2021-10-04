@@ -12,6 +12,7 @@ import Services from './components/Services/Services';
 import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import MyClasses from './components/MyClasses/MyClasses';
+import NotFound from './components/NotFound/NotFound';
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route exact path="/about">
             <About></About>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
         <Footer></Footer>
