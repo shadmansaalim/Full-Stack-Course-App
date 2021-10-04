@@ -16,7 +16,7 @@ const Home = () => {
     }, []);
     const displayCourses = courses.filter(course => courses.indexOf(course) < 6);
     return (
-        <Container>
+        <Container className="mb-5">
             <Introduction></Introduction>
             <section style={{ marginTop: 120 }}>
                 <h2 className="mb-4">Featured Courses</h2>
