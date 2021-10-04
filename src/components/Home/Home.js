@@ -24,7 +24,7 @@ const Home = () => {
             <Introduction></Introduction>
             <section className="mx-lg-5 mb-5" style={{ marginTop: 120 }}>
                 <h1 className="headline mb-5 text-start">Explore Top Courses</h1>
-                <Row xs={1} lg={3} className="g-4">
+                <Row xs={1} md={2} lg={3} className="g-4">
                     {
                         //Mapping over the displayCourses array and calling the Course component which creates card
                         displayCourses.map(course => <Course

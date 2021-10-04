@@ -13,6 +13,7 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import MyClasses from './components/MyClasses/MyClasses';
 import NotFound from './components/NotFound/NotFound';
+import Developer from './components/Developer/Developer';
 
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/about">
             <About></About>
+          </Route>
+          <Route exact path="/developer">
+            <Developer></Developer>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

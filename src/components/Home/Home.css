@@ -1,4 +1,12 @@
+/* Section Head Text style */
 .headline{
     font-size: 52px;
     font-weight: 700;
+}
+/* 
+Media query for perfection of text */
+@media only screen and (max-width: 688px){
+    .headline{
+        font-size: 36px;
+    }
 }
