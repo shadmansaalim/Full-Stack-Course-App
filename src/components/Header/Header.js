@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <Navbar className="shadow-lg mb-5" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/home">
                     <img
                         src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
                         width="80"

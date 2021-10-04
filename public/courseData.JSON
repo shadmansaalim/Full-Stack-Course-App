@@ -23,8 +23,7 @@
         "instructor": "Jose Portilla",
         "rating": 4.7,
         "peopleRated": "105,186",
-        "previousPrice": 119.99,
-        "discountedPrice": 18.99
+        "discountedPrice": 58.99
     },
     {
         "name": "Learn Python Programming Masterclass",
@@ -50,12 +49,11 @@
         "instructor": "Academind",
         "rating": 4.7,
         "peopleRated": "570",
-        "previousPrice": 9.99,
         "discountedPrice": 37.99
     },
     {
-        "name": "The Complete Solidity Course - Blockchain - Zero to Expert",
-        "img": "https://img-c.udemycdn.com/course/480x270/950390_270f_3.jpg",
+        "name": "Web Developer Bootcamp with Flask and Python",
+        "img": "https://img-c.udemycdn.com/course/480x270/631128_2efb_6.jpg",
         "instructor": "Clarian North",
         "rating": 4.2,
         "peopleRated": "178",
@@ -70,5 +68,40 @@
         "peopleRated": "182",
         "previousPrice": 199.99,
         "discountedPrice": 49.99
+    },
+    {
+        "name": "TOTAL: CompTIA Security+ Certification (SY0-601)",
+        "img": "https://img-c.udemycdn.com/course/480x270/4172946_c417_2.jpg",
+        "instructor": "GameDev Team",
+        "rating": 4.6,
+        "peopleRated": "1,105",
+        "previousPrice": 89.99,
+        "discountedPrice": 29.99
+    },
+    {
+        "name": "Terraform for the Absolute Beginners with Labs",
+        "img": "https://img-c.udemycdn.com/course/480x270/4226208_6500_4.jpg",
+        "instructor": "Mumshad Mannambeth",
+        "rating": 4.3,
+        "peopleRated": "73",
+        "previousPrice": 179.99,
+        "discountedPrice": 34.99
+    },
+    {
+        "name": "Advanced AI: Deep Reinforcement Learning in Python",
+        "img": "https://img-c.udemycdn.com/course/480x270/1153742_e649.jpg",
+        "instructor": "Lazy Programmer Team",
+        "rating": 4.9,
+        "peopleRated": "53,491",
+        "discountedPrice": 179.99
+    },
+    {
+        "name": "Data Science: Natural Language Processing (NLP) in Python",
+        "img": "https://img-c.udemycdn.com/course/480x270/753140_f3f3_2.jpg",
+        "instructor": "Robot Inc",
+        "rating": 4.1,
+        "peopleRated": "117,291",
+        "previousPrice": 319.99,
+        "discountedPrice": 99.99
     }
 ]

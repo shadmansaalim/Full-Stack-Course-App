@@ -4,7 +4,8 @@ import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Course from '../Course/Course';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Accordion } from 'react-bootstrap';
+import './Home.css'
 
 const Home = () => {
     const [courses, setCourses] = useState([]);
@@ -18,8 +19,8 @@ const Home = () => {
     return (
         <Container className="mb-5">
             <Introduction></Introduction>
-            <section style={{ marginTop: 120 }}>
-                <h2 className="mb-4">Featured Courses</h2>
+            <section className="mx-lg-5 mb-5" style={{ marginTop: 120 }}>
+                <h1 className="headline mb-5 text-start">Explore Top Courses</h1>
                 <Row xs={1} lg={3} className="g-4">
                     {
                         displayCourses.map(course => <Course
@@ -29,6 +30,49 @@ const Home = () => {
                     }
                 </Row>
             </section>
+            <section style={{ marginTop: 120 }}>
+                <h1 className="headline mb-3 text-start ms-lg-4">Why Udemy?</h1>
+                <Row className="d-flex justfiy-content-around align-items-center">
+                    <Col lg={6} className="mx-auto">
+                        <Accordion defaultActiveKey="0" flush>
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>Resources</Accordion.Header>
+                                <Accordion.Body>
+                                    Whenever you learn, you want to have access to as many resources as possible, and Udemy ensures that. Students can complete exercises and assignments and submit them to instructors to get their opinion on how they have performed
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>Low Prices</Accordion.Header>
+                                <Accordion.Body>
+                                    Low prices (typically $10-$15) offer equal access to education
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="3">
+                                <Accordion.Header>Lifetime Access</Accordion.Header>
+                                <Accordion.Body>
+                                    Lifetime access to course content (the $10-$15 fee is one-off, and students are not billed every month)
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="4">
+                                <Accordion.Header>Top Instructors</Accordion.Header>
+                                <Accordion.Body>
+                                    There is a great number of instructors who compete to create quality content (otherwise the marketplace’s rating system would penalize them, and they would not succeed)
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="5">
+                                <Accordion.Header>Trendy Topics</Accordion.Header>
+                                <Accordion.Body>
+                                    Competition creates a very dynamic environment in course creation, and trendy topics are covered on Udemy much faster compared to other platforms.
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        </Accordion>
+                    </Col>
+                    <Col lg={5} className="mx-auto">
+                        <img className="img-fluid" src="https://s.udemycdn.com/home/non-student-cta/instructor-2x-v3.jpg" alt="" />
+                    </Col>
+                </Row>
+            </section>
+
         </Container>
     );
 };
