@@ -1,7 +1,9 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 const Introduction = () => {
+    const history = useHistory();
     return (
         // First User Attraction of the website which introduces user to the website
         <section className="mb-5">
@@ -10,7 +12,7 @@ const Introduction = () => {
                     <div>
                         <h1>What Will You Discover?</h1>
                         <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
-                        <Button variant="outline-primary" size="lg">Browse Classes</Button>
+                        <Button onClick={() => history.push('/services')} variant="outline-primary" size="lg">Browse Courses</Button>
                     </div>
                 </Col>
                 <Col md="5" lg="5" xl="4" className="mx-auto">
