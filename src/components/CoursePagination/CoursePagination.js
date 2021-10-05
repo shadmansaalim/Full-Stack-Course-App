@@ -27,19 +27,20 @@ const Pagination = (props) => {
         }
     }
 
+
     return (
         <nav aria-label="...">
             <ul className="pagination">
                 {
-                    activePage !== 1 ? <li class="page-item">
-                        <a href="#" onClick={() => {
+                    activePage !== 1 ? <li className="page-item">
+                        <a href="#services" onClick={() => {
                             paginate(activePage - 1)
                             setActivePage(activePage - 1)
-                        }} class="page-link">Previous</a>
+                        }} className="page-link">Previous</a>
                     </li>
                         :
-                        <li class="page-item disabled">
-                            <a href="#" class="page-link">Previous</a>
+                        <li className="page-item disabled">
+                            <a href="#services" className="page-link">Previous</a>
                         </li>
 
                 }
@@ -48,7 +49,7 @@ const Pagination = (props) => {
                     pageNumbers.map(number => (
                         number === 1 ?
                             <li key={number} className="page-item active">
-                                <a href="#" onClick={() => {
+                                <a href="#services" onClick={() => {
                                     setActivePage(number)
                                     paginate(number)
                                 }} className="page-link" >
@@ -57,7 +58,7 @@ const Pagination = (props) => {
                             </li>
                             :
                             <li key={number} className="page-item ">
-                                <a href="#" onClick={() => {
+                                <a href="#services" onClick={() => {
                                     setActivePage(number)
                                     paginate(number)
                                 }} className="page-link" >
@@ -68,15 +69,15 @@ const Pagination = (props) => {
                 }
                 {
                     activePage !== (pageNumbers.length) ?
-                        <li class="page-item">
-                            <a href="#" onClick={() => {
+                        <li className="page-item">
+                            <a href="#services" onClick={() => {
                                 paginate(activePage + 1)
                                 setActivePage(activePage + 1)
-                            }} class="page-link">Next</a>
+                            }} className="page-link">Next</a>
                         </li>
                         :
-                        <li class="page-item disabled">
-                            <a href="#" class="page-link">Next</a>
+                        <li className="page-item disabled">
+                            <a href="#services" className="page-link">Next</a>
                         </li>
                 }
             </ul>

@@ -35,8 +35,9 @@ const Services = () => {
     //Change Page by setting the current page state
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+
     return (
-        <Container>
+        <Container id="services">
             <h5 className="fw-bold">Check out amazing courses by Top Instructors</h5>
             <section>
                 <Row xs={1} md={2} lg={4} className="g-4 mt-3 mb-5">
