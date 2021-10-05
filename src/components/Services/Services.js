@@ -37,7 +37,7 @@ const Services = () => {
 
 
     return (
-        <Container id="services">
+        <Container>
             <h5 className="fw-bold">Check out amazing courses by Top Instructors</h5>
             <section>
                 <Row xs={1} md={2} lg={4} className="g-4 mt-3 mb-5">

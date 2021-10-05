@@ -33,14 +33,14 @@ const Pagination = (props) => {
             <ul className="pagination">
                 {
                     activePage !== 1 ? <li className="page-item">
-                        <a href="#services" onClick={() => {
+                        <a href="#" onClick={() => {
                             paginate(activePage - 1)
                             setActivePage(activePage - 1)
                         }} className="page-link">Previous</a>
                     </li>
                         :
                         <li className="page-item disabled">
-                            <a href="#services" className="page-link">Previous</a>
+                            <a href="#" className="page-link">Previous</a>
                         </li>
 
                 }
@@ -49,7 +49,7 @@ const Pagination = (props) => {
                     pageNumbers.map(number => (
                         number === 1 ?
                             <li key={number} className="page-item active">
-                                <a href="#services" onClick={() => {
+                                <a href="#" onClick={() => {
                                     setActivePage(number)
                                     paginate(number)
                                 }} className="page-link" >
@@ -58,7 +58,7 @@ const Pagination = (props) => {
                             </li>
                             :
                             <li key={number} className="page-item ">
-                                <a href="#services" onClick={() => {
+                                <a href="#" onClick={() => {
                                     setActivePage(number)
                                     paginate(number)
                                 }} className="page-link" >
@@ -70,14 +70,14 @@ const Pagination = (props) => {
                 {
                     activePage !== (pageNumbers.length) ?
                         <li className="page-item">
-                            <a href="#services" onClick={() => {
+                            <a href="#" onClick={() => {
                                 paginate(activePage + 1)
                                 setActivePage(activePage + 1)
                             }} className="page-link">Next</a>
                         </li>
                         :
                         <li className="page-item disabled">
-                            <a href="#services" className="page-link">Next</a>
+                            <a href="#" className="page-link">Next</a>
                         </li>
                 }
             </ul>
