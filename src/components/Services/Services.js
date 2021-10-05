@@ -37,7 +37,8 @@ const Services = () => {
 
     return (
         <Container>
-            <Row xs={1} lg={4} className="g-4 my-5">
+            <h5 className="fw-bold">Check out amazing courses by Top Instructors</h5>
+            <Row xs={1} md={2} lg={4} className="g-4 mt-3 mb-5">
                 {
                     //Maping over courses and passing the course to Course component to create card
                     currentCourses.map(course => <Course
@@ -46,7 +47,7 @@ const Services = () => {
                     ></Course>)
                 }
             </Row>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-end">
                 {/* Calling the course pagination component for pagination */}
                 <CoursePagination
                     coursesPerPage={coursesPerPage}

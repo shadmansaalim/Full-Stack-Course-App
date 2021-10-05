@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CoursePagination.css'
+
 const Pagination = (props) => {
     //Getting coursesPerPage, totalCourses and paginate function for use
     const { coursesPerPage, totalCourses, paginate } = props;
@@ -32,14 +32,14 @@ const Pagination = (props) => {
             <ul className="pagination">
                 {
                     activePage !== 1 ? <li class="page-item">
-                        <button onClick={() => {
+                        <a href="#" onClick={() => {
                             paginate(activePage - 1)
                             setActivePage(activePage - 1)
-                        }} class="page-link">Previous</button>
+                        }} class="page-link">Previous</a>
                     </li>
                         :
                         <li class="page-item disabled">
-                            <button class="page-link">Previous</button>
+                            <a href="#" class="page-link">Previous</a>
                         </li>
 
                 }
@@ -48,35 +48,35 @@ const Pagination = (props) => {
                     pageNumbers.map(number => (
                         number === 1 ?
                             <li key={number} className="page-item active">
-                                <button onClick={() => {
+                                <a href="#" onClick={() => {
                                     setActivePage(number)
                                     paginate(number)
                                 }} className="page-link" >
                                     {number}
-                                </button>
+                                </a>
                             </li>
                             :
                             <li key={number} className="page-item ">
-                                <button onClick={() => {
+                                <a href="#" onClick={() => {
                                     setActivePage(number)
                                     paginate(number)
                                 }} className="page-link" >
                                     {number}
-                                </button>
+                                </a>
                             </li>
                     ))
                 }
                 {
                     activePage !== (pageNumbers.length) ?
                         <li class="page-item">
-                            <button onClick={() => {
+                            <a href="#" onClick={() => {
                                 paginate(activePage + 1)
                                 setActivePage(activePage + 1)
-                            }} class="page-link">Next</button>
+                            }} class="page-link">Next</a>
                         </li>
                         :
                         <li class="page-item disabled">
-                            <button class="page-link">Next</button>
+                            <a href="#" class="page-link">Next</a>
                         </li>
                 }
             </ul>
