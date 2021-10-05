@@ -64,7 +64,7 @@
         "name": "Low Poly Landscapes - Blender Bite Sized Course",
         "img": "https://img-c.udemycdn.com/course/480x270/4258538_1994.jpg",
         "instructor": "GameDev Team",
-        "rating": 5,
+        "rating": 5.0,
         "peopleRated": "182",
         "previousPrice": 199.99,
         "discountedPrice": 49.99
@@ -103,5 +103,110 @@
         "peopleRated": "117,291",
         "previousPrice": 319.99,
         "discountedPrice": 99.99
+    },
+    {
+        "name": "Azure Databricks & Spark Core For Data Engineers(Python/SQL)",
+        "img": "https://img-c.udemycdn.com/course/480x270/4182538_bdf1_2.jpg",
+        "instructor": "Ramesh Retnasamy",
+        "rating": 5.0,
+        "peopleRated": "217,541",
+        "previousPrice": 129.99,
+        "discountedPrice": 49.99
+    },
+    {
+        "name": "A deep understanding of deep learning (with Python intro)",
+        "img": "https://img-c.udemycdn.com/course/480x270/4221858_0d53_2.jpg",
+        "instructor": "Mike X Cohen",
+        "rating": 4.8,
+        "peopleRated": "229",
+        "previousPrice": 39.99,
+        "discountedPrice": 19.99
+    },
+    {
+        "name": "The Complete JavaScript Course 2021: From Zero to Expert!",
+        "img": "https://img-c.udemycdn.com/course/480x270/851712_fc61_6.jpg",
+        "instructor": "Jonas Schwenstegar",
+        "rating": 4.1,
+        "peopleRated": "116,047",
+        "discountedPrice": 89.99
+    },
+    {
+        "name": "Modern JavaScript From The Beginning",
+        "img": "https://img-c.udemycdn.com/course/480x270/364426_2991_6.jpg",
+        "instructor": "Anthony Alicea",
+        "rating": 4.3,
+        "peopleRated": "229",
+        "previousPrice": 129.99,
+        "discountedPrice": 99.99
+    },
+    {
+        "name": "JavaScript - The Complete Guide 2021 (Beginner + Advanced)",
+        "img": "https://img-c.udemycdn.com/course/480x270/2508942_11d3_3.jpg",
+        "instructor": "Academind",
+        "rating": 4.9,
+        "peopleRated": "313,239",
+        "previousPrice": 499.99,
+        "discountedPrice": 299.99
+    },
+    {
+        "name": "The Modern Javascript Bootcamp Course (2021)",
+        "img": "https://img-c.udemycdn.com/course/480x270/2634490_e343_2.jpg",
+        "instructor": "Stephen Grider",
+        "rating": 3.9,
+        "peopleRated": "103,119",
+        "previousPrice": 59.99,
+        "discountedPrice": 29.99
+    },
+    {
+        "name": "ES6 Javascript: The Complete Developer's Guide",
+        "img": "https://img-c.udemycdn.com/course/480x270/861624_864d_2.jpg",
+        "instructor": "Stephen Grider",
+        "rating": 4.7,
+        "peopleRated": "293,119",
+        "previousPrice": 399.99,
+        "discountedPrice": 119.99
+    },
+    {
+        "name": "50 Projects In 50 Days - HTML, CSS & JavaScript",
+        "img": "https://img-c.udemycdn.com/course/480x270/3671332_b86a.jpg",
+        "instructor": "Brad Traversy",
+        "rating": 5.0,
+        "peopleRated": "413,259",
+        "previousPrice": 229.99,
+        "discountedPrice": 179.99
+    },
+    {
+        "name": "Accelerated ES6 JavaScript Training",
+        "img": "https://img-c.udemycdn.com/course/480x270/886614_68cc_2.jpg",
+        "instructor": "Ercan Murat KISACA",
+        "rating": 4.5,
+        "peopleRated": "2,435",
+        "discountedPrice": 109.99
+    },
+    {
+        "name": "Environment Art School: Complete Perspective Drawing Course",
+        "img": "https://img-c.udemycdn.com/course/480x270/2068907_8958.jpg",
+        "instructor": "Scott Hrris",
+        "rating": 3.9,
+        "peopleRated": "99,432",
+        "discountedPrice": 89.99
+    },
+    {
+        "name": "How to Draw and Sketch for Absolute Beginners pt 1",
+        "img": "https://img-c.udemycdn.com/course/480x270/1047436_97b3.jpg",
+        "instructor": "Rich Graysonn",
+        "rating": 3.5,
+        "peopleRated": "107,753",
+        "previousPrice": 219.99,
+        "discountedPrice": 109.99
+    },
+    {
+        "name": "Masterclass of Realistic Drawing and Shading Human Features",
+        "img": "https://img-c.udemycdn.com/course/480x270/2236156_e14f_4.jpg",
+        "instructor": "Ian Shawn",
+        "rating": 4.2,
+        "peopleRated": "819,761",
+        "previousPrice": 619.99,
+        "discountedPrice": 239.99
     }
 ]

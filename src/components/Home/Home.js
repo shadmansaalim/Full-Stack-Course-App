@@ -17,14 +17,16 @@ const Home = () => {
             .then(data => setCourses(data))
 
     }, []);
+
+
     //Filtering courses to only show 6 courses in the Home Page
-    const displayCourses = courses.filter(course => courses.indexOf(course) < 6);
+    const displayCourses = courses.filter(course => courses.indexOf(course) < 4);
     return (
         <Container className="mb-5">
             <Introduction></Introduction>
             <section className="mx-lg-5 mb-5" style={{ marginTop: 120 }}>
                 <h1 className="headline mb-5 text-start">Explore Top Courses</h1>
-                <Row xs={1} md={2} lg={3} className="g-4">
+                <Row xs={1} md={2} lg={4} className="g-4">
                     {
                         //Mapping over the displayCourses array and calling the Course component which creates card
                         displayCourses.map(course => <Course
