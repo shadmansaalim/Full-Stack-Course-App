@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Course from '../Course/Course';
 import { Row, Container } from 'react-bootstrap';
-import CoursePagination from '../CoursePagination/CoursePagination'
+import CoursePagination from '../CoursePagination/CoursePagination';
+
 
 
 const Services = () => {
