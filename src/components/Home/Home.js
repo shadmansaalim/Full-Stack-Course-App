@@ -7,7 +7,15 @@ import Course from '../Course/Course';
 import { Row, Col, Accordion } from 'react-bootstrap';
 import './Home.css'
 
+
+
 const Home = () => {
+    // User Data From Context API
+    // const user = useContext(UserDetailsContext);
+    // console.log(user, 'From home page');
+
+
+
     //Declaring the state for courses 
     const [courses, setCourses] = useState([]);
     //Fetching data from JSON File kept in Public Folder

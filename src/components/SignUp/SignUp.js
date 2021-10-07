@@ -1,8 +1,11 @@
 import React from 'react';
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
-import initializeAuthentication from '../../Firebase/firebase.init';
+import signupImg from '../../images/signup.svg'
+import { useHistory } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, updatePhoneNumber } from "firebase/auth";
+import initializeAuthentication from '../../Firebase/firebase.init'
 import { useState } from 'react';
 initializeAuthentication();
+
 
 const SignUp = () => {
     const [name, setName] = useState('');
@@ -10,6 +13,8 @@ const SignUp = () => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [user, setUser] = useState();
+    const history = useHistory();
     const auth = getAuth();
 
 
@@ -35,16 +40,27 @@ const SignUp = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
+        // if (!/(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}/.test(password)) {
+        //     setError(<ul>
+        //         <h4>Invalid Password! Please check whether your password contains the following characters</h4>
+        //         <li>8 characters length</li>
+        //         <li>2 letters in Upper Case</li>
+        //         <li>1 Special Character (!@#$&*)</li>
+        //         <li>2 numerals (0-9)</li>
+        //         <li>3 letters in Lower Case</li>
+        //     </ul>)
+        //     return;
+        // }
         verifyEmail();
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                const { emailVerified } = result.user;
-                if (emailVerified) {
-                    setUserName();
-                }
-                else {
-                    setError('Please verify your email first');
-                }
+                console.log(result.user);
+                setUser(result.user);
+                setUserDetails();
+                history.push('/home');
+            })
+            .catch(error => {
+                setError(error.message);
             })
 
     }
@@ -54,17 +70,35 @@ const SignUp = () => {
             .then(() => {
 
             })
-    }
-
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name, email: email, phoneNumber: phone })
-            .then(result => {
+            .catch(error => {
 
             })
     }
+
+    const setUserDetails = () => {
+        updateProfile(auth.currentUser, { displayName: name, email: email })
+            .then(result => {
+
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+        updatePhoneNumber(auth.currentUser, { phoneNumber: phone })
+            .then(result => {
+
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+
+    }
+
+
+
     return (
         <section className="mb-5">
             <div className="container h-100">
+                <div className="text-danger mb-4 col-8 mx-auto">{error}</div>
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-lg-12 col-xl-11">
                         <div className="card text-black" style={{ borderRadius: 25 }}>
@@ -72,7 +106,7 @@ const SignUp = () => {
                                 <div className="row justify-content-center">
                                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                                        <p className="text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up and Start Learning from Today!</p>
 
                                         <form onSubmit={handleSignUp} className="mx-1 mx-md-4">
 
@@ -90,21 +124,21 @@ const SignUp = () => {
                                                 </div>
                                             </div>
 
-                                            <div className="d-flex flex-row align-items-center mb-4">
+                                            {/* <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-phone fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input onBlur={handlePhoneChange} type="number" className="form-control" placeholder="Your Phone" required />
                                                 </div>
-                                            </div>
+                                            </div> */}
 
 
                                             {/* Taking Image From User */}
                                             {/* <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="input-group mb-0">
-                                                    <div class="small text-muted text-start">Upload your profile picture</div>
+                                                <div className="input-group mb-0">
+                                                    <div className="small text-muted text-start">Upload your profile picture</div>
                                                     <div className="d-flex">
-                                                        <input onBlur={handleImageChange} type="file" class="form-control" id="inputGroupFile01" required />
+                                                        <input onBlur={handleImageChange} type="file" className="form-control" id="inputGroupFile01" required />
                                                     </div>
                                                 </div>
                                             </div> */}
@@ -125,7 +159,7 @@ const SignUp = () => {
                                                 </div>
                                             </div> */}
 
-                                            <div className="form-check d-flex justify-content-center mb-5">
+                                            <div className="form-check d-flex justify-content-center align-items-center mb-3">
                                                 <input
                                                     className="form-check-input me-2"
                                                     type="checkbox"
@@ -133,24 +167,22 @@ const SignUp = () => {
                                                     id="form2Example3c"
                                                     required
                                                 />
-                                                <label className="form-check-label" for="form2Example3">
-                                                    I agree all statements in <a href="#!">Terms of service</a>
+                                                <label className="form-check-label" htmlFor="form2Example3c">
+                                                    <small>I agree all statements in <a href="#!">Terms of service</a></small>
                                                 </label>
+
                                             </div>
 
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" className="btn btn-primary btn-lg">Register</button>
+                                                <button type="submit" className="btn btn-primary">Sign Up</button>
                                             </div>
 
-                                            <h3>{error}</h3>
 
                                         </form>
 
                                     </div>
-                                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                                        <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" className="img-fluid" alt="" />
-
+                                    <div className="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2 mx-auto">
+                                        <img src={signupImg} className="img-fluid" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -159,6 +191,7 @@ const SignUp = () => {
                 </div>
             </div>
         </section>
+
     );
 };
 
