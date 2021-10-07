@@ -16,10 +16,14 @@ import NotFound from './components/NotFound/NotFound';
 import Developer from './components/Developer/Developer';
 import SignUp from './components/SignUp/SignUp';
 import { useState } from 'react';
+import ConfirmSignUp from './components/ConfirmSignUp/ConfirmSignUp';
+import Login from './components/Login/Login';
 
+//Exporting UserDetailsContext
 export const UserDetailsContext = createContext()
 
 function App() {
+  //Setting state for user here so that it can be used in Hone Component as well as Sign Up Component
   const [user, setUser] = useState({});
   return (
     <UserDetailsContext.Provider value={[user, setUser]}>
@@ -47,6 +51,12 @@ function App() {
             </Route>
             <Route exact path="/sign-up">
               <SignUp></SignUp>
+            </Route>
+            <Route exact path="/login">
+              <Login></Login>
+            </Route>
+            <Route exact path="/confirm-sign-up">
+              <ConfirmSignUp></ConfirmSignUp>
             </Route>
             <Route path="*">
               <NotFound></NotFound>

@@ -1,10 +1,9 @@
 import React from 'react';
 import signupImg from '../../images/signup.svg'
 import { useHistory } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, updatePhoneNumber } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import initializeAuthentication from '../../Firebase/firebase.init'
 import { useState } from 'react';
-import { createContext } from 'react';
 import { useContext } from 'react';
 import { UserDetailsContext } from '../../App';
 initializeAuthentication();
@@ -56,12 +55,15 @@ const SignUp = () => {
         //     </ul>)
         //     return;
         // }
-        verifyEmail();
+
+
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                setUser(result.user);
+                verifyEmail();
                 setUserDetails();
+                setUser(result.user);
                 history.push('/home');
+
             })
             .catch(error => {
                 setError(error.message);
@@ -87,15 +89,6 @@ const SignUp = () => {
             .catch(error => {
                 setError(error.message);
             })
-        updatePhoneNumber(auth.currentUser, { phoneNumber: phone })
-            .then(result => {
-
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-
-
     }
 
     return (

@@ -54,7 +54,7 @@ const Header = () => {
                     </Nav>
                     <Nav className="ms-auto">
                         <Button className="me-lg-4" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
-                        <Button onClick={() => history.push('/services')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
+                        <Button onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
