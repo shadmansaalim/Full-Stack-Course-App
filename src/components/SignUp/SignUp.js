@@ -163,7 +163,7 @@ const SignUp = () => {
                                                     id="form2Example3c"
                                                     required
                                                 />
-                                                <label className="form-check-label" htmlFor="form2Example3c">
+                                                <label className="form-check-label" htmlhtmlFor="form2Example3c">
                                                     <small>I agree all statements in <a href="#!">Terms of service</a></small>
                                                 </label>
 
