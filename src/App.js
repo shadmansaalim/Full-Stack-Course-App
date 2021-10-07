@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from "react";
+import React, { createContext } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,42 +15,48 @@ import MyClasses from './components/MyClasses/MyClasses';
 import NotFound from './components/NotFound/NotFound';
 import Developer from './components/Developer/Developer';
 import SignUp from './components/SignUp/SignUp';
+import { useState } from 'react';
 
+export const UserDetailsContext = createContext()
 
 function App() {
+  const [user, setUser] = useState({});
   return (
-    <div className="App">
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route exact path="/home">
-            <Home></Home>
-          </Route>
-          <Route exact path="/services">
-            <Services></Services>
-          </Route>
-          <Route exact path="/my-classes">
-            <MyClasses></MyClasses>
-          </Route>
-          <Route exact path="/about">
-            <About></About>
-          </Route>
-          <Route exact path="/developer">
-            <Developer></Developer>
-          </Route>
-          <Route exact path="/sign-up">
-            <SignUp></SignUp>
-          </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-        <Footer></Footer>
-      </Router>
-    </div>
+    <UserDetailsContext.Provider value={[user, setUser]}>
+      <div className="App">
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route exact path="/home">
+              <Home></Home>
+            </Route>
+            <Route exact path="/services">
+              <Services></Services>
+            </Route>
+            <Route exact path="/my-classes">
+              <MyClasses></MyClasses>
+            </Route>
+            <Route exact path="/about">
+              <About></About>
+            </Route>
+            <Route exact path="/developer">
+              <Developer></Developer>
+            </Route>
+            <Route exact path="/sign-up">
+              <SignUp></SignUp>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </div>
+    </UserDetailsContext.Provider>
+
   );
 }
 

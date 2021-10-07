@@ -4,16 +4,21 @@ import { useHistory } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, updatePhoneNumber } from "firebase/auth";
 import initializeAuthentication from '../../Firebase/firebase.init'
 import { useState } from 'react';
+import { createContext } from 'react';
+import { useContext } from 'react';
+import { UserDetailsContext } from '../../App';
 initializeAuthentication();
 
 
+
 const SignUp = () => {
+    const [user, setUser] = useContext(UserDetailsContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [user, setUser] = useState();
+
     const history = useHistory();
     const auth = getAuth();
 
@@ -54,7 +59,6 @@ const SignUp = () => {
         verifyEmail();
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                console.log(result.user);
                 setUser(result.user);
                 setUserDetails();
                 history.push('/home');
@@ -91,9 +95,8 @@ const SignUp = () => {
                 setError(error.message);
             })
 
+
     }
-
-
 
     return (
         <section className="mb-5">
