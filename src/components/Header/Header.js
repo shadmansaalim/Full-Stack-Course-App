@@ -1,7 +1,10 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { NavLink, useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
+    const history = useHistory();
     return (
         // Website Top Navigation Bar
         <Navbar className="shadow-lg mb-5" expand="lg">
@@ -17,7 +20,7 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
+                    <Nav className="me-auto">
                         <NavLink className="text-decoration-none me-lg-4" exact to="/"
                             style={{ color: '#161c2d' }}
                             activeStyle={{
@@ -48,6 +51,10 @@ const Header = () => {
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>Developer</NavLink>
+                    </Nav>
+                    <Nav className="ms-auto">
+                        <Button className="me-lg-4" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
+                        <Button onClick={() => history.push('/services')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

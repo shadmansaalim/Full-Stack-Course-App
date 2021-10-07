@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer';
 import MyClasses from './components/MyClasses/MyClasses';
 import NotFound from './components/NotFound/NotFound';
 import Developer from './components/Developer/Developer';
+import SignUp from './components/SignUp/SignUp';
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path="/developer">
             <Developer></Developer>
+          </Route>
+          <Route exact path="/sign-up">
+            <SignUp></SignUp>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
