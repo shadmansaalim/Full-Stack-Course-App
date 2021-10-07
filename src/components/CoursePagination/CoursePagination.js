@@ -16,6 +16,7 @@ const Pagination = (props) => {
 
 
     // Styling the active page in pagination by adding the class active for good UI/UX
+    //Test
     const btns = document.getElementsByClassName('page-link');
     for (const btn of btns) {
         const li = btn.parentElement;
