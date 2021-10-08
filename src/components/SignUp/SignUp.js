@@ -13,9 +13,9 @@ initializeAuthentication();
 const SignUp = () => {
     const [user, setUser] = useContext(UserDetailsContext);
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [signUpEmail, setSignUpEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [password, setPassword] = useState('');
+    const [signUpPassword, setSignUpPassword] = useState('');
     const [error, setError] = useState('');
 
     const history = useHistory();
@@ -26,8 +26,8 @@ const SignUp = () => {
         setName(e.target.value);
     }
 
-    const handleEmailChange = e => {
-        setEmail(e.target.value);
+    const handleSignUpEmailChange = e => {
+        setSignUpEmail(e.target.value);
     }
 
     const handlePhoneChange = e => {
@@ -37,8 +37,8 @@ const SignUp = () => {
     const handleImageChange = e => {
     }
 
-    const handlePasswordChange = e => {
-        setPassword(e.target.value);
+    const handleSignUpPasswordChange = e => {
+        setSignUpPassword(e.target.value);
     }
 
 
@@ -57,7 +57,7 @@ const SignUp = () => {
         // }
 
 
-        createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
             .then(result => {
                 verifyEmail();
                 setUserDetails();
@@ -82,7 +82,7 @@ const SignUp = () => {
     }
 
     const setUserDetails = () => {
-        updateProfile(auth.currentUser, { displayName: name, email: email })
+        updateProfile(auth.currentUser, { displayName: name, email: signUpEmail })
             .then(result => {
 
             })
@@ -116,7 +116,7 @@ const SignUp = () => {
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input onBlur={handleEmailChange} type="email" id="form3Example3c" className="form-control" placeholder="Your Email" required />
+                                                    <input onBlur={handleSignUpEmailChange} type="email" id="form3Example3c" className="form-control" placeholder="Your Email" required />
                                                 </div>
                                             </div>
 
@@ -144,7 +144,7 @@ const SignUp = () => {
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input onBlur={handlePasswordChange} type="password" id="form3Example4c" className="form-control" placeholder="Password" required />
+                                                    <input onBlur={handleSignUpPasswordChange} type="password" id="form3Example4c" className="form-control" placeholder="Password" required />
                                                 </div>
                                             </div>
 
@@ -163,7 +163,7 @@ const SignUp = () => {
                                                     id="form2Example3c"
                                                     required
                                                 />
-                                                <label className="form-check-label" htmlhtmlFor="form2Example3c">
+                                                <label className="form-check-label" htmlFor="form2Example3c">
                                                     <small>I agree all statements in <a href="#!">Terms of service</a></small>
                                                 </label>
 

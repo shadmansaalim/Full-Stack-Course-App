@@ -3,8 +3,32 @@ import loginImg from '../../images/login.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
+
+const googleProvider = new GoogleAuthProvider();
 
 const Login = () => {
+    const auth = getAuth();
+    const [loginEmail, setLoginEmail] = useState('');
+    const [loginPassword, setLoginPassword] = useState('');
+
+    const handleLogin = () => {
+        signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
+    const handleLoginEmailChange = e => {
+        setLoginEmail(e.target.value);
+    }
+    const handleLoginPasswordChange = e => {
+        setLoginPassword(e.target.value);
+    }
     return (
         <section style={{ marginTop: 100, marginBottom: 150 }}>
             <div class="container">
@@ -22,11 +46,11 @@ const Login = () => {
                                 </button>
 
                                 <button type="button" class="btn btn-primary rounded-circle mx-1">
-                                    <i class="fab fa-twitter"></i>
+                                    <i class="fab fa-google"></i>
                                 </button>
 
                                 <button type="button" class="btn btn-primary rounded-circle mx-1">
-                                    <i class="fab fa-linkedin-in"></i>
+                                    <i class="fab fa-twitter"></i>
                                 </button>
                             </div>
 
@@ -35,14 +59,14 @@ const Login = () => {
 
 
                             <div class="form-outline mb-4">
-                                <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                <input onBlur={handleLoginEmailChange} type="email" id="form3Example3" class="form-control form-control-lg"
                                     placeholder="Enter a valid email address" />
 
                             </div>
 
 
                             <div class="form-outline mb-3">
-                                <input type="password" id="form3Example4" class="form-control form-control-lg"
+                                <input onBlur={handleLoginPasswordChange} type="password" id="form3Example4" class="form-control form-control-lg"
                                     placeholder="Enter password" />
                             </div>
 
@@ -58,7 +82,7 @@ const Login = () => {
                             </div>
 
                             <div class="text-center text-lg-start mt-4 pt-2">
-                                <Button variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
+                                <Button onClick={handleLogin} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                                 <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/sign-up"
                                     class="link-danger">Sign Up</a></p>
                             </div>

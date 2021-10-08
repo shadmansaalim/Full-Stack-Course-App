@@ -15,7 +15,6 @@ import { UserDetailsContext } from '../../App';
 const Home = () => {
     // User Data From Context API
     const [user] = useContext(UserDetailsContext);
-    console.log(user);
 
 
     //Declaring the state for courses 
