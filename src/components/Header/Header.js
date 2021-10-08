@@ -52,9 +52,9 @@ const Header = () => {
                                 color: "#0275d8"
                             }}>Developer</NavLink>
                     </Nav>
-                    <Nav className="ms-auto mt-2 mt-md-0">
+                    <Nav className="ms-auto mt-2 mt-lg-0">
                         <Button className="me-lg-4" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
-                        <Button className="mt-1" onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
+                        <Button className="mt-1 mt-lg-0" onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
