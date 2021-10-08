@@ -175,21 +175,21 @@ const SignUp = () => {
                                                 </div>
                                             </div> */}
 
-                                            <p class="text-center text-muted mx-3 mb-0 fw-bold">OR</p>
+                                            <p className="text-center text-muted mx-3 mb-0 fw-bold">OR</p>
                                             <hr />
 
-                                            <div class="d-flex flex-row align-items-center justify-content-center mb-4">
-                                                <p class="text-center fw-bold mb-0 me-2">Sign Up With</p>
-                                                <button onClick={handleFacebookSignUp} class="btn btn-outline-primary rounded-circle mx-1">
-                                                    <i class="fab fa-facebook-f"></i>
+                                            <div className="d-flex flex-row align-items-center justify-content-center mb-4">
+                                                <p className="text-center fw-bold mb-0 me-2">Sign Up With</p>
+                                                <button onClick={handleFacebookSignUp} className="btn btn-outline-primary rounded-circle mx-1">
+                                                    <i className="fab fa-facebook-f"></i>
                                                 </button>
 
-                                                <button onClick={handleGoogleSignUp} class="btn btn-outline-primary  rounded-circle mx-1">
-                                                    <i class="fab fa-google"></i>
+                                                <button onClick={handleGoogleSignUp} className="btn btn-outline-primary  rounded-circle mx-1">
+                                                    <i className="fab fa-google"></i>
                                                 </button>
 
-                                                <button class="btn btn-outline-primary  rounded-circle mx-1">
-                                                    <i class="fab fa-twitter"></i>
+                                                <button className="btn btn-outline-primary  rounded-circle mx-1">
+                                                    <i className="fab fa-twitter"></i>
                                                 </button>
                                             </div>
 
@@ -203,7 +203,7 @@ const SignUp = () => {
                                                     id="form2Example3c"
                                                     required
                                                 />
-                                                <label className="form-check-label" htmlFor="form2Example3c">
+                                                <label className="form-check-label" htmlhtmlFor="form2Example3c">
                                                     <small>I agree all statements in <a href="#!">Terms of service</a></small>
                                                 </label>
 
