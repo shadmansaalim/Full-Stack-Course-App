@@ -1,14 +1,15 @@
 import React from 'react';
 import signupImg from '../../images/signup.svg'
 import { useHistory } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
 import initializeAuthentication from '../../Firebase/firebase.init'
 import { useState } from 'react';
 import { useContext } from 'react';
 import { UserDetailsContext } from '../../App';
 initializeAuthentication();
 
-
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const SignUp = () => {
     const [user, setUser] = useContext(UserDetailsContext);
@@ -91,6 +92,25 @@ const SignUp = () => {
             })
     }
 
+    const handleGoogleSignUp = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
+    const handleFacebookSignUp = () => {
+        signInWithPopup(auth, facebookProvider)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
     return (
         <section className="mb-5">
             <div className="container h-100">
@@ -141,7 +161,7 @@ const SignUp = () => {
 
 
 
-                                            <div className="d-flex flex-row align-items-center mb-4">
+                                            <div className="d-flex flex-row align-items-center mb-3">
                                                 <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input onBlur={handleSignUpPasswordChange} type="password" id="form3Example4c" className="form-control" placeholder="Password" required />
@@ -154,6 +174,26 @@ const SignUp = () => {
                                                     <input type="password" id="form3Example4cd" className="form-control" placeholder="Repeat your password" required />
                                                 </div>
                                             </div> */}
+
+                                            <p class="text-center text-muted mx-3 mb-0 fw-bold">OR</p>
+                                            <hr />
+
+                                            <div class="d-flex flex-row align-items-center justify-content-center mb-4">
+                                                <p class="text-center fw-bold mb-0 me-2">Sign Up With</p>
+                                                <button onClick={handleFacebookSignUp} class="btn btn-outline-primary rounded-circle mx-1">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </button>
+
+                                                <button onClick={handleGoogleSignUp} class="btn btn-outline-primary  rounded-circle mx-1">
+                                                    <i class="fab fa-google"></i>
+                                                </button>
+
+                                                <button class="btn btn-outline-primary  rounded-circle mx-1">
+                                                    <i class="fab fa-twitter"></i>
+                                                </button>
+                                            </div>
+
+
 
                                             <div className="form-check d-flex justify-content-center align-items-center mb-3">
                                                 <input

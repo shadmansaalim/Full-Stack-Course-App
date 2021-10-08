@@ -3,7 +3,7 @@ import loginImg from '../../images/login.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { useState } from 'react';
 
 const googleProvider = new GoogleAuthProvider();
@@ -13,7 +13,8 @@ const Login = () => {
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
 
-    const handleLogin = () => {
+    const handleLogin = e => {
+        e.preventDefault();
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then(result => {
                 console.log(result.user);
@@ -29,6 +30,17 @@ const Login = () => {
     const handleLoginPasswordChange = e => {
         setLoginPassword(e.target.value);
     }
+
+    const handleForgetPassword = () => {
+        sendPasswordResetEmail(auth, loginEmail)
+            .then(() => {
+
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     return (
         <section style={{ marginTop: 100, marginBottom: 150 }}>
             <div class="container">
@@ -38,18 +50,18 @@ const Login = () => {
                             alt="Sample" />
                     </div>
                     <div class="col-md-8 col-lg-5 col-xl-4 offset-xl-1 shadow-lg p-5 rounded-3 mx-auto">
-                        <form>
+                        <form onSubmit={handleLogin}>
                             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                 <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-                                <button type="button" class="btn btn-primary rounded-circle mx-1">
+                                <button type="button" class="btn btn-outline-primary rounded-circle mx-1">
                                     <i class="fab fa-facebook-f"></i>
                                 </button>
 
-                                <button type="button" class="btn btn-primary rounded-circle mx-1">
+                                <button type="button" class="btn btn-outline-primary rounded-circle mx-1">
                                     <i class="fab fa-google"></i>
                                 </button>
 
-                                <button type="button" class="btn btn-primary rounded-circle mx-1">
+                                <button type="button" class="btn btn-outline-primary rounded-circle mx-1">
                                     <i class="fab fa-twitter"></i>
                                 </button>
                             </div>
@@ -78,11 +90,11 @@ const Login = () => {
                                         Remember me
                                     </label>
                                 </div>
-                                <a href="#!" class="text-body">Forgot password?</a>
+                                <a onClick={handleForgetPassword} href="#!" class="text-body">Forgot password?</a>
                             </div>
 
                             <div class="text-center text-lg-start mt-4 pt-2">
-                                <Button onClick={handleLogin} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
+                                <Button type="submit" variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                                 <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/sign-up"
                                     class="link-danger">Sign Up</a></p>
                             </div>
