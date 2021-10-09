@@ -6,7 +6,8 @@
         "rating": 4.6,
         "peopleRated": "383,841",
         "previousPrice": 89.99,
-        "discountedPrice": 13.99
+        "discountedPrice": 13.99,
+        "courseID": 1
     },
     {
         "name": "Machine Learning A-Z™: Hands-On Python & R In Data Science",
@@ -15,7 +16,8 @@
         "rating": 4.5,
         "peopleRated": "151,031",
         "previousPrice": 139.99,
-        "discountedPrice": 19.99
+        "discountedPrice": 19.99,
+        "courseID": 2
     },
     {
         "name": "Python for Data Science and Machine Learning Bootcamp",
@@ -23,7 +25,8 @@
         "instructor": "Jose Portilla",
         "rating": 4.7,
         "peopleRated": "105,186",
-        "discountedPrice": 58.99
+        "discountedPrice": 58.99,
+        "courseID": 3
     },
     {
         "name": "Learn Python Programming Masterclass",
@@ -32,7 +35,8 @@
         "rating": 4.5,
         "peopleRated": "81,571",
         "previousPrice": 89.99,
-        "discountedPrice": 13.99
+        "discountedPrice": 13.99,
+        "courseID": 4
     },
     {
         "name": "The Python Mega Course: Build 10 Real World Applications",
@@ -41,7 +45,8 @@
         "rating": 4.6,
         "peopleRated": "52,902",
         "previousPrice": 59.99,
-        "discountedPrice": 17.99
+        "discountedPrice": 17.99,
+        "courseID": 5
     },
     {
         "name": "Git & GitHub - The Practical Guide",
@@ -49,7 +54,8 @@
         "instructor": "Academind",
         "rating": 4.7,
         "peopleRated": "570",
-        "discountedPrice": 37.99
+        "discountedPrice": 37.99,
+        "courseID": 6
     },
     {
         "name": "Web Developer Bootcamp with Flask and Python",
@@ -58,7 +64,8 @@
         "rating": 4.2,
         "peopleRated": "178",
         "previousPrice": 29.99,
-        "discountedPrice": 149.99
+        "discountedPrice": 149.99,
+        "courseID": 7
     },
     {
         "name": "Low Poly Landscapes - Blender Bite Sized Course",
@@ -67,7 +74,8 @@
         "rating": 5.0,
         "peopleRated": "182",
         "previousPrice": 199.99,
-        "discountedPrice": 49.99
+        "discountedPrice": 49.99,
+        "courseID": 8
     },
     {
         "name": "TOTAL: CompTIA Security+ Certification (SY0-601)",
@@ -76,7 +84,8 @@
         "rating": 4.6,
         "peopleRated": "1,105",
         "previousPrice": 89.99,
-        "discountedPrice": 29.99
+        "discountedPrice": 29.99,
+        "courseID": 9
     },
     {
         "name": "Terraform for the Absolute Beginners with Labs",
@@ -85,7 +94,8 @@
         "rating": 4.3,
         "peopleRated": "73",
         "previousPrice": 179.99,
-        "discountedPrice": 34.99
+        "discountedPrice": 34.99,
+        "courseID": 10
     },
     {
         "name": "Advanced AI: Deep Reinforcement Learning in Python",
@@ -93,7 +103,8 @@
         "instructor": "Lazy Programmer Team",
         "rating": 4.9,
         "peopleRated": "53,491",
-        "discountedPrice": 179.99
+        "discountedPrice": 179.99,
+        "courseID": 11
     },
     {
         "name": "Data Science: Natural Language Processing (NLP) in Python",
@@ -102,7 +113,8 @@
         "rating": 4.1,
         "peopleRated": "117,291",
         "previousPrice": 319.99,
-        "discountedPrice": 99.99
+        "discountedPrice": 99.99,
+        "courseID": 12
     },
     {
         "name": "Azure Databricks & Spark Core For Data Engineers(Python/SQL)",
@@ -111,7 +123,8 @@
         "rating": 5.0,
         "peopleRated": "217,541",
         "previousPrice": 129.99,
-        "discountedPrice": 49.99
+        "discountedPrice": 49.99,
+        "courseID": 13
     },
     {
         "name": "A deep understanding of deep learning (with Python intro)",
@@ -120,7 +133,8 @@
         "rating": 4.8,
         "peopleRated": "229",
         "previousPrice": 39.99,
-        "discountedPrice": 19.99
+        "discountedPrice": 19.99,
+        "courseID": 14
     },
     {
         "name": "The Complete JavaScript Course 2021: From Zero to Expert!",
@@ -128,7 +142,8 @@
         "instructor": "Jonas Schwenstegar",
         "rating": 4.1,
         "peopleRated": "116,047",
-        "discountedPrice": 89.99
+        "discountedPrice": 89.99,
+        "courseID": 15
     },
     {
         "name": "Modern JavaScript From The Beginning",
@@ -137,7 +152,8 @@
         "rating": 4.3,
         "peopleRated": "229",
         "previousPrice": 129.99,
-        "discountedPrice": 99.99
+        "discountedPrice": 99.99,
+        "courseID": 16
     },
     {
         "name": "JavaScript - The Complete Guide 2021 (Beginner + Advanced)",
@@ -146,7 +162,8 @@
         "rating": 4.9,
         "peopleRated": "313,239",
         "previousPrice": 499.99,
-        "discountedPrice": 299.99
+        "discountedPrice": 299.99,
+        "courseID": 17
     },
     {
         "name": "The Modern Javascript Bootcamp Course (2021)",
@@ -155,7 +172,8 @@
         "rating": 3.9,
         "peopleRated": "103,119",
         "previousPrice": 59.99,
-        "discountedPrice": 29.99
+        "discountedPrice": 29.99,
+        "courseID": 18
     },
     {
         "name": "ES6 Javascript: The Complete Developer's Guide",
@@ -164,7 +182,8 @@
         "rating": 4.7,
         "peopleRated": "293,119",
         "previousPrice": 399.99,
-        "discountedPrice": 119.99
+        "discountedPrice": 119.99,
+        "courseID": 19
     },
     {
         "name": "50 Projects In 50 Days - HTML, CSS & JavaScript",
@@ -173,7 +192,8 @@
         "rating": 5.0,
         "peopleRated": "413,259",
         "previousPrice": 229.99,
-        "discountedPrice": 179.99
+        "discountedPrice": 179.99,
+        "courseID": 20
     },
     {
         "name": "Accelerated ES6 JavaScript Training",
@@ -181,7 +201,8 @@
         "instructor": "Ercan Murat KISACA",
         "rating": 4.5,
         "peopleRated": "2,435",
-        "discountedPrice": 109.99
+        "discountedPrice": 109.99,
+        "courseID": 21
     },
     {
         "name": "Environment Art School: Complete Perspective Drawing Course",
@@ -189,7 +210,8 @@
         "instructor": "Scott Hrris",
         "rating": 3.9,
         "peopleRated": "99,432",
-        "discountedPrice": 89.99
+        "discountedPrice": 89.99,
+        "courseID": 22
     },
     {
         "name": "How to Draw and Sketch for Absolute Beginners pt 1",
@@ -198,7 +220,8 @@
         "rating": 3.5,
         "peopleRated": "107,753",
         "previousPrice": 219.99,
-        "discountedPrice": 109.99
+        "discountedPrice": 109.99,
+        "courseID": 23
     },
     {
         "name": "Masterclass of Realistic Drawing and Shading Human Features",
@@ -207,6 +230,7 @@
         "rating": 4.2,
         "peopleRated": "819,761",
         "previousPrice": 619.99,
-        "discountedPrice": 239.99
+        "discountedPrice": 239.99,
+        "courseID": 24
     }
 ]
