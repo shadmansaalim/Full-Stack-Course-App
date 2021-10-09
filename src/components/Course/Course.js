@@ -4,10 +4,16 @@ import Rating from 'react-rating';
 import './Course.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
 
 const Course = (props) => {
     // Destructuring data from props
-    const { name, img, instructor, rating, peopleRated, previousPrice, discountedPrice } = props.course;
+    const { name, img, instructor, rating, peopleRated, previousPrice, discountedPrice, courseID } = props.course;
+    const history = useHistory();
+
+    const goToCourseDetails = () => {
+        history.push(`/course/${courseID}`)
+    }
     return (
         <Col>
             {/* Creating card to display */}
@@ -40,7 +46,7 @@ const Course = (props) => {
                 </Card.Body>
                 {/* Adding a button to add class */}
                 <Card.Footer>
-                    <Button variant="primary">Add to Class <FontAwesomeIcon icon={faPlusCircle} /></Button>
+                    <Button onClick={goToCourseDetails} variant="primary">Add to Class <FontAwesomeIcon icon={faPlusCircle} /></Button>
                 </Card.Footer>
             </Card></Col>
     );

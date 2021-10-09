@@ -18,6 +18,7 @@ import SignUp from './components/SignUp/SignUp';
 import { useState } from 'react';
 import ConfirmSignUp from './components/ConfirmSignUp/ConfirmSignUp';
 import Login from './components/Login/Login';
+import CourseDetails from './components/CourseDetails/CourseDetails'
 
 //Exporting UserDetailsContext
 export const UserDetailsContext = createContext()
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route exact path="/services">
               <Services></Services>
+            </Route>
+            <Route path="/course/:courseID">
+              <CourseDetails></CourseDetails>
             </Route>
             <Route exact path="/my-classes">
               <MyClasses></MyClasses>
