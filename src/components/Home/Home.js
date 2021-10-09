@@ -6,16 +6,12 @@ import { useEffect } from 'react';
 import Course from '../Course/Course';
 import { Row, Col, Accordion } from 'react-bootstrap';
 import './Home.css'
-import { useContext } from 'react';
-import { UserDetailsContext } from '../../App';
+
 
 
 
 
 const Home = () => {
-    // User Data From Context API
-    const [user] = useContext(UserDetailsContext);
-
 
     //Declaring the state for courses 
     const [courses, setCourses] = useState([]);

@@ -1,13 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
-import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { UserDetailsContext } from '../../App';
+import useAuth from '../../hooks/useAuth';
+
 
 const ConfirmSignUp = () => {
-    const [user] = useContext(UserDetailsContext);
-    console.log(user)
     const history = useHistory();
+    const { user } = useAuth();
     const { displayName, email, emailVerfied } = user;
 
 

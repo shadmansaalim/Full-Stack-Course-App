@@ -3,47 +3,11 @@ import loginImg from '../../images/login.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
-const googleProvider = new GoogleAuthProvider();
 
 const Login = () => {
-    const auth = getAuth();
-    const [loginEmail, setLoginEmail] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
-    const history = useHistory();
-
-    const handleLogin = e => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-            .then(result => {
-                console.log(result.user);
-                history.push('/home')
-            })
-            .catch(error => {
-                console.log(error.message);
-            })
-    }
-
-    const handleLoginEmailChange = e => {
-        setLoginEmail(e.target.value);
-    }
-    const handleLoginPasswordChange = e => {
-        setLoginPassword(e.target.value);
-    }
-
-    const handleForgetPassword = () => {
-        sendPasswordResetEmail(auth, loginEmail)
-            .then(() => {
-
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
-    }
-
+    const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword } = useAuth();
     return (
         <section style={{ marginTop: 100, marginBottom: 150 }}>
             <div className="container">
