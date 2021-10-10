@@ -1,12 +1,18 @@
 import React from 'react';
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button, Offcanvas } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faUserPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import useAuth from '../../hooks/useAuth';
+import { useState } from 'react';
+import './Header.css'
 const Header = () => {
     const history = useHistory();
     const { user, logOut } = useAuth();
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         // Website Top Navigation Bar
         <Navbar className="shadow-lg mb-5" expand="lg">
@@ -58,9 +64,9 @@ const Header = () => {
                         {
                             user.email ?
                                 user.photoURL ?
-                                    <img className="img-fluid rounded-circle" src={user.photoURL} alt={user.displayName} style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName}></img>
+                                    <img className="img-fluid rounded-circle" src={user.photoURL} alt={user.displayName} style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} onClick={handleShow} ></img>
                                     :
-                                    <FontAwesomeIcon className="fs-1 text-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} />
+                                    <FontAwesomeIcon className="fs-1 text-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} onClick={handleShow} />
 
                                 :
                                 <div>
@@ -68,6 +74,23 @@ const Header = () => {
                                     <Button className="mt-1 mt-lg-0" onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                                 </div>
                         }
+
+                        <Offcanvas show={show} onHide={handleClose} placement="end">
+                            <Offcanvas.Header closeButton>
+                                <Offcanvas.Title></Offcanvas.Title>
+                            </Offcanvas.Header>
+                            <Offcanvas.Body>
+                                <div className="text-center">
+                                    {
+                                        user.photoURL ?
+                                            <img className="img-fluid rounded-circle settings-user-img" src={user.photoURL} alt={user.displayName}></img>
+                                            :
+                                            <FontAwesomeIcon className="fs-1 text-secondary settings-user-img" icon={faUserCircle} />
+                                    }
+                                    <p className="mt-2">{user.displayName}</p>
+                                </div>
+                            </Offcanvas.Body>
+                        </Offcanvas>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
