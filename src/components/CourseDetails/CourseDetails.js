@@ -11,23 +11,18 @@ import YouTube from 'react-youtube';
 
 const CourseDetails = () => {
     const { courseID } = useParams();
-    // Declaring the state
+    // Getting courses from custom hook
     const [courses] = useCourses();
     const [selectedCourse, setSelectedCourse] = useState(null);
-    const [videoID, setVideoID] = useState('');
+    // const [videoID, setVideoID] = useState('');
 
-    // // fetching data from JSON file
-    // useEffect(() => {
-    //     fetch('../courseData.json')
-    //         .then(res => res.json())
-    //         .then(data => setCourses(data))
 
-    // }, []);
-
+    //Setting the selected course every time by comparing with the courseID and also giving a dependency courses so that whenever courses changes selectedCourse also gets updated.
     useEffect(() => {
         setSelectedCourse(courses.find(c => parseInt(c.courseID) === parseInt(courseID)));
-        selectedCourse && setVideoID((selectedCourse?.video).substring(17));
+        // selectedCourse && setVideoID((selectedCourse?.video).substring(17));
     }, [courses]);
+
 
 
     return (
@@ -36,7 +31,7 @@ const CourseDetails = () => {
                 selectedCourse && <section>
                     <section className="row mb-5 d-flex mt-5">
                         <div className="col-lg-6 mx-auto">
-                            <YouTube videoId={videoID}>
+                            <YouTube videoId={selectedCourse.video}>
 
                             </YouTube>
                         </div>
@@ -47,15 +42,15 @@ const CourseDetails = () => {
                                 <b>4.5</b>
                                 <Rating
                                     className="mx-1"
-                                    initialRating="4.5"
+                                    initialRating={selectedCourse.rating}
                                     emptySymbol="far fa-star icon-color"
                                     fullSymbol="fas fa-star icon-color"
                                     readonly
                                 ></Rating>
-                                (384,717)
+                                ({selectedCourse.peopleRated})
                             </small>
                             <br />
-                            <small>Created by <a href="">{selectedCourse.instructor}</a></small>
+                            <small>Created by <a href="!#">{selectedCourse.instructor}</a></small>
                             <br />
                             <button className="btn text-white mt-3" style={{ backgroundColor: 'rgb(69, 82, 110)' }}>Buy Course</button>
                         </div>

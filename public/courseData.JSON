@@ -13,7 +13,7 @@
         "lectures": 100,
         "students": "1,381,326",
         "projects": 3,
-        "video": "https://youtu.be/t8pPdKYpowI"
+        "video": "t8pPdKYpowI"
     },
     {
         "name": "Machine Learning A-Z™: Hands-On Python & R In Data Science",
@@ -29,7 +29,7 @@
         "lectures": 90,
         "students": "811,190",
         "projects": 8,
-        "video": "https://youtu.be/jo8_cdE_T38"
+        "video": "jo8_cdE_T38"
     },
     {
         "name": "Python for Data Science and Machine Learning Bootcamp",
@@ -44,7 +44,7 @@
         "lectures": 40,
         "students": "56,741",
         "projects": 10,
-        "video": "https://youtu.be/9G6C0H74eG4"
+        "video": "9G6C0H74eG4"
     },
     {
         "name": "Learn Python Programming Masterclass",
@@ -60,7 +60,7 @@
         "lectures": 70,
         "students": "313,982",
         "projects": 20,
-        "video": "https://youtu.be/rfscVS0vtbw"
+        "video": "rfscVS0vtbw"
     },
     {
         "name": "The Python Mega Course: Build 10 Real World Applications",
@@ -76,7 +76,7 @@
         "lectures": 200,
         "students": "781,232",
         "projects": 100,
-        "video": "https://youtu.be/vLhLoSGjxBI"
+        "video": "vLhLoSGjxBI"
     },
     {
         "name": "Git & GitHub - The Practical Guide",
@@ -91,7 +91,7 @@
         "lectures": 35,
         "students": "23,213",
         "projects": 7,
-        "video": "https://youtu.be/RGOj5yH7evk"
+        "video": "RGOj5yH7evk"
     },
     {
         "name": "Web Developer Bootcamp with Flask and Python",
@@ -107,7 +107,7 @@
         "lectures": 30,
         "students": "101,321",
         "projects": 5,
-        "video": "https://youtu.be/Qr4QMBUPxWo"
+        "video": "Qr4QMBUPxWo"
     },
     {
         "name": "Low Poly Landscapes - Blender Bite Sized Course",
@@ -123,7 +123,7 @@
         "lectures": 90,
         "students": "565,983",
         "projects": 10,
-        "video": "https://youtu.be/RjxIaq8OiQg"
+        "video": "RjxIaq8OiQg"
     },
     {
         "name": "TOTAL: CompTIA Security+ Certification (SY0-601)",
@@ -139,7 +139,7 @@
         "lectures": 100,
         "students": "212,432",
         "projects": 20,
-        "video": "https://youtu.be/nw6H9NiM8Ys"
+        "video": "nw6H9NiM8Ys"
     },
     {
         "name": "Terraform for the Absolute Beginners with Labs",
@@ -155,7 +155,7 @@
         "lectures": 300,
         "students": "434,312",
         "projects": 50,
-        "video": "https://youtu.be/YcJ9IeukJL8"
+        "video": "YcJ9IeukJL8"
     },
     {
         "name": "Advanced AI: Deep Reinforcement Learning in Python",
@@ -170,7 +170,7 @@
         "lectures": 80,
         "students": "42,312",
         "projects": 20,
-        "video": "https://youtu.be/fg-fVCxx9FQ"
+        "video": "fg-fVCxx9FQ"
     },
     {
         "name": "Data Science: Natural Language Processing (NLP) in Python",
@@ -186,7 +186,7 @@
         "lectures": 120,
         "students": "91,212",
         "projects": 15,
-        "video": "https://youtu.be/X2vAabgKiuM"
+        "video": "X2vAabgKiuM"
     },
     {
         "name": "Azure Databricks & Spark Core For Data Engineers(Python/SQL)",
@@ -202,7 +202,7 @@
         "lectures": 100,
         "students": "515,737",
         "projects": 35,
-        "video": "https://youtu.be/M7t1T1Q5MNc"
+        "video": "M7t1T1Q5MNc"
     },
     {
         "name": "A deep understanding of deep learning (with Python intro)",
@@ -218,7 +218,7 @@
         "lectures": 62,
         "students": "78,232",
         "projects": 10,
-        "video": "https://youtu.be/X-FKcenZ-jo"
+        "video": "X-FKcenZ-jo"
     },
     {
         "name": "The Complete JavaScript Course 2021: From Zero to Expert!",
@@ -233,7 +233,7 @@
         "lectures": 20,
         "students": "21,254",
         "projects": 3,
-        "video": "https://youtu.be/PHixT6kZJMI"
+        "video": "PHixT6kZJMI"
     },
     {
         "name": "Modern JavaScript From The Beginning",
@@ -249,7 +249,7 @@
         "lectures": 150,
         "students": "219,864",
         "projects": 30,
-        "video": "https://youtu.be/NCwa_xi0Uuc"
+        "video": "NCwa_xi0Uuc"
     },
     {
         "name": "JavaScript - The Complete Guide 2021 (Beginner + Advanced)",
@@ -265,7 +265,7 @@
         "lectures": 100,
         "students": "65,321",
         "projects": 20,
-        "video": "https://youtu.be/_kyKVgWxdwI"
+        "video": "_kyKVgWxdwI"
     },
     {
         "name": "The Modern Javascript Bootcamp Course (2021)",
@@ -281,7 +281,7 @@
         "lectures": 55,
         "students": "646,321",
         "projects": 10,
-        "video": "https://youtu.be/6PaV4S556QM"
+        "video": "6PaV4S556QM"
     },
     {
         "name": "ES6 Javascript: The Complete Developer's Guide",
@@ -297,7 +297,7 @@
         "lectures": 40,
         "students": "312,213",
         "projects": 14,
-        "video": "https://youtu.be/ACgry1flgZs"
+        "video": "ACgry1flgZs"
     },
     {
         "name": "50 Projects In 50 Days - HTML, CSS & JavaScript",
@@ -313,7 +313,7 @@
         "lectures": 100,
         "students": "616,324",
         "projects": 50,
-        "video": "https://youtu.be/PTBG-1swRlg"
+        "video": "PTBG-1swRlg"
     },
     {
         "name": "Accelerated ES6 JavaScript Training",
@@ -328,7 +328,7 @@
         "lectures": 100,
         "students": "313,959",
         "projects": 20,
-        "video": "https://youtu.be/lqnQJyT7JmY"
+        "video": "lqnQJyT7JmY"
     },
     {
         "name": "Environment Art School: Complete Perspective Drawing Course",
@@ -343,7 +343,7 @@
         "lectures": 85,
         "students": "256,989",
         "projects": 12,
-        "video": "https://youtu.be/4v_jeVc9ud0"
+        "video": "4v_jeVc9ud0"
     },
     {
         "name": "How to Draw and Sketch for Absolute Beginners pt 1",
@@ -359,7 +359,7 @@
         "lectures": 62,
         "students": "78,232",
         "projects": 10,
-        "video": "https://youtu.be/ewMksAbgdBI"
+        "video": "ewMksAbgdBI"
     },
     {
         "name": "Masterclass of Realistic Drawing and Shading Human Features",
@@ -375,6 +375,6 @@
         "lectures": 150,
         "students": "219,864",
         "projects": 30,
-        "video": "https://youtu.be/-c3L90nsesw"
+        "video": "-c3L90nsesw"
     }
 ]
