@@ -5,7 +5,7 @@ import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 import { useHistory } from 'react-router-dom';
-
+import './Login.css';
 
 const Login = () => {
     const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword } = useAuth();
@@ -48,7 +48,9 @@ const Login = () => {
                             </div>
 
 
-                            <p className="text-center fw-bold mx-3 my-4">OR</p>
+                            <div class="divider d-flex align-items-center my-4">
+                                <p class="text-center fw-bold mx-2 mb-0" style={{ color: 'rgb(69, 82, 110)' }}>OR</p>
+                            </div>
 
 
                             <div className="form-floating mb-3">

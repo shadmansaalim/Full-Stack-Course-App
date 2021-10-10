@@ -84,8 +84,9 @@ const SignUp = () => {
                                                 </div>
                                             </div> */}
 
-                                            <p className="text-center text-muted mx-3 mb-0 fw-bold">OR</p>
-                                            <hr />
+                                            <div class="divider d-flex align-items-center my-4">
+                                                <p class="text-center fw-bold mx-2 mb-0" style={{ color: 'rgb(69, 82, 110)' }}>OR</p>
+                                            </div>
 
                                             <div className="d-flex flex-row align-items-center justify-content-center mb-4">
                                                 <p className="text-center fw-bold mb-0 me-2">Sign Up With</p>
