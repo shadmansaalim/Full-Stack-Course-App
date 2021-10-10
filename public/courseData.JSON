@@ -7,7 +7,13 @@
         "peopleRated": "383,841",
         "previousPrice": 89.99,
         "discountedPrice": 13.99,
-        "courseID": 1
+        "courseID": 1,
+        "tagline": "Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games.",
+        "description": "Become a Python Programmer and learn one of employer's most requested skills of 2021! This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3. With over 100 lectures and more than 21 hours of video this comprehensive course leaves no stone unturned! This course includes quizzes, tests, coding exercises and homework assignments as well as 3 major projects to create a Python project portfolio!",
+        "lectures": 100,
+        "students": "1,381,326",
+        "projects": 3,
+        "video": "https://mp4-c.udemycdn.com/2018-03-08_20-09-30-1365492dea1831a772c3ed1dd9cf3b66/2/WebHD_720p.mp4?Expires=1633879572&Signature=jhXhbQYQM7T8Zx8tAKZSIZjSFdt0NdKwEVqCt2MxH2-PFnEuco0ltSyA0-P4W0Z6T-djY8mepJjfY-ezatpp0WanZdWiJKwh1NwCtfpMfzvXviFD6W79d1AvYhPVxCc7etZgXBQDcC7rkhPKNEYrF8VKhPLETbMXxBN7ApddJhD47q2GwZmOqwchornIEl3PRL~oh5Fk2lzzzhm~Dy1ffqNrZh3bc7lKmuUjIoMQ224cynBtUoqxi-bTFliiOEw3cOfdLzTTvDJUHHFV5jOcEZHDE7yxSkBUwlmhD8mF0R~EmtNKCuZpysNZOLEZrJ1k4y6cQNLB8yQxNU5g-IgTjA__&Key-Pair-Id=APKAITJV77WS5ZT7262A"
     },
     {
         "name": "Machine Learning A-Z™: Hands-On Python & R In Data Science",
@@ -17,7 +23,13 @@
         "peopleRated": "151,031",
         "previousPrice": 139.99,
         "discountedPrice": 19.99,
-        "courseID": 2
+        "courseID": 2,
+        "tagline": "Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.",
+        "description": "Interested in the field of Machine Learning? Then this course is for you! This course has been designed by two professional Data Scientists so that we can share our knowledge and help you learn complex theory, algorithms, and coding libraries in a simple way. We will walk you step-by-step into the World of Machine Learning. With every tutorial, you will develop new skills and improve your understanding of this challenging yet lucrative sub-field of Data Science.",
+        "lectures": 90,
+        "students": "811,190",
+        "projects": 8,
+        "video": "https://youtu.be/jo8_cdE_T38"
     },
     {
         "name": "Python for Data Science and Machine Learning Bootcamp",
@@ -26,7 +38,13 @@
         "rating": 4.7,
         "peopleRated": "105,186",
         "discountedPrice": 58.99,
-        "courseID": 3
+        "courseID": 3,
+        "tagline": "Learn how to use NumPy, Pandas, Seaborn , Matplotlib , Plotly , Scikit-Learn , Machine Learning, Tensorflow , and more!",
+        "description": "Are you ready to start your path to becoming a Data Scientist! This comprehensive course will be your guide to learning how to use the power of Python to analyze data, create beautiful visualizations, and use powerful machine learning algorithms! Data Scientist has been ranked the number one job on Glassdoor and the average salary of a data scientist is over $120,000 in the United States according to Indeed! Data Science is a rewarding career that allows you to solve some of the world's most interesting problems! This course is designed for both beginners with some programming experience or experienced developers looking to make the jump to Data Science!",
+        "lectures": 40,
+        "students": "56,741",
+        "projects": 10,
+        "video": "https://youtu.be/9G6C0H74eG4"
     },
     {
         "name": "Learn Python Programming Masterclass",
@@ -36,7 +54,13 @@
         "peopleRated": "81,571",
         "previousPrice": 89.99,
         "discountedPrice": 13.99,
-        "courseID": 4
+        "courseID": 4,
+        "tagline": "This Python For Beginners Course Teaches You The Python Language Fast. Includes Python Online Training With Python 3",
+        "description": "This course is aimed at complete beginners who have never programmed before, as well as existing programmers who want to increase their career options by learning Python. The fact is, Python is one of the most popular programming languages in the world – Huge companies like Google use it in mission critical applications like Google Search. And Python is the number one language choice for machine learning, data science and artificial intelligence. To get those high paying jobs you need an expert knowledge of Python, and that’s what you will get from this course. By the end of the course you’ll be able to apply in confidence for Python programming jobs. And yes, this applies even if you have never programmed before. With the right skills which you will learn in this course, you can become employable and valuable in the eyes of future employers.",
+        "lectures": 70,
+        "students": "313,982",
+        "projects": 20,
+        "video": "https://youtu.be/rfscVS0vtbw"
     },
     {
         "name": "The Python Mega Course: Build 10 Real World Applications",
@@ -46,7 +70,13 @@
         "peopleRated": "52,902",
         "previousPrice": 59.99,
         "discountedPrice": 17.99,
-        "courseID": 5
+        "courseID": 5,
+        "tagline": "Go from zero to hero in Python in weeks! Learn Python the easy way by building real-life Python programs!",
+        "description": "The Python Mega Course is the most practical course you will find on the web today. In this course, rather than practicing rote memorization, students are actively problem-solving towards tangible goals. You will learn to build real-life desktop programs with graphical user interfaces,  automate routine tasks, control the computer webcam, develop interactive web applications using Flask and Django, scrape and visualize data, and more. You will become a programmer able to produce real-life Python programs and even create professional .exe or .app executables so that everyone can install and use your programs. There will be ten real-world Python applications that you will learn how to build. ",
+        "lectures": 200,
+        "students": "781,232",
+        "projects": 100,
+        "video": "https://youtu.be/vLhLoSGjxBI"
     },
     {
         "name": "Git & GitHub - The Practical Guide",
@@ -55,7 +85,13 @@
         "rating": 4.7,
         "peopleRated": "570",
         "discountedPrice": 37.99,
-        "courseID": 6
+        "courseID": 6,
+        "tagline": "Learn Git & GitHub and master working with commits, branches, the stash, cherry picking, rebasing, pull requests & more!",
+        "description": "No matter if you're just getting started with (web) development, if you're applying for a developer job or if you just need to refresh your knowledge - version control is a core skill you need to succeed as a developer! Git (a version control system) and Github (a cloud provider for Git managed projects) form an outstanding combination to provide the best possible experience to create and maintain a clearly structured project history! This course will guide everyone (no prior knowledge is required!) through the core steps to use these tools in your daily projects with ease.",
+        "lectures": 35,
+        "students": "23,213",
+        "projects": 7,
+        "video": "https://youtu.be/RGOj5yH7evk"
     },
     {
         "name": "Web Developer Bootcamp with Flask and Python",
@@ -65,7 +101,13 @@
         "peopleRated": "178",
         "previousPrice": 29.99,
         "discountedPrice": 149.99,
-        "courseID": 7
+        "courseID": 7,
+        "tagline": "Become a Full Stack Web Developer using Flask, Python, HTML, CSS, and MongoDB!",
+        "description": "Welcome to the Web Developer Bootcamp with Flask and Python! In this course, you'll learn how to build and deploy dynamic websites using Python, Flask, MongoDB, HTML, and CSS! If you want to share your projects online and become a full stack web developer, you're in the right place! I will teach you the latest and most popular technologies, including Python 3.9, Flask, HTML 5, and CSS 3.",
+        "lectures": 30,
+        "students": "101,321",
+        "projects": 5,
+        "video": "https://youtu.be/Qr4QMBUPxWo"
     },
     {
         "name": "Low Poly Landscapes - Blender Bite Sized Course",
@@ -75,7 +117,13 @@
         "peopleRated": "182",
         "previousPrice": 199.99,
         "discountedPrice": 49.99,
-        "courseID": 8
+        "courseID": 8,
+        "tagline": "Create a low poly landscape from start to finish.",
+        "description": "Learn the foundations of low poly 3D asset creation quickly, without needing to take a huge course. Using Blender 3.0, you'll create a low poly landscape with a house, trees and pond from start to finish. Grant will take you through modeling, texturing, lighting and rendering your creation. You'll learn the Blender interface, along with the main modelling and texturing toolset. All the time, receiving helpful tips and tricks to speed up your workflow so you can create low poly artwork quickly.",
+        "lectures": 90,
+        "students": "565,983",
+        "projects": 10,
+        "video": "https://youtu.be/RjxIaq8OiQg"
     },
     {
         "name": "TOTAL: CompTIA Security+ Certification (SY0-601)",
@@ -85,7 +133,13 @@
         "peopleRated": "1,105",
         "previousPrice": 89.99,
         "discountedPrice": 29.99,
-        "courseID": 9
+        "courseID": 9,
+        "tagline": "Everything you need to pass the CompTIA Security+ (SY0-601) exam from Mike Meyers and Dan Lachance",
+        "description": "This course covers everything you need to know to pass your CompTIA Security+ (SY0-601) certification exam. With over 17 hours of in-depth and fascinating content and 125 video lectures, this course will not only make you a good IT security tech, but make sure you are ready to pass the CompTIA Security+ exam. Mike Meyers is the President of Total Seminars and well known as the 'Alpha Geek'. Mike is widely known at the #1 CompTIA author and instructor with over 1 million books in print. Dan Lachance is a highly motivated and passionate IT evangelist. He is a consultant, trainer, and author with over 20 years of experience in the IT security industry.",
+        "lectures": 100,
+        "students": "212,432",
+        "projects": 20,
+        "video": "https://youtu.be/nw6H9NiM8Ys"
     },
     {
         "name": "Terraform for the Absolute Beginners with Labs",
@@ -95,7 +149,13 @@
         "peopleRated": "73",
         "previousPrice": 179.99,
         "discountedPrice": 34.99,
-        "courseID": 10
+        "courseID": 10,
+        "tagline": "Learn the basics of Terraform with real hands on labs right in your browser",
+        "description": "In this course, we will get started with Terraform, but first we will take a look at Infrastructure as a code Or IaC and the different types of tools available in IaC and their purpose in managing modern IT Infrastructure. We’ll then see the role of terraform in the today’s IT Infrastructure. We’ll then learn how to install Terraform, This is followed by the basics of HashiCorp Configuration Language (HCL). Next we have our first lab where you’ll get your hands dirty with HCL syntax. We will then learn the basics of Terraform such as Providers, Input and Output variables, Resource Attributes and Dependencies.",
+        "lectures": 300,
+        "students": "434,312",
+        "projects": 50,
+        "video": "https://youtu.be/YcJ9IeukJL8"
     },
     {
         "name": "Advanced AI: Deep Reinforcement Learning in Python",
@@ -104,7 +164,13 @@
         "rating": 4.9,
         "peopleRated": "53,491",
         "discountedPrice": 179.99,
-        "courseID": 11
+        "courseID": 11,
+        "tagline": "The Complete Guide to Mastering Artificial Intelligence using Deep Learning and Neural Networks",
+        "description": "This course is all about the application of deep learning and neural networks to reinforcement learning. If you’ve taken my first reinforcement learning class, then you know that reinforcement learning is on the bleeding edge of what we can do with AI. Specifically, the combination of deep learning with reinforcement learning has led to AlphaGo beating a world champion in the strategy game Go, it has led to self-driving cars, and it has led to machines that can play video games at a superhuman level.",
+        "lectures": 80,
+        "students": "42,312",
+        "projects": 20,
+        "video": "https://youtu.be/fg-fVCxx9FQ"
     },
     {
         "name": "Data Science: Natural Language Processing (NLP) in Python",
@@ -114,7 +180,13 @@
         "peopleRated": "117,291",
         "previousPrice": 319.99,
         "discountedPrice": 99.99,
-        "courseID": 12
+        "courseID": 12,
+        "tagline": "Applications: decrypting ciphers, spam detection, sentiment analysis, article spinners, and latent semantic analysis.",
+        "description": "In this course you will build MULTIPLE practical systems using natural language processing, or NLP - the branch of machine learning and data science that deals with text and speech. This course is not part of my deep learning series, so it doesn't contain any hard math - just straight up coding in Python. All the materials for this course are FREE. After a brief discussion about what NLP is and what it can do, we will begin building very useful stuff. The first thing we'll build is a cipher decryption algorithm. These have applications in warfare and espionage. We will learn how to build and apply several useful NLP tools in this section, namely, character-level language models (using the Markov principle), and genetic algorithms.",
+        "lectures": 120,
+        "students": "91,212",
+        "projects": 15,
+        "video": "https://youtu.be/X2vAabgKiuM"
     },
     {
         "name": "Azure Databricks & Spark Core For Data Engineers(Python/SQL)",
@@ -124,7 +196,13 @@
         "peopleRated": "217,541",
         "previousPrice": 129.99,
         "discountedPrice": 49.99,
-        "courseID": 13
+        "courseID": 13,
+        "tagline": "Real World Project on Formula1 Racing for Data Engineers using Azure Databricks, Delta Lake, Azure Data Factory [DP203]",
+        "description": "This is like no other course in Udemy for Azure Databricks. Once you have completed the course including all the assignments, I strongly believe that you will be in a position to start a real world data engineering project on your own and also proficient on Azure Databricks. I have also included lessons on Azure Data Lake Storage Gen2, Azure Data Factory as well as PowerBI. The primary focus of the course is Azure Databricks and Spark core, but it also covers the relevant concepts and connectivity to the other technologies mentioned. Please note that the course doesn't cover other aspects of Spark such as Spark streaming and Spark ML. Also the course has been taught using PySpark as well as Spark SQL; It doesn't cover Scala or Java.",
+        "lectures": 100,
+        "students": "515,737",
+        "projects": 35,
+        "video": "https://youtu.be/M7t1T1Q5MNc"
     },
     {
         "name": "A deep understanding of deep learning (with Python intro)",
@@ -134,7 +212,13 @@
         "peopleRated": "229",
         "previousPrice": 39.99,
         "discountedPrice": 19.99,
-        "courseID": 14
+        "courseID": 14,
+        "tagline": "Master deep learning in PyTorch using an experimental scientific approach, with lots of examples and practice problems.",
+        "description": "From self-driving cars to medical diagnoses, from face recognition to deep fakes, and from language translation to music generation, deep learning is spreading like wildfire throughout all areas of modern technology. But deep learning is not only about super-fancy, cutting-edge, highly sophisticated applications. Deep learning is increasingly becoming a standard tool in machine-learning, data science, and statistics. Deep learning is used by small startups for data mining and dimension reduction, by governments for detecting tax evasion, and by scientists for detecting patterns in their research data.",
+        "lectures": 62,
+        "students": "78,232",
+        "projects": 10,
+        "video": "https://youtu.be/X-FKcenZ-jo"
     },
     {
         "name": "The Complete JavaScript Course 2021: From Zero to Expert!",
@@ -143,7 +227,13 @@
         "rating": 4.1,
         "peopleRated": "116,047",
         "discountedPrice": 89.99,
-        "courseID": 15
+        "courseID": 15,
+        "tagline": "The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one!",
+        "description": "Really, really well made course. Super in-depth, with great challenges and projects that will solidify your Javascript understanding. I found the lectures were paced perfectly -- Jonas doesn't skip over anything that might be useful to a JS developer — Carson Bartholomew. JavaScript is the most popular programming language in the world. It powers the entire modern web. It provides millions of high-paying jobs all over the world.That's why you want to learn JavaScript too. And you came to the right place!",
+        "lectures": 20,
+        "students": "21,254",
+        "projects": 3,
+        "video": "https://youtu.be/PHixT6kZJMI"
     },
     {
         "name": "Modern JavaScript From The Beginning",
@@ -153,7 +243,13 @@
         "peopleRated": "229",
         "previousPrice": 129.99,
         "discountedPrice": 99.99,
-        "courseID": 16
+        "courseID": 16,
+        "tagline": "Learn and build projects with pure JavaScript (No frameworks or libraries)",
+        "description": "This is a front to back JavaScript course for absolutely everybody. We start with the basic fundamentals and work our way to advanced programming WITHOUT relying on frameworks or libraries at all. You will learn a ton of pure JavaScript, whether you are a beginner or an established JS programmer. There is something for everyone...",
+        "lectures": 150,
+        "students": "219,864",
+        "projects": 30,
+        "video": "https://youtu.be/NCwa_xi0Uuc"
     },
     {
         "name": "JavaScript - The Complete Guide 2021 (Beginner + Advanced)",
@@ -163,7 +259,13 @@
         "peopleRated": "313,239",
         "previousPrice": 499.99,
         "discountedPrice": 299.99,
-        "courseID": 17
+        "courseID": 17,
+        "tagline": "Modern JavaScript from the beginning - all the way up to JS expert level! THE must-have JavaScript resource in 2021.",
+        "description": "JavaScript is THE most important programming language you need to learn as a web developer - and with this course, you make sure that you will not miss a single thing you have to know as a JavaScript developer! This is the most comprehensive and modern course you can find on JavaScript - it's based on all my JavaScript knowledge AND teaching experience. It's both a complete guide, starting with the core basics of the language, as well as an extensive reference of the JavaScript language and environment, ensuring that both newcomers as well as experienced JavaScript developers get a lot out of this course!",
+        "lectures": 100,
+        "students": "65,321",
+        "projects": 20,
+        "video": "https://youtu.be/_kyKVgWxdwI"
     },
     {
         "name": "The Modern Javascript Bootcamp Course (2021)",
@@ -173,7 +275,13 @@
         "peopleRated": "103,119",
         "previousPrice": 59.99,
         "discountedPrice": 29.99,
-        "courseID": 18
+        "courseID": 18,
+        "tagline": "The most up-to-date JS resource online! Master Javascript by building a beautiful portfolio of projects!",
+        "description": "The Modern Javascript Bootcamp (2020) focuses on cutting through unnecessary information and giving you just the facts, plain and simple.  You won't work with outdated frameworks, learn old styles of programming, or build boring apps.  Instead, you'll only spend time writing practical code that can be used today and in the future on your own projects.  You'll learn - from very early on in the course - how to write beautiful and reusable code that you'll be proud to show to a future employer.",
+        "lectures": 55,
+        "students": "646,321",
+        "projects": 10,
+        "video": "https://youtu.be/6PaV4S556QM"
     },
     {
         "name": "ES6 Javascript: The Complete Developer's Guide",
@@ -183,7 +291,13 @@
         "peopleRated": "293,119",
         "previousPrice": 399.99,
         "discountedPrice": 119.99,
-        "courseID": 19
+        "courseID": 19,
+        "tagline": "ES6 Javascript Development from scratch. Get practice with live examples and learn exactly where to apply ES6 features.",
+        "description": "Mastering ES6 syntax can get you a position in web development or help you build that personal project you've been dreaming of. It's a skill that will put you more in demand in the modern web development industry, especially with the release of modern web frameworks like React and Angular 2. This course will get you up and running quickly, and teach you the core knowledge you need to deeply understand and build applications using each new piece of Javascript syntax introduced with ES6.",
+        "lectures": 40,
+        "students": "312,213",
+        "projects": 14,
+        "video": "https://youtu.be/ACgry1flgZs"
     },
     {
         "name": "50 Projects In 50 Days - HTML, CSS & JavaScript",
@@ -193,7 +307,13 @@
         "peopleRated": "413,259",
         "previousPrice": 229.99,
         "discountedPrice": 179.99,
-        "courseID": 20
+        "courseID": 20,
+        "tagline": "Sharpen your skills by building 50 quick, unique & fun mini projects",
+        "description": "This is a purely project-based course. It is geared toward beginners, but intermediate developers can also enjoy creating new things. This course includes 50 mini projects in HTML, CSS & JavaScript that relate to the DOM (Document Object Model).",
+        "lectures": 100,
+        "students": "616,324",
+        "projects": 50,
+        "video": "https://youtu.be/PTBG-1swRlg"
     },
     {
         "name": "Accelerated ES6 JavaScript Training",
@@ -202,7 +322,13 @@
         "rating": 4.5,
         "peopleRated": "2,435",
         "discountedPrice": 109.99,
-        "courseID": 21
+        "courseID": 21,
+        "tagline": "Learn and Use the Future of JavaScript - Today!",
+        "description": "Knowing modern JavaScript, ES6 (ECMAScript 6), is extremely important in the world of JavaScript! ES6 adds tons of new features, methods, objects and helpers and the earlier you feel confident using them, the better! JavaScript is the most important programming language in the web and it's constantly evolving. This course introduces you to the biggest 'feature update' in the last couple of years: ES6 - which added a lot of new syntax features and improvements.",
+        "lectures": 100,
+        "students": "313,959",
+        "projects": 20,
+        "video": "https://youtu.be/lqnQJyT7JmY"
     },
     {
         "name": "Environment Art School: Complete Perspective Drawing Course",
@@ -211,7 +337,13 @@
         "rating": 3.9,
         "peopleRated": "99,432",
         "discountedPrice": 89.99,
-        "courseID": 22
+        "courseID": 22,
+        "tagline": "Learn How To Draw Landscapes, How to Draw Perspective, How to Draw Backgrounds and How to Draw Scenes and Create Worlds",
+        "description": "Environment Art School is a learn-anywhere drawing course where you learn how to draw landscapes, backgrounds, scenes and professional environments. Whether you are wanting to create immersive worlds and environments, scenes for character drawings, environment design for video games, backgrounds for comics and manga and more - I’ve got you covered! I've built the Perspective Art School: Environment Landscape Drawing Course to be the only environment drawing course you need to learn all the key fundamentals and advanced drawing techniques on how to draw in this genre, professionally. Learn to draw and sketch landscapes and environments well. If you are just starting to learn to draw or you’re already at an intermediate level, this drawing course will advance your current environment drawing ability to professional heights. This course is a comprehensive, 5 module, guided video course, where the only limit to your progression is your determination and engagement in the process.",
+        "lectures": 85,
+        "students": "256,989",
+        "projects": 12,
+        "video": "https://youtu.be/4v_jeVc9ud0"
     },
     {
         "name": "How to Draw and Sketch for Absolute Beginners pt 1",
@@ -221,7 +353,13 @@
         "peopleRated": "107,753",
         "previousPrice": 219.99,
         "discountedPrice": 109.99,
-        "courseID": 23
+        "courseID": 23,
+        "tagline": "Learn the Basics of Sketching and Drawing",
+        "description": "Drawing and sketching can seem like magic if you don't know how to do it. It's not magic, it's a skill. that means it can be taught and I will be your instructor. Just like anything and everything you have learned you had to know the very basics. You can't do math without knowing how to count and you can't drive without knowing what the key looks like. This course is your key. All drawing starts with lines, some are straight, some are curved and rough but all are lines.  Lines are used to make shapes and shapes become volumes (3d shapes) and everything in the world is made from shapes. ",
+        "lectures": 62,
+        "students": "78,232",
+        "projects": 10,
+        "video": "https://youtu.be/ewMksAbgdBI"
     },
     {
         "name": "Masterclass of Realistic Drawing and Shading Human Features",
@@ -231,6 +369,12 @@
         "peopleRated": "819,761",
         "previousPrice": 619.99,
         "discountedPrice": 239.99,
-        "courseID": 24
+        "courseID": 24,
+        "tagline": "Realistic Human Feature Drawing, Hachure and Shading with Pencil, Charcoal and Brush Techniques - Beginner to Advanced",
+        "description": "Welcome to the Masterclass of realistic drawing and shading of human portrait and features. You will learn drawing, hatching and shading skills and techniques for photorealism drawing. This ultimate drawing course will show you how to start drawing and create advanced art in the simplest way that will stand up as professional work. This course does not need prior knowledge, and it will take you step by step to learn how to draw and make realistic and hyper-realistic paintings at the end.",
+        "lectures": 150,
+        "students": "219,864",
+        "projects": 30,
+        "video": "https://youtu.be/-c3L90nsesw"
     }
 ]

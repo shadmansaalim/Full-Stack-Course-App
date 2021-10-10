@@ -4,24 +4,18 @@ import { useState } from 'react';
 import Course from '../Course/Course';
 import { Row, Container } from 'react-bootstrap';
 import CoursePagination from '../CoursePagination/CoursePagination';
+import useCourses from '../../hooks/useCourses';
 
 
 
 const Courses = () => {
     // Declaring the state
-    const [courses, setCourses] = useState([]);
+    const [courses] = useCourses();
+    console.log(courses);
     //Declaring states for pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [coursesPerPage, setCoursesPerPage] = useState(8);
 
-
-    // fetching data from JSON file
-    useEffect(() => {
-        fetch('./courseData.JSON')
-            .then(res => res.json())
-            .then(data => setCourses(data))
-
-    }, []);
 
 
     // Getting index of last course in the page 

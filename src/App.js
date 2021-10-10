@@ -39,7 +39,7 @@ function App() {
               <Route exact path="/courses">
                 <Courses></Courses>
               </Route>
-              <Route exact path="/course/:courseID">
+              <Route path="/course/:courseID">
                 <CourseDetails></CourseDetails>
               </Route>
               <Route exact path="/my-classes">

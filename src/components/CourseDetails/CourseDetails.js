@@ -3,8 +3,26 @@ import { useParams } from 'react-router-dom';
 import Rating from 'react-rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { useEffect } from 'react';
+import useCourses from '../../hooks/useCourses';
+import { useState } from 'react';
+
+
 
 const CourseDetails = () => {
+    // Declaring the state
+    const [courses, setCourses] = useState([]);
+
+    // fetching data from JSON file
+    useEffect(() => {
+        fetch('./courseData.JSON')
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => {
+                console.log(error.message)
+            })
+
+    }, []);
     return (
         <div className="bg-dark text-white p-5">
             <section className="row mb-5 d-flex mt-5">
