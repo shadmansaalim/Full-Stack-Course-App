@@ -77,6 +77,7 @@ const Login = () => {
                                 <Button type="submit" variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                                 <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/sign-up"
                                     className="link-danger">Sign Up</a></p>
+
                             </div>
 
                         </form>

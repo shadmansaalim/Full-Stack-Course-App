@@ -31,7 +31,7 @@ const SignUp = () => {
                                 <div className="row justify-content-center">
                                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                        <p className="text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up and Start Learning from Today!</p>
+                                        <p className="text-center fw-bold mb-4 mb-lg-5 mx-1 mx-md-4 mt-4 mt-lg-0">Sign Up and Start Learning from Today!</p>
 
                                         <form onSubmit={signUpSubmission} className="mx-1 mx-md-4">
 
@@ -84,6 +84,24 @@ const SignUp = () => {
                                                 </div>
                                             </div> */}
 
+                                            <div className="form-check d-flex justify-content-center align-items-center mb-3 mt-4">
+                                                <input
+                                                    className="form-check-input me-2"
+                                                    type="checkbox"
+                                                    value=""
+                                                    id="form2Example3c"
+                                                    required
+                                                />
+                                                <label className="form-check-label" htmlFor="form2Example3c">
+                                                    <small>I agree all statements in <a href="#!">Terms of service</a></small>
+                                                </label>
+
+                                            </div>
+
+                                            <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <button type="submit" className="btn btn-primary">Sign Up</button>
+                                            </div>
+
                                             <div class="divider d-flex align-items-center my-4">
                                                 <p class="text-center fw-bold mx-2 mb-0" style={{ color: 'rgb(69, 82, 110)' }}>OR</p>
                                             </div>
@@ -105,23 +123,8 @@ const SignUp = () => {
 
 
 
-                                            <div className="form-check d-flex justify-content-center align-items-center mb-3">
-                                                <input
-                                                    className="form-check-input me-2"
-                                                    type="checkbox"
-                                                    value=""
-                                                    id="form2Example3c"
-                                                    required
-                                                />
-                                                <label className="form-check-label" htmlFor="form2Example3c">
-                                                    <small>I agree all statements in <a href="#!">Terms of service</a></small>
-                                                </label>
 
-                                            </div>
-
-                                            <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" className="btn btn-primary">Sign Up</button>
-                                            </div>
+                                            <div class="text-center mt-4"> <span>Already a member?</span> <a href="/login">Login</a> </div>
 
 
                                         </form>
