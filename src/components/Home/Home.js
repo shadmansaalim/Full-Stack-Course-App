@@ -6,23 +6,12 @@ import { useEffect } from 'react';
 import Course from '../Course/Course';
 import { Row, Col, Accordion } from 'react-bootstrap';
 import './Home.css'
-
-
-
+import useCourses from '../../hooks/useCourses';
 
 
 const Home = () => {
-
-    //Declaring the state for courses 
-    const [courses, setCourses] = useState([]);
-    //Fetching data from JSON File kept in Public Folder
-    useEffect(() => {
-        fetch('./courseData.JSON')
-            .then(res => res.json())
-            .then(data => setCourses(data))
-
-    }, []);
-
+    //Getting Courses From useCourses Custom hook
+    const [courses, setCourses] = useCourses();
 
     //Filtering courses to only show 6 courses in the Home Page
     const displayCourses = courses.filter(course => courses.indexOf(course) < 4);

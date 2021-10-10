@@ -8,7 +8,7 @@ const useCourses = () => {
 
     // fetching data from JSON file
     useEffect(() => {
-        fetch('./courseData.JSON')
+        fetch('../courseData.json')
             .then(res => res.json())
             .then(data => setCourses(data))
 
