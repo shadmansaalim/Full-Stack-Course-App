@@ -7,7 +7,7 @@ import CoursePagination from '../CoursePagination/CoursePagination';
 
 
 
-const Services = () => {
+const Courses = () => {
     // Declaring the state
     const [courses, setCourses] = useState([]);
     //Declaring states for pagination
@@ -37,7 +37,7 @@ const Services = () => {
 
 
     return (
-        <Container>
+        <Container className="mt-5">
             <h5 className="fw-bold">Check out amazing courses by Top Instructors</h5>
             <section>
                 <Row xs={1} md={2} lg={4} className="g-4 mt-3 mb-5">
@@ -62,4 +62,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default Courses;

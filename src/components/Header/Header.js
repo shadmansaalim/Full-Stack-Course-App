@@ -15,7 +15,7 @@ const Header = () => {
     const handleShow = () => setShow(true);
     return (
         // Website Top Navigation Bar
-        <Navbar className="shadow-lg mb-5" expand="lg">
+        <Navbar className="shadow-lg" expand="lg">
             <Container>
                 <Navbar.Brand href="/home">
                     <img
@@ -35,12 +35,12 @@ const Header = () => {
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>Home</NavLink>
-                        <NavLink className="text-decoration-none me-lg-4" exact to="/services"
+                        <NavLink className="text-decoration-none me-lg-4" exact to="/courses"
                             style={{ color: '#161c2d' }}
                             activeStyle={{
                                 fontWeight: "bold",
                                 color: "#0275d8"
-                            }}>Services</NavLink>
+                            }}>Courses</NavLink>
                         <NavLink className="text-decoration-none me-lg-4" exact to="/my-classes"
                             style={{ color: '#161c2d' }}
                             activeStyle={{

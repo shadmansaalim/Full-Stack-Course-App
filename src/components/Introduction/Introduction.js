@@ -12,7 +12,7 @@ const Introduction = () => {
                     <div>
                         <h1>What Will You Discover?</h1>
                         <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
-                        <Button onClick={() => history.push('/services')} variant="outline-primary" size="lg">Browse Courses</Button>
+                        <Button onClick={() => history.push('/courses')} variant="outline-primary" size="lg">Browse Courses</Button>
                     </div>
                 </Col>
                 <Col md="5" lg="5" xl="4" className="mx-auto">

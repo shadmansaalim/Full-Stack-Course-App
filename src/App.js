@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Services from './components/Services/Services';
+import Courses from './components/Courses/Courses';
 import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import MyClasses from './components/MyClasses/MyClasses';
@@ -18,6 +18,7 @@ import ConfirmSignUp from './components/ConfirmSignUp/ConfirmSignUp';
 import Login from './components/Login/Login';
 import CourseDetails from './components/CourseDetails/CourseDetails'
 import AuthProvider from './context/AuthProvider';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
 
@@ -26,43 +27,45 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          <Header></Header>
-          <Switch>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-            <Route exact path="/home">
-              <Home></Home>
-            </Route>
-            <Route exact path="/services">
-              <Services></Services>
-            </Route>
-            <Route path="/course/:courseID">
-              <CourseDetails></CourseDetails>
-            </Route>
-            <Route exact path="/my-classes">
-              <MyClasses></MyClasses>
-            </Route>
-            <Route exact path="/about">
-              <About></About>
-            </Route>
-            <Route exact path="/developer">
-              <Developer></Developer>
-            </Route>
-            <Route exact path="/sign-up">
-              <SignUp></SignUp>
-            </Route>
-            <Route exact path="/login">
-              <Login></Login>
-            </Route>
-            <Route exact path="/confirm-sign-up">
-              <ConfirmSignUp></ConfirmSignUp>
-            </Route>
-            <Route path="*">
-              <NotFound></NotFound>
-            </Route>
-          </Switch>
-          <Footer></Footer>
+          <ScrollToTop>
+            <Header></Header>
+            <Switch>
+              <Route exact path="/">
+                <Home></Home>
+              </Route>
+              <Route exact path="/home">
+                <Home></Home>
+              </Route>
+              <Route exact path="/courses">
+                <Courses></Courses>
+              </Route>
+              <Route exact path="/course/:courseID">
+                <CourseDetails></CourseDetails>
+              </Route>
+              <Route exact path="/my-classes">
+                <MyClasses></MyClasses>
+              </Route>
+              <Route exact path="/about">
+                <About></About>
+              </Route>
+              <Route exact path="/developer">
+                <Developer></Developer>
+              </Route>
+              <Route exact path="/sign-up">
+                <SignUp></SignUp>
+              </Route>
+              <Route exact path="/login">
+                <Login></Login>
+              </Route>
+              <Route exact path="/confirm-sign-up">
+                <ConfirmSignUp></ConfirmSignUp>
+              </Route>
+              <Route path="*">
+                <NotFound></NotFound>
+              </Route>
+            </Switch>
+            <Footer></Footer>
+          </ScrollToTop>
         </Router>
       </AuthProvider>
     </div>

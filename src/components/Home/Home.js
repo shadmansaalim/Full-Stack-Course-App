@@ -27,7 +27,7 @@ const Home = () => {
     //Filtering courses to only show 6 courses in the Home Page
     const displayCourses = courses.filter(course => courses.indexOf(course) < 4);
     return (
-        <Container className="mb-5">
+        <Container className="my-5">
             <Introduction></Introduction>
             <section className="mx-lg-5 mb-5" style={{ marginTop: 120 }}>
                 <h1 className="headline mb-5 text-start">Explore Top Courses</h1>
