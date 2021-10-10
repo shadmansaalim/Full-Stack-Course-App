@@ -109,15 +109,8 @@ const useFirebase = () => {
     }
 
 
-    const handleLogin = e => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-            .then(result => {
-                console.log('LOGIN', result.user);
-            })
-            .catch(error => {
-                console.log(error.message);
-            })
+    const handleLogin = () => {
+        return signInWithEmailAndPassword(auth, loginEmail, loginPassword);
     }
 
     const logOut = () => {

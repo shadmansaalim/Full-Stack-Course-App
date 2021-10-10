@@ -4,10 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
+import { useHistory } from 'react-router-dom';
 
 
 const Login = () => {
     const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword } = useAuth();
+    const history = useHistory();
+
+    const loginSubmission = (e) => {
+        e.preventDefault();
+        handleLogin()
+            .then(result => {
+                console.log('LOGIN', result.user);
+                history.push('/home');
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
     return (
         <section style={{ marginTop: 100, marginBottom: 150 }}>
             <div className="container">
@@ -17,7 +31,7 @@ const Login = () => {
                             alt="Sample" />
                     </div>
                     <div className="col-md-8 col-lg-5 col-xl-4 offset-xl-1 shadow-lg p-5 rounded-3 mx-auto">
-                        <form onSubmit={handleLogin}>
+                        <form onSubmit={loginSubmission}>
                             <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                 <p className="lead fw-normal mb-0 me-3">Sign in with</p>
                                 <button type="button" className="btn btn-outline-primary rounded-circle mx-1">

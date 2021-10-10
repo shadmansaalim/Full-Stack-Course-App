@@ -88,7 +88,9 @@ const Header = () => {
                                             <FontAwesomeIcon className="fs-1 text-secondary settings-user-img" icon={faUserCircle} />
                                     }
                                     <p className="mt-2">{user.displayName}</p>
+                                    <button onClick={logOut} className="btn btn-warning">Log Out</button>
                                 </div>
+
                             </Offcanvas.Body>
                         </Offcanvas>
                     </Nav>
