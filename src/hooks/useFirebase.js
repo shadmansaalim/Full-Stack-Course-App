@@ -1,5 +1,5 @@
 import initializeAuthentication from "../Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
@@ -42,8 +42,8 @@ const useFirebase = () => {
     }
 
 
-    const handleSignUp = (e) => {
-        e.preventDefault();
+    const handleSignUp = () => {
+
         // if (!/(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}/.test(password)) {
         //     setError(<ul>
         //         <h4>Invalid Password! Please check whether your password contains the following characters</h4>
@@ -56,18 +56,7 @@ const useFirebase = () => {
         //     return;
         // }
 
-
-        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-            .then(result => {
-                verifyEmail();
-                setUserDetails();
-                setUser(result.user);
-
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-
+        return createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword);
     }
 
     useEffect(() => {
@@ -131,6 +120,13 @@ const useFirebase = () => {
             })
     }
 
+    const logOut = () => {
+        signOut(auth)
+            .then(() => {
+                setUser({});
+            })
+    }
+
     const handleLoginEmailChange = e => {
         setLoginEmail(e.target.value);
     }
@@ -153,6 +149,8 @@ const useFirebase = () => {
 
     return {
         user,
+        setUser,
+        setError,
         error,
         handleNameChange,
         handleSignUpEmailChange,
@@ -163,9 +161,12 @@ const useFirebase = () => {
         handleGoogleSignUp,
         handleFacebookSignUp,
         handleLogin,
+        logOut,
         handleLoginEmailChange,
         handleLoginPasswordChange,
-        handleForgetPassword
+        handleForgetPassword,
+        verifyEmail,
+        setUserDetails
     }
 
 }

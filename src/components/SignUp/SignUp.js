@@ -5,7 +5,21 @@ import signupImg from '../../images/signup.svg'
 
 const SignUp = () => {
     const history = useHistory();
-    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp } = useAuth();
+    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError } = useAuth();
+
+    const signUpSubmission = (e) => {
+        e.preventDefault();
+        handleSignUp()
+            .then(result => {
+                verifyEmail();
+                setUserDetails();
+                history.push('/home');
+
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
     return (
         <section className="mb-5">
             <div className="container h-100">
@@ -19,7 +33,7 @@ const SignUp = () => {
 
                                         <p className="text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up and Start Learning from Today!</p>
 
-                                        <form onSubmit={handleSignUp} className="mx-1 mx-md-4">
+                                        <form onSubmit={signUpSubmission} className="mx-1 mx-md-4">
 
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -98,7 +112,7 @@ const SignUp = () => {
                                                     id="form2Example3c"
                                                     required
                                                 />
-                                                <label className="form-check-label" htmlhtmlFor="form2Example3c">
+                                                <label className="form-check-label" htmlFor="form2Example3c">
                                                     <small>I agree all statements in <a href="#!">Terms of service</a></small>
                                                 </label>
 

@@ -2,9 +2,11 @@ import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUserPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import useAuth from '../../hooks/useAuth';
 const Header = () => {
     const history = useHistory();
+    const { user, logOut } = useAuth();
     return (
         // Website Top Navigation Bar
         <Navbar className="shadow-lg mb-5" expand="lg">
@@ -52,9 +54,20 @@ const Header = () => {
                                 color: "#0275d8"
                             }}>Developer</NavLink>
                     </Nav>
-                    <Nav className="ms-auto mt-2 mt-lg-0">
-                        <Button className="me-lg-4" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
-                        <Button className="mt-1 mt-lg-0" onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
+                    <Nav className="ms-auto">
+                        {
+                            user.email ?
+                                user.photoURL ?
+                                    <img className="img-fluid rounded-circle" src={user.photoURL} alt={user.displayName} style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName}></img>
+                                    :
+                                    <FontAwesomeIcon className="fs-1 text-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} />
+
+                                :
+                                <div>
+                                    <Button className="me-lg-4" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
+                                    <Button className="mt-1 mt-lg-0" onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
+                                </div>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
