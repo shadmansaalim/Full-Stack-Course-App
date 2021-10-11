@@ -1,8 +1,6 @@
 import React from 'react';
 import Introduction from '../Introduction/Introduction';
 import { Container } from 'react-bootstrap';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Course from '../Course/Course';
 import { Row, Col, Accordion } from 'react-bootstrap';
 import './Home.css'
@@ -11,7 +9,7 @@ import useCourses from '../../hooks/useCourses';
 
 const Home = () => {
     //Getting Courses From useCourses Custom hook
-    const [courses, setCourses] = useCourses();
+    const [courses] = useCourses();
 
     //Filtering courses to only show 6 courses in the Home Page
     const displayCourses = courses.filter(course => courses.indexOf(course) < 4);

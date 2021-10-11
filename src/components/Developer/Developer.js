@@ -1,9 +1,8 @@
 import React from 'react';
 import coding from '../../images/coding.svg'
-import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+
 
 const Developer = () => {
     return (

@@ -1,12 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Rating from 'react-rating';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import useCourses from '../../hooks/useCourses';
 import { useState } from 'react';
-import YouTube from 'react-youtube';
 import { Container } from 'react-bootstrap';
 
 
