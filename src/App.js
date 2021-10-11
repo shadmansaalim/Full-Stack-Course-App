@@ -19,6 +19,7 @@ import Login from './components/Login/Login';
 import CourseDetails from './components/CourseDetails/CourseDetails'
 import AuthProvider from './context/AuthProvider';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import BuyCourse from './components/BuyCourse/BuyCourse';
 
 
 
@@ -39,9 +40,13 @@ function App() {
               <Route exact path="/courses">
                 <Courses></Courses>
               </Route>
-              <Route path="/course/:courseID">
+              <Route exact path="/course/:courseID">
                 <CourseDetails></CourseDetails>
               </Route>
+              <Route exact path="/course/:courseID/buy-course">
+                <BuyCourse></BuyCourse>
+              </Route>
+
               <Route exact path="/my-classes">
                 <MyClasses></MyClasses>
               </Route>

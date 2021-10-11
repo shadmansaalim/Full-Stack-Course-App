@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import Rating from 'react-rating';
 import { useEffect } from 'react';
 import useCourses from '../../hooks/useCourses';
@@ -12,6 +12,7 @@ const CourseDetails = () => {
     // Getting courses from custom hook
     const [courses] = useCourses();
     const [selectedCourse, setSelectedCourse] = useState(null);
+    const history = useHistory();
     // const [videoID, setVideoID] = useState('');
 
 
@@ -30,7 +31,10 @@ const CourseDetails = () => {
         },
     };
 
-
+    const goToBuyCourse = () => {
+        const url = `/course/${courseID}/buy-course`;
+        history.push(url);
+    }
 
     return (
         <div className="bg-dark text-white py-5">
@@ -62,7 +66,7 @@ const CourseDetails = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="col-lg-5 mx-auto text-start mt-3 mt-lg-0">
+                            <div className="col-lg-5 col-xl-6 mx-auto text-start mt-3 mt-lg-0">
                                 <h3>{selectedCourse.name}</h3>
                                 <p className="mb-2">{selectedCourse.tagline}</p>
                                 <small>
@@ -79,7 +83,7 @@ const CourseDetails = () => {
                                 <br />
                                 <small>Created by <a href="!#">{selectedCourse.instructor}</a></small>
                                 <br />
-                                <button className="btn text-white mt-3" style={{ backgroundColor: 'rgb(69, 82, 110)' }}>Buy Course</button>
+                                <button onClick={goToBuyCourse} className="btn text-white mt-3" style={{ backgroundColor: 'rgb(69, 82, 110)' }}>Buy Course</button>
                             </div>
 
                         </section>
@@ -88,7 +92,7 @@ const CourseDetails = () => {
                             <p className="text-start">
                                 {selectedCourse.description}
                             </p>
-                            <div className="mt-4 mt-md-5 mb-4 row d-flex align-items-center  justify-content-center">
+                            <div className="mt-4 mt-md-5 mb-4 row d-flex align-items-center justify-content-center col-xl-8 mx-auto">
                                 <div className="shadow-lg p-5 rounded-3 bg-success col-7 col-md-3 mx-auto mb-3 mb-md-0">
                                     <h5>{selectedCourse.lectures}</h5>
                                     <small>Lectures</small>
