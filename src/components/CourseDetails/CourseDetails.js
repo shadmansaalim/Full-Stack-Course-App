@@ -26,7 +26,7 @@ const CourseDetails = () => {
 
     const opts = {
         height: '250',
-        width: '500',
+        width: '100%',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 1,
@@ -40,13 +40,32 @@ const CourseDetails = () => {
             <Container>
                 {
                     selectedCourse && <section>
-                        <section className="row mb-5 d-flex mt-5">
-                            <div className="col-lg-6 mx-auto">
-                                <YouTube className="w-100" videoId={selectedCourse.video}>
-
-                                </YouTube>
+                        <section className="row mb-5 d-flex mt-lg-4">
+                            <div className="col-lg-6 col-xl-5 mx-auto">
+                                <div
+                                    className="video"
+                                    style={{
+                                        position: "relative",
+                                        paddingBottom: "56.25%" /* 16:9 */,
+                                        paddingTop: 25,
+                                        height: 0
+                                    }}
+                                >
+                                    <iframe
+                                        title={selectedCourse.name}
+                                        style={{
+                                            position: "absolute",
+                                            top: 0,
+                                            left: 0,
+                                            width: "100%",
+                                            height: "100%"
+                                        }}
+                                        src={`https://www.youtube.com/embed/${selectedCourse.video}`}
+                                        frameBorder="0"
+                                    />
+                                </div>
                             </div>
-                            <div className="col-lg-5 mx-auto text-start mt-0">
+                            <div className="col-lg-5 mx-auto text-start mt-3 mt-lg-0">
                                 <h3>{selectedCourse.name}</h3>
                                 <p className="mb-2">{selectedCourse.tagline}</p>
                                 <small>
@@ -67,25 +86,27 @@ const CourseDetails = () => {
                             </div>
 
                         </section>
-                        <section className="mb-4 col-9 mx-auto">
-                            <p className="text-align-justify">
+                        <section className="col-lg-9 mb-4 mx-auto">
+                            <h3 className="text-start mb-3 fw-light">Description</h3>
+                            <p className="text-start">
                                 {selectedCourse.description}
                             </p>
+                            <div className="mt-4 mt-md-5 mb-4 row d-flex align-items-center  justify-content-center">
+                                <div className="shadow-lg p-5 rounded-3 bg-success col-7 col-md-3 mx-auto mb-3 mb-md-0">
+                                    <h5>{selectedCourse.lectures}</h5>
+                                    <small>Lectures</small>
+                                </div>
+                                <div className="shadow-lg p-5 rounded-3 bg-success col-7 col-md-3 mx-auto mb-3 mb-md-0">
+                                    <h5>{selectedCourse.students}</h5>
+                                    <small>Students</small>
+                                </div>
+                                <div className="shadow-lg p-5 rounded-3 bg-success col-7 col-md-3 mx-auto">
+                                    <h5>{selectedCourse.projects}</h5>
+                                    <small>Projects</small>
+                                </div>
+                            </div>
                         </section>
-                        <section className="mb-4 d-flex align-items-center flex-wrap justify-content-center">
-                            <div className="shadow-lg p-5 rounded-3 me-5 bg-success">
-                                <h5>{selectedCourse.lectures}</h5>
-                                <small>Lectures</small>
-                            </div>
-                            <div className="shadow-lg p-5 rounded-3 me-5 bg-success">
-                                <h5>{selectedCourse.students}</h5>
-                                <small>Students</small>
-                            </div>
-                            <div className="shadow-lg p-5 rounded-3 bg-success">
-                                <h5>{selectedCourse.projects}</h5>
-                                <small>Projects</small>
-                            </div>
-                        </section>
+
 
 
                     </section>
