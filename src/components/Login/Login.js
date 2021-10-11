@@ -4,19 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
     const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword } = useAuth();
     const history = useHistory();
 
+    //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
+    const location = useLocation();
+    const redirectURL = location.state?.from || '/home';
+
     const loginSubmission = (e) => {
         e.preventDefault();
         handleLogin()
             .then(result => {
                 console.log('LOGIN', result.user);
-                history.push('/home');
+                history.push(redirectURL);
             })
             .catch(error => {
                 console.log(error.message);
