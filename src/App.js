@@ -20,6 +20,7 @@ import CourseDetails from './components/CourseDetails/CourseDetails'
 import AuthProvider from './context/AuthProvider';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import BuyCourse from './components/BuyCourse/BuyCourse';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 
@@ -43,9 +44,9 @@ function App() {
               <Route exact path="/course/:courseID">
                 <CourseDetails></CourseDetails>
               </Route>
-              <Route exact path="/course/:courseID/buy-course">
+              <PrivateRoute exact path="/course/:courseID/buy-course">
                 <BuyCourse></BuyCourse>
-              </Route>
+              </PrivateRoute>
 
               <Route exact path="/my-classes">
                 <MyClasses></MyClasses>
