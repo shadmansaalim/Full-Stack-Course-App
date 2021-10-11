@@ -1,4 +1,4 @@
-* Live Site : https://shadmansaalim-react-services.netlify.app/
+* Live Site : https://shadmansaalim-react-course.netlify.app/
 * Simple React Application
 * I used React Js and React Bootstrap to build this Application
 * This is a course platform application like Udemy where users can purchase different courses
