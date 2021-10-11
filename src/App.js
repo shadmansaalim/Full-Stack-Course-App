@@ -20,7 +20,8 @@ import CourseDetails from './components/CourseDetails/CourseDetails'
 import AuthProvider from './context/AuthProvider';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import BuyCourse from './components/BuyCourse/BuyCourse';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
+import PrivateForm from './components/PrivateRoute/PrivateForm';
 
 
 
@@ -32,9 +33,6 @@ function App() {
           <ScrollToTop>
             <Header></Header>
             <Switch>
-              <Route exact path="/">
-                <Home></Home>
-              </Route>
               <Route exact path="/home">
                 <Home></Home>
               </Route>
@@ -44,27 +42,29 @@ function App() {
               <Route exact path="/course/:courseID">
                 <CourseDetails></CourseDetails>
               </Route>
-              <PrivateRoute exact path="/course/:courseID/buy-course">
+              <PrivateBuyCourse exact path="/course/:courseID/buy-course">
                 <BuyCourse></BuyCourse>
-              </PrivateRoute>
-
-              <Route exact path="/my-classes">
+              </PrivateBuyCourse>
+              <PrivateBuyCourse exact path="/my-classes">
                 <MyClasses></MyClasses>
-              </Route>
+              </PrivateBuyCourse>
               <Route exact path="/about">
                 <About></About>
               </Route>
               <Route exact path="/developer">
                 <Developer></Developer>
               </Route>
-              <Route exact path="/sign-up">
+              <PrivateForm exact path="/sign-up">
                 <SignUp></SignUp>
-              </Route>
-              <Route exact path="/login">
+              </PrivateForm>
+              <PrivateForm exact path="/login">
                 <Login></Login>
-              </Route>
+              </PrivateForm>
               <Route exact path="/confirm-sign-up">
                 <ConfirmSignUp></ConfirmSignUp>
+              </Route>
+              <Route exact path="/">
+                <Home></Home>
               </Route>
               <Route path="*">
                 <NotFound></NotFound>

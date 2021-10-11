@@ -19,7 +19,6 @@ const Login = () => {
         e.preventDefault();
         handleLogin()
             .then(result => {
-                console.log('LOGIN', result.user);
                 history.push(redirectURL);
             })
             .catch(error => {

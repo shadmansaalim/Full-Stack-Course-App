@@ -31,9 +31,9 @@ const CourseDetails = () => {
         },
     };
 
+
     const goToBuyCourse = () => {
-        const url = `/course/${courseID}/buy-course`;
-        history.push(url);
+        history.push((`/course/${courseID}/buy-course`))
     }
 
     return (

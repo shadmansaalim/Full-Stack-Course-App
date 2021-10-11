@@ -10,7 +10,6 @@ import useCourses from '../../hooks/useCourses';
 const Courses = () => {
     // Declaring the state
     const [courses] = useCourses();
-    console.log(courses);
     //Declaring states for pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [coursesPerPage, setCoursesPerPage] = useState(8);
