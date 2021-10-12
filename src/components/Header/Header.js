@@ -69,7 +69,7 @@ const Header = () => {
                                     <FontAwesomeIcon className="fs-1 text-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} onClick={handleShow} />
 
                                 :
-                                <div>
+                                <div className="d-flex flex-column flex-lg-row mt-2 mt-lg-0">
                                     <Button className="me-lg-4" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
                                     <Button className="mt-1 mt-lg-0" onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                                 </div>
