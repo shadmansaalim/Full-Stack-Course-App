@@ -1,5 +1,5 @@
 import initializeAuthentication from "../Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged, signOut, fetchSignInMethodsForEmail, EmailAuthProvider, getUser } from "firebase/auth";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
@@ -19,6 +19,7 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
     const history = useHistory();
+    console.log(user);
 
 
 
@@ -55,7 +56,6 @@ const useFirebase = () => {
         //     </ul>)
         //     return;
         // }
-
         return createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword);
     }
 
@@ -89,13 +89,39 @@ const useFirebase = () => {
     }
 
     const handleGoogleSignUp = () => {
+        // fetchSignInMethodsForEmail(auth, 'shadmansaalim999@gmail.com')
+        //     .then((signInMethods) => {
+        //         // This returns the same array as fetchProvidersForEmail but for email
+        //         // provider identified by 'password' string, signInMethods would contain 2
+        //         // different strings:
+        //         // 'emailLink' if the user previously signed in with an email/link
+        //         // 'password' if the user has a password.
+        //         // A user could have both.
+
+        //         if ((signInMethods.indexOf(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD) === -1) && (signInMethods.indexOf(FacebookAuthProvider.FACEBOOK_SIGN_IN_METHOD) === -1)) {
+        //             // User can sign in with email/password.
+        //             console.log('a');
+
+        //         }
+
+        //         else {
+        //             setError('Account already exists with email')
+        //         }
+
+
+        //     })
+        //     .catch((error) => {
+        //         // Some error occurred, you can inspect the code: error.code
+        //     });
+
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 console.log(result.user)
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
+
     }
 
     const handleFacebookSignUp = () => {
@@ -104,7 +130,7 @@ const useFirebase = () => {
                 console.log(result.user)
             })
             .catch(error => {
-                console.log(error.message)
+                setError(error.message)
             })
     }
 
@@ -136,8 +162,6 @@ const useFirebase = () => {
                 console.log(error.message)
             })
     }
-
-
 
 
     return {

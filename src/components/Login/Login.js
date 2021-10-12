@@ -8,7 +8,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-    const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword } = useAuth();
+    const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, } = useAuth();
     const history = useHistory();
 
     //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.

@@ -6,11 +6,11 @@ import useAuth from '../../hooks/useAuth';
 const ConfirmSignUp = () => {
     const history = useHistory();
     const { user } = useAuth();
-    const { displayName, email, emailVerfied } = user;
+    const { displayName, email, emailVerified } = user;
 
 
     const continueSignUp = () => {
-        if (emailVerfied) {
+        if (emailVerified) {
             history.push('/home');
         }
         else {

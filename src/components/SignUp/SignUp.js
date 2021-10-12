@@ -5,18 +5,20 @@ import signupImg from '../../images/signup.svg'
 
 const SignUp = () => {
     const history = useHistory();
-    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError } = useAuth();
+    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser } = useAuth();
 
     const signUpSubmission = (e) => {
         e.preventDefault();
         handleSignUp()
             .then(result => {
+                setError('');
                 verifyEmail();
                 setUserDetails();
-                history.push('/home');
+                history.push('/confirm-sign-up');
 
             })
             .catch(error => {
+                setUser({});
                 setError(error.message);
             })
     }
