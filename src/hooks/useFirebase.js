@@ -1,5 +1,5 @@
 import initializeAuthentication from "../Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged, signOut, fetchSignInMethodsForEmail, EmailAuthProvider, getUser } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged, signOut, fetchSignInMethodsForEmail, EmailAuthProvider, getUser, TwitterAuthProvider } from "firebase/auth";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
@@ -18,6 +18,7 @@ const useFirebase = () => {
     const [loginPassword, setLoginPassword] = useState('');
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
+    const twitterProvider = new TwitterAuthProvider();
     const history = useHistory();
     console.log(user);
 
@@ -134,6 +135,16 @@ const useFirebase = () => {
             })
     }
 
+    const handleTwitterSignUp = () => {
+        signInWithPopup(auth, twitterProvider)
+            .then((result) => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
 
     const handleLogin = () => {
         return signInWithEmailAndPassword(auth, loginEmail, loginPassword);
@@ -183,7 +194,8 @@ const useFirebase = () => {
         handleLoginPasswordChange,
         handleForgetPassword,
         verifyEmail,
-        setUserDetails
+        setUserDetails,
+        handleTwitterSignUp
     }
 
 }

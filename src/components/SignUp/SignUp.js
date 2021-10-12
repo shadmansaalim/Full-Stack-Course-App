@@ -5,7 +5,7 @@ import signupImg from '../../images/signup.svg'
 
 const SignUp = () => {
     const history = useHistory();
-    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser } = useAuth();
+    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser, handleTwitterSignUp } = useAuth();
 
     const signUpSubmission = (e) => {
         e.preventDefault();
@@ -118,7 +118,7 @@ const SignUp = () => {
                                                     <i className="fab fa-google"></i>
                                                 </button>
 
-                                                <button className="btn btn-outline-primary  rounded-circle mx-1">
+                                                <button onClick={handleTwitterSignUp} className="btn btn-outline-primary  rounded-circle mx-1">
                                                     <i className="fab fa-twitter"></i>
                                                 </button>
                                             </div>
