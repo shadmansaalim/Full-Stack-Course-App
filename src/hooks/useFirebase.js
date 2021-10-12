@@ -9,6 +9,7 @@ initializeAuthentication();
 const useFirebase = () => {
     const auth = getAuth();
     const [user, setUser] = useState({})
+    const [isLoading, setIsLoading] = useState(true);
     const [name, setName] = useState('');
     const [signUpEmail, setSignUpEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -61,11 +62,16 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
+
         onAuthStateChanged(auth, user => {
             if (user) {
                 console.log('Inside State Change', user)
                 setUser(user);
             }
+            else {
+                setUser({});
+            }
+            setIsLoading(false);
         })
     }, []);
 
@@ -87,6 +93,7 @@ const useFirebase = () => {
             .catch(error => {
                 setError(error.message);
             })
+            .finally(() => setIsLoading(false));
     }
 
     const handleGoogleSignUp = () => {
@@ -114,7 +121,7 @@ const useFirebase = () => {
         //     .catch((error) => {
         //         // Some error occurred, you can inspect the code: error.code
         //     });
-
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 console.log(result.user)
@@ -122,10 +129,12 @@ const useFirebase = () => {
             .catch(error => {
                 setError(error.message)
             })
+            .finally(() => setIsLoading(false));
 
     }
 
     const handleFacebookSignUp = () => {
+        setIsLoading(true);
         signInWithPopup(auth, facebookProvider)
             .then(result => {
                 console.log(result.user)
@@ -133,9 +142,11 @@ const useFirebase = () => {
             .catch(error => {
                 setError(error.message)
             })
+            .finally(() => setIsLoading(false));
     }
 
     const handleTwitterSignUp = () => {
+        setIsLoading(true);
         signInWithPopup(auth, twitterProvider)
             .then((result) => {
                 console.log(result.user)
@@ -143,6 +154,7 @@ const useFirebase = () => {
             .catch(error => {
                 setError(error.message)
             })
+            .finally(() => setIsLoading(false));
     }
 
 
@@ -155,6 +167,7 @@ const useFirebase = () => {
             .then(() => {
                 setUser({});
             })
+            .finally(() => setIsLoading(false));
     }
 
     const handleLoginEmailChange = e => {
@@ -195,7 +208,9 @@ const useFirebase = () => {
         handleForgetPassword,
         verifyEmail,
         setUserDetails,
-        handleTwitterSignUp
+        handleTwitterSignUp,
+        setIsLoading,
+        isLoading
     }
 
 }

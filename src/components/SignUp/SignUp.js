@@ -5,10 +5,11 @@ import signupImg from '../../images/signup.svg'
 
 const SignUp = () => {
     const history = useHistory();
-    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser, handleTwitterSignUp } = useAuth();
+    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser, handleTwitterSignUp, setIsLoading } = useAuth();
 
     const signUpSubmission = (e) => {
         e.preventDefault();
+        setIsLoading(true)
         handleSignUp()
             .then(result => {
                 setError('');
@@ -21,6 +22,7 @@ const SignUp = () => {
                 setUser({});
                 setError(error.message);
             })
+            .finally(() => setIsLoading(false));
     }
     return (
         <section className="mb-5">
