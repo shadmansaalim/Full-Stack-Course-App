@@ -88,6 +88,7 @@ const Header = () => {
                                             <FontAwesomeIcon className="fs-1 text-secondary settings-user-img" icon={faUserCircle} />
                                     }
                                     <p className="mt-2">{user.displayName}</p>
+                                    <button className="btn btn-block">My Classes</button>
                                     <button onClick={() => {
                                         logOut();
                                         handleClose();

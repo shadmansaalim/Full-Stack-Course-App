@@ -8,7 +8,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-    const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, } = useAuth();
+    const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
     const history = useHistory();
 
     //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
@@ -37,15 +37,15 @@ const Login = () => {
                         <form onSubmit={loginSubmission}>
                             <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                 <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-                                <button type="button" className="btn btn-outline-primary rounded-circle mx-1">
+                                <button onClick={handleFacebookSignUp} type="button" className="btn btn-outline-primary rounded-circle mx-1">
                                     <i className="fab fa-facebook-f"></i>
                                 </button>
 
-                                <button type="button" className="btn btn-outline-primary rounded-circle mx-1">
+                                <button onClick={handleGoogleSignUp} type="button" className="btn btn-outline-primary rounded-circle mx-1">
                                     <i className="fab fa-google"></i>
                                 </button>
 
-                                <button type="button" className="btn btn-outline-primary rounded-circle mx-1">
+                                <button onClick={handleTwitterSignUp} type="button" className="btn btn-outline-primary rounded-circle mx-1">
                                     <i className="fab fa-twitter"></i>
                                 </button>
                             </div>
