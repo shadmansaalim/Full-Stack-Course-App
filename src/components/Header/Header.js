@@ -64,9 +64,9 @@ const Header = () => {
                         {
                             user.email ?
                                 user.photoURL ?
-                                    <img className="img-fluid rounded-circle" src={user.photoURL} alt={user.displayName} style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} onClick={handleShow} ></img>
+                                    <img className="img-fluid rounded-circle mx-auto mt-2 mt-lg-0" src={user.photoURL} alt={user.displayName} style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} onClick={handleShow} ></img>
                                     :
-                                    <FontAwesomeIcon className="fs-1 text-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} onClick={handleShow} />
+                                    <FontAwesomeIcon className="fs-1 text-secondary mx-auto mt-2 mt-lg-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} onClick={handleShow} />
 
                                 :
                                 <div className="d-flex flex-column flex-lg-row mt-2 mt-lg-0">
@@ -83,7 +83,7 @@ const Header = () => {
                                 <div className="text-center">
                                     {
                                         user.photoURL ?
-                                            <img className="img-fluid rounded-circle settings-user-img" src={user.photoURL} alt={user.displayName}></img>
+                                            <img className=" img-fluid rounded-circle settings-user-img" src={user.photoURL} alt={user.displayName}></img>
                                             :
                                             <FontAwesomeIcon className="fs-1 text-secondary settings-user-img" icon={faUserCircle} />
                                     }
