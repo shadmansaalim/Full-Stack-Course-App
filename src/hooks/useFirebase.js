@@ -86,14 +86,7 @@ const useFirebase = () => {
     }
 
     const setUserDetails = () => {
-        updateProfile(auth.currentUser, { displayName: name, email: signUpEmail })
-            .then(result => {
-
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-            .finally(() => setIsLoading(false));
+        return updateProfile(auth.currentUser, { displayName: name, email: signUpEmail })
     }
 
     const handleGoogleSignUp = () => {
@@ -101,6 +94,20 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 console.log(result.user)
+                const { displayName, email, photoURL, emailVerified } = result.user;
+                const userData = {
+                    name: displayName,
+                    email: email,
+                    photo: photoURL,
+                    emailVerified: emailVerified
+                }
+                fetch('http://localhost:5000/sign-up', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
             })
             .catch(error => {
                 setError(error.message)
@@ -114,6 +121,20 @@ const useFirebase = () => {
         signInWithPopup(auth, facebookProvider)
             .then(result => {
                 console.log(result.user)
+                const { displayName, email, photoURL, emailVerified } = result.user;
+                const userData = {
+                    name: displayName,
+                    email: email,
+                    photo: photoURL,
+                    emailVerified: emailVerified
+                }
+                fetch('http://localhost:5000/sign-up', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
             })
             .catch(error => {
                 setError(error.message)
@@ -126,6 +147,20 @@ const useFirebase = () => {
         signInWithPopup(auth, twitterProvider)
             .then((result) => {
                 console.log(result.user)
+                const { displayName, email, photoURL, emailVerified } = result.user;
+                const userData = {
+                    name: displayName,
+                    email: email,
+                    photo: photoURL,
+                    emailVerified: emailVerified
+                }
+                fetch('http://localhost:5000/sign-up', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
             })
             .catch(error => {
                 setError(error.message)
