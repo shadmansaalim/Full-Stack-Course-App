@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
 
 const CourseDetails = () => {
     const { id } = useParams();
@@ -92,15 +94,39 @@ const CourseDetails = () => {
                                 </p>
                                 <div className="mt-4 mt-md-5 mb-4 row d-flex align-items-center justify-content-center col-xl-8 mx-auto">
                                     <div className="shadow-lg p-5 rounded-3 bg-success col-7 col-md-3 mx-auto mb-3 mb-md-0">
-                                        <h5>{course.lectures}</h5>
+                                        <h5>
+                                            <CountUp redraw={true} end={course.lectures} duration={2} >
+                                                {({ countUpRef, start }) => (
+                                                    <VisibilitySensor onChange={start} delayedCall>
+                                                        <span ref={countUpRef} />
+                                                    </VisibilitySensor>
+                                                )}
+                                            </CountUp>
+                                        </h5>
                                         <small>Lectures</small>
                                     </div>
                                     <div className="shadow-lg p-5 rounded-3 bg-success col-7 col-md-3 mx-auto mb-3 mb-md-0">
-                                        <h5>{course.students}</h5>
+                                        <h5>
+                                            <CountUp redraw={true} end={parseInt(course.students.replaceAll(',', ''))} duration={2} >
+                                                {({ countUpRef, start }) => (
+                                                    <VisibilitySensor onChange={start} delayedCall>
+                                                        <span ref={countUpRef} />
+                                                    </VisibilitySensor>
+                                                )}
+                                            </CountUp>
+                                        </h5>
                                         <small>Students</small>
                                     </div>
                                     <div className="shadow-lg p-5 rounded-3 bg-success col-7 col-md-3 mx-auto">
-                                        <h5>{course.projects}</h5>
+                                        <h5>
+                                            <CountUp redraw={true} end={course.projects} duration={2} >
+                                                {({ countUpRef, start }) => (
+                                                    <VisibilitySensor onChange={start} delayedCall>
+                                                        <span ref={countUpRef} />
+                                                    </VisibilitySensor>
+                                                )}
+                                            </CountUp>
+                                        </h5>
                                         <small>Projects</small>
                                     </div>
                                 </div>
@@ -117,7 +143,7 @@ const CourseDetails = () => {
                         </div>
                 }
             </Container>
-        </div>
+        </div >
     );
 };
 
