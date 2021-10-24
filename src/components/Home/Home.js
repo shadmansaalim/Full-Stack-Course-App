@@ -22,7 +22,7 @@ const Home = () => {
                     {
                         //Mapping over the displayCourses array and calling the Course component which creates card
                         displayCourses.map(course => <Course
-                            key={course.courseID}
+                            key={course._id}
                             course={course}
                         ></Course>)
                     }

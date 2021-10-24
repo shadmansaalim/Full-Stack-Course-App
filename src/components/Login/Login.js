@@ -8,7 +8,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-    const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
+    const { handleLogin, loginEmail, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
     const history = useHistory();
 
     //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
@@ -17,13 +17,26 @@ const Login = () => {
 
     const loginSubmission = (e) => {
         e.preventDefault();
-        handleLogin()
-            .then(result => {
-                history.push(redirectURL);
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(users => {
+                const user = users.find(u => u.email === loginEmail);
+                if (user) {
+                    handleLogin()
+                        .then(result => {
+                            history.push(redirectURL);
+                        })
+                        .catch(error => {
+                            console.log(error.message);
+                        })
+                }
+                else {
+                    console.log('User nai')
+                }
+                e.target.reset();
             })
-            .catch(error => {
-                console.log(error.message);
-            })
+
+
     }
     return (
         <section style={{ marginTop: 100, marginBottom: 150 }}>

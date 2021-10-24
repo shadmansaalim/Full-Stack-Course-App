@@ -14,7 +14,6 @@ import MyClasses from './components/MyClasses/MyClasses';
 import NotFound from './components/NotFound/NotFound';
 import Developer from './components/Developer/Developer';
 import SignUp from './components/SignUp/SignUp';
-import ConfirmSignUp from './components/ConfirmSignUp/ConfirmSignUp';
 import Login from './components/Login/Login';
 import CourseDetails from './components/CourseDetails/CourseDetails'
 import AuthProvider from './context/AuthProvider';
@@ -22,7 +21,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import BuyCourse from './components/BuyCourse/BuyCourse';
 import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
 import PrivateForm from './components/PrivateRoute/PrivateForm';
-
+import AddCourses from './components/AddCourses/AddCourses';
 
 
 function App() {
@@ -39,10 +38,10 @@ function App() {
               <Route exact path="/courses">
                 <Courses></Courses>
               </Route>
-              <Route exact path="/course/:courseID">
+              <Route exact path="/course/:id">
                 <CourseDetails></CourseDetails>
               </Route>
-              <PrivateBuyCourse exact path="/course/:courseID/buy-course">
+              <PrivateBuyCourse exact path="/course/:_id/buy-course">
                 <BuyCourse></BuyCourse>
               </PrivateBuyCourse>
               <PrivateBuyCourse exact path="/my-classes">
@@ -60,8 +59,8 @@ function App() {
               <PrivateForm exact path="/login">
                 <Login></Login>
               </PrivateForm>
-              <Route exact path="/confirm-sign-up">
-                <ConfirmSignUp></ConfirmSignUp>
+              <Route exact path="/add-courses">
+                <AddCourses></AddCourses>
               </Route>
               <Route exact path="/">
                 <Home></Home>

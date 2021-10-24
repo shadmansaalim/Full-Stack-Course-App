@@ -91,6 +91,7 @@ const useFirebase = () => {
 
     const handleGoogleSignUp = () => {
         setIsLoading(true);
+
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 console.log(result.user)
@@ -215,6 +216,7 @@ const useFirebase = () => {
         handleLogin,
         logOut,
         handleLoginEmailChange,
+        loginEmail,
         handleLoginPasswordChange,
         handleForgetPassword,
         verifyEmail,

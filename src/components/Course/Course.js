@@ -8,11 +8,11 @@ import { useHistory } from 'react-router-dom';
 
 const Course = (props) => {
     // Destructuring data from props
-    const { name, img, instructor, rating, peopleRated, previousPrice, discountedPrice, courseID } = props.course;
+    const { name, img, instructor, rating, peopleRated, previousPrice, discountedPrice, _id } = props.course;
     const history = useHistory();
 
     const goToCourseDetails = () => {
-        history.push(`/course/${courseID}`)
+        history.push(`/course/${_id}`)
     }
     return (
         <Col>

@@ -6,13 +6,18 @@ const useCourses = () => {
     // Declaring the state
     const [courses, setCourses] = useState([]);
 
-    // fetching data from JSON file
+    // FETCHING DATA FROM DATABASE BACKEND
     useEffect(() => {
-        fetch('../courseData.json')
+        fetch('http://localhost:5000/courses')
             .then(res => res.json())
-            .then(data => setCourses(data))
+            .then(data => {
+                console.log(data)
+                setCourses(data)
+            })
 
     }, []);
+
+
     return [courses, setCourses];
 }
 
