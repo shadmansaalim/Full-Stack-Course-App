@@ -22,6 +22,7 @@ import BuyCourse from './components/BuyCourse/BuyCourse';
 import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
 import PrivateForm from './components/PrivateRoute/PrivateForm';
 import AddCourses from './components/AddCourses/AddCourses';
+import UserProfile from './components/UserProfile/UserProfile';
 
 
 function App() {
@@ -61,6 +62,9 @@ function App() {
               </PrivateForm>
               <Route exact path="/add-courses">
                 <AddCourses></AddCourses>
+              </Route>
+              <Route exact path="/profile">
+                <UserProfile></UserProfile>
               </Route>
               <Route exact path="/">
                 <Home></Home>

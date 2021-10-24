@@ -4,11 +4,7 @@ import { Redirect, Route } from 'react-router';
 import { Spinner } from 'react-bootstrap';
 
 const PrivateForm = ({ children, ...rest }) => {
-    const { user, isLoading } = useAuth();
-
-    if (isLoading) {
-        return <Spinner animation="border" variant="danger" />
-    }
+    const { user } = useAuth();
     return (
         <Route
             {...rest}

@@ -75,7 +75,7 @@ const Header = () => {
                                 </div>
                         }
 
-                        <Offcanvas show={show} onHide={handleClose} placement="end">
+                        <Offcanvas show={show} onHide={handleClose} placement="end" style={{ maxWidth: 300 }}>
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title></Offcanvas.Title>
                             </Offcanvas.Header>
@@ -88,11 +88,16 @@ const Header = () => {
                                             <FontAwesomeIcon className="fs-1 text-secondary settings-user-img" icon={faUserCircle} />
                                     }
                                     <p className="mt-2">{user.displayName}</p>
-                                    <button className="btn btn-block">My Classes</button>
+                                    <button className="btn btn-block rounded-pill btn-dark">View Profile</button>
+                                    <div class="divider d-flex align-items-center my-4">
+
+                                    </div>
                                     <button onClick={() => {
                                         logOut();
                                         handleClose();
                                     }} className="btn btn-warning">Log Out</button>
+
+
                                 </div>
 
                             </Offcanvas.Body>

@@ -223,7 +223,9 @@ const useFirebase = () => {
         setUserDetails,
         handleTwitterSignUp,
         setIsLoading,
-        isLoading
+        isLoading,
+        setName,
+        setSignUpEmail
     }
 
 }
