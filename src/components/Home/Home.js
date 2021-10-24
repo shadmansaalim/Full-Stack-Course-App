@@ -5,6 +5,7 @@ import Course from '../Course/Course';
 import { Row, Col, Accordion } from 'react-bootstrap';
 import './Home.css'
 import useCourses from '../../hooks/useCourses';
+import { Spinner } from 'react-bootstrap';
 
 
 const Home = () => {
@@ -13,20 +14,30 @@ const Home = () => {
 
     //Filtering courses to only show 6 courses in the Home Page
     const displayCourses = courses.filter(course => courses.indexOf(course) < 4);
+
     return (
         <Container className="my-5">
             <Introduction></Introduction>
-            <section className="mx-lg-5 mb-5" style={{ marginTop: 120 }}>
+            <section className="mx-lg-5" style={{ marginTop: 120, marginBottom: 120 }}>
                 <h1 className="headline mb-5 text-start">Explore Top Courses</h1>
-                <Row xs={1} md={2} lg={4} className="g-4">
-                    {
-                        //Mapping over the displayCourses array and calling the Course component which creates card
-                        displayCourses.map(course => <Course
-                            key={course._id}
-                            course={course}
-                        ></Course>)
-                    }
-                </Row>
+                {
+                    courses.length ?
+
+                        <Row xs={1} md={2} lg={4} className="g-4">
+                            {
+                                //Mapping over the displayCourses array and calling the Course component which creates card
+                                displayCourses.map(course => <Course
+                                    key={course._id}
+                                    course={course}
+                                ></Course>)
+                            }
+                        </Row>
+
+                        :
+                        <div className="p-5 d-flex align-items-center mx-auto justify-content-center my-5">
+                            <Spinner animation="border" />
+                        </div>
+                }
             </section>
             {/* Added a Accordion using React Bootstrap for better UI/UX */}
             <section style={{ marginTop: 120 }}>
