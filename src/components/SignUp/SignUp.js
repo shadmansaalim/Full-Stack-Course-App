@@ -128,8 +128,8 @@ const SignUp = () => {
                                                 <button type="submit" className="btn btn-primary">Sign Up</button>
                                             </div>
 
-                                            <div class="divider d-flex align-items-center my-4">
-                                                <p class="text-center fw-bold mx-2 mb-0" style={{ color: 'rgb(69, 82, 110)' }}>OR</p>
+                                            <div className="divider d-flex align-items-center my-4">
+                                                <p className="text-center fw-bold mx-2 mb-0" style={{ color: 'rgb(69, 82, 110)' }}>OR</p>
                                             </div>
 
                                             <div className="d-flex flex-row align-items-center justify-content-center mb-4">
@@ -150,7 +150,7 @@ const SignUp = () => {
 
 
 
-                                            <div class="text-center mt-4"> <span>Already a member?</span> <a href="/login">Login</a> </div>
+                                            <div className="text-center mt-4"> <span>Already a member?</span> <a href="/login">Login</a> </div>
 
 
                                         </form>

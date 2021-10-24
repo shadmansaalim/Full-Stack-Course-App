@@ -64,8 +64,8 @@ const Login = () => {
                             </div>
 
 
-                            <div class="divider d-flex align-items-center my-4">
-                                <p class="text-center fw-bold mx-2 mb-0" style={{ color: 'rgb(69, 82, 110)' }}>OR</p>
+                            <div className="divider d-flex align-items-center my-4">
+                                <p className="text-center fw-bold mx-2 mb-0" style={{ color: 'rgb(69, 82, 110)' }}>OR</p>
                             </div>
 
 

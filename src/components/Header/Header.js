@@ -89,7 +89,7 @@ const Header = () => {
                                     }
                                     <p className="mt-2">{user.displayName}</p>
                                     <button className="btn btn-block rounded-pill btn-dark">View Profile</button>
-                                    <div class="divider d-flex align-items-center my-4">
+                                    <div className="divider d-flex align-items-center my-4">
 
                                     </div>
                                     <button onClick={() => {
