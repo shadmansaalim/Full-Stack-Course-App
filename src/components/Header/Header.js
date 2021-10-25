@@ -6,13 +6,14 @@ import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart } from '@fortawes
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
-import useCartContext from '../../hooks/useCartContext';
 import { getStoredCart } from '../../utilities/LocalStorage';
 import useCourses from '../../hooks/useCourses';
+import Cart from '../Cart/Cart';
+import useCart from '../../hooks/useCart';
 const Header = () => {
     const history = useHistory();
-    const [cart] = useCartContext();
     const [courses, setCourses] = useCourses();
+    const [cart] = useCart(courses);
     const { user, logOut } = useAuth();
     const [offCanvasShow, setOffCanvasShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
@@ -94,7 +95,9 @@ const Header = () => {
                             <Modal.Header closeButton>
                                 <Modal.Title>Modal heading</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                            <Modal.Body>
+                                <Cart cart={cart}></Cart>
+                            </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={handleModalClose}>
                                     Close

@@ -3,40 +3,27 @@ import { useState } from "react"
 import { getStoredCart } from "../utilities/LocalStorage";
 
 
-const useCart = () => {
+const useCart = (courses) => {
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        const savedCart = getStoredCart();
-        const keys = Object.keys(savedCart);
-        console.log(keys);
 
-        fetch('http://localhost:5000/courses/byKeys', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(keys)
-        })
-            .then(res => res.json())
-            .then(courses => {
-                if (courses.length) {
-
-                    const storedCart = [];
-                    for (const key in savedCart) {
-                        const addedCourses = courses.find(product => product.key === key);
-                        if (addedCourses) {
-                            const quantity = savedCart[key];
-                            addedCourses.quantity = quantity;
-                            storedCart.push(addedCourses)
-                        }
-
-                    }
-                    setCart(storedCart);
+        if (courses.length) {
+            const savedCart = getStoredCart();
+            const storedCart = [];
+            for (const id in savedCart) {
+                const addedCourse = courses.find(product => product._id === id);
+                if (addedCourse) {
+                    // set quantity
+                    const quantity = savedCart[id];
+                    addedCourse.quantity = quantity;
+                    storedCart.push(addedCourse);
                 }
-            })
+            }
+            setCart(storedCart);
+        }
 
-    }, [])
+    }, [courses]);
 
     return [cart, setCart];
 }

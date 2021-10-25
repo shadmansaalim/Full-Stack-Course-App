@@ -14,7 +14,6 @@ const useCourses = () => {
         fetch(`http://localhost:5000/courses?page=${activePage}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.courses)
                 setCourses(data.courses)
                 const count = data.count;
                 //Using math.ceil to get accurate pages for pagination and dividing by 8 to keep 8 courses per page

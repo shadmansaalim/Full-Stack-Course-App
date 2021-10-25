@@ -10,18 +10,22 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { addToDb } from '../../utilities/LocalStorage';
-import useCartContext from '../../hooks/useCartContext';
+
 // import swal from 'sweetalert';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useCart from '../../hooks/useCart';
+import useCourses from '../../hooks/useCourses';
 
 toast.configure()
 
 const CourseDetails = () => {
     const { id } = useParams();
+    const [courses] = useCourses();
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
-    const [cart, setCart] = useCartContext();
+    const [cart, setCart] = useCart(courses);
+    console.log(cart);
     const history = useHistory();
 
     // Fetching single course from Database 

@@ -7,13 +7,8 @@ const addToDb = id => {
     }
     else {
         course_cart = JSON.parse(exists);
-        if (course_cart[id]) {
-            const newCount = course_cart[id] + 1;
-            course_cart[id] = newCount;
-        }
-        else {
-            course_cart[id] = 1;
-        }
+        course_cart[id] = 1;
+
     }
     updateDb(course_cart);
 }
