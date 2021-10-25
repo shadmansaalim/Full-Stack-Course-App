@@ -11,6 +11,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { addToDb } from '../../utilities/LocalStorage';
 import useCartContext from '../../hooks/useCartContext';
+// import swal from 'sweetalert';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 const CourseDetails = () => {
     const { id } = useParams();
@@ -43,6 +48,7 @@ const CourseDetails = () => {
         // Saving to local storage
         addToDb(course._id);
         setAdded(true);
+        toast.success('Course Added To Cart')
     }
 
 
