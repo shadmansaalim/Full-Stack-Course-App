@@ -2,31 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import Course from '../Course/Course';
 import { Row, Container } from 'react-bootstrap';
-import CoursePagination from '../CoursePagination/CoursePagination';
 import useCourses from '../../hooks/useCourses';
 
 import { Spinner } from 'react-bootstrap';
 
 const Courses = () => {
-    // Declaring the state
-    const [courses] = useCourses();
-    //Declaring states for pagination
-    const [currentPage, setCurrentPage] = useState(1);
-    const [coursesPerPage, setCoursesPerPage] = useState(8);
-
-
-
-    // Getting index of last course in the page 
-    const indexOfLastCourse = currentPage * coursesPerPage;
-    // Getting index of fist course in the page (Not giving 0 cause in another page first course index will not be 0) 
-    const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
-    //Finding the current courses to view on the page
-    let currentCourses = null;
-    currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
-
-
-    //Change Page by setting the current page state
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const [courses, setCourses, pageCount, activePage, setActivePage] = useCourses();
 
 
     return (
@@ -37,20 +18,53 @@ const Courses = () => {
                     <section>
                         <Row xs={1} md={2} lg={4} className="g-4 mt-3 mb-5">
                             {
-                                //Maping over courses and passing the course to Course component to create card
-                                currentCourses.map(course => <Course
+                                //Mapping over courses and passing the course to Course component to create card
+                                courses.map(course => <Course
                                     key={course.name}
                                     course={course}
                                 ></Course>)
                             }
                         </Row>
                         <div className="d-flex justify-content-end">
-                            {/* Calling the course pagination component for pagination */}
-                            <CoursePagination
-                                coursesPerPage={coursesPerPage}
-                                totalCourses={courses.length}
-                                paginate={paginate}
-                            ></CoursePagination>
+                            <nav aria-label="...">
+                                <ul className="pagination">
+                                    {
+                                        // <li className={activePage !== 1 ? 'page-item' : 'page-item disabled'}>
+                                        //     <button
+                                        //         onClick={setActivePage(activePage - 1)}
+                                        //         className="page-link">Previous
+                                        //     </button>
+                                        // </li>
+
+
+                                    }
+                                    {
+
+                                        [...Array(pageCount).keys()].map(number => <li key={number}
+                                            //Giving class name using conditional rendering to highlight the active page
+                                            className={number === activePage ? 'page-item active' : 'page-item'}>
+                                            <button
+                                                onClick={() => setActivePage(number)}
+                                                className="page-link" >
+                                                {number + 1}
+                                            </button>
+                                        </li>)
+                                    }
+                                    {
+                                        // activePage !== (pageNumbers.length) ?
+                                        //     <li className="page-item">
+                                        //         <a href="#" onClick={() => {
+                                        //             paginate(activePage + 1)
+                                        //             setActivePage(activePage + 1)
+                                        //         }} className="page-link">Next</a>
+                                        //     </li>
+                                        //     :
+                                        //     <li className="page-item disabled">
+                                        //         <a href="#" className="page-link">Next</a>
+                                        //     </li>
+                                    }
+                                </ul>
+                            </nav>
                         </div>
                     </section>
                     :
