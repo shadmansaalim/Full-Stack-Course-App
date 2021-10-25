@@ -6,8 +6,10 @@ import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart } from '@fortawes
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
+import useCartContext from '../../hooks/useCartContext';
 const Header = () => {
     const history = useHistory();
+    const [cart] = useCartContext();
     const { user, logOut } = useAuth();
     const [show, setShow] = useState(false);
 
@@ -62,7 +64,7 @@ const Header = () => {
                         <NavLink className="text-decoration-none" exact to="/developer">
                             <button className="btn btn-outline-dark px-2 py-1 position-relative"><FontAwesomeIcon icon={faShoppingCart} />
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                                    4
+                                    {cart.length}
                                     <span class="visually-hidden">Course Cart</span>
                                 </span>
                             </button>
@@ -72,7 +74,7 @@ const Header = () => {
                         {
                             user.email ?
                                 user.photoURL ?
-                                    <img className="img-fluid rounded-circle mx-auto mt-2 mt-lg-0" src={user.photoURL} alt={user.displayName} style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} onClick={handleShow} ></img>
+                                    <img className="img-fluid rounded-circle mx-auto mt-2 mt-lg-0" src={user.photoURL} alt="User" style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} onClick={handleShow} ></img>
                                     :
                                     <FontAwesomeIcon className="fs-1 text-secondary mx-auto mt-2 mt-lg-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} onClick={handleShow} />
 

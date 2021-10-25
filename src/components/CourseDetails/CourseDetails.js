@@ -7,10 +7,15 @@ import { Container } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { addToDb } from '../../utilities/LocalStorage';
+import useCartContext from '../../hooks/useCartContext';
 
 const CourseDetails = () => {
     const { id } = useParams();
     const [course, setCourse] = useState({});
+    const [cart, setCart] = useCartContext();
     const history = useHistory();
 
     // Fetching single course from Database 
@@ -31,9 +36,15 @@ const CourseDetails = () => {
     };
 
 
-    const goToBuyCourse = () => {
-        history.push((`/course/${id}/buy-course`))
+    const handleAddToCart = (course) => {
+        const newCart = [...cart, course];
+        setCart(newCart);
+        // Saving to local storage
+        addToDb(course._id);
     }
+
+
+
 
     return (
         <div className="bg-dark text-white py-5">
@@ -83,7 +94,7 @@ const CourseDetails = () => {
                                     <br />
                                     <small>Created by <a href="!#">{course.instructor}</a></small>
                                     <br />
-                                    <button onClick={goToBuyCourse} className="btn text-white mt-3" style={{ backgroundColor: 'rgb(69, 82, 110)' }}>Buy Course</button>
+                                    <button onClick={() => handleAddToCart(course)} className="btn text-white mt-3" style={{ backgroundColor: 'rgb(69, 82, 110)' }}>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
                                 </div>
 
                             </section>

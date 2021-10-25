@@ -16,7 +16,7 @@ import Developer from './components/Developer/Developer';
 import SignUp from './components/SignUp/SignUp';
 import Login from './components/Login/Login';
 import CourseDetails from './components/CourseDetails/CourseDetails'
-import AuthProvider from './context/AuthProvider';
+import ContextProvider from './context/ContextProvider';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import BuyCourse from './components/BuyCourse/BuyCourse';
 import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
@@ -28,7 +28,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
+      <ContextProvider>
         <Router>
           <ScrollToTop>
             <Header></Header>
@@ -76,7 +76,7 @@ function App() {
             <Footer></Footer>
           </ScrollToTop>
         </Router>
-      </AuthProvider>
+      </ContextProvider>
     </div>
 
   );
