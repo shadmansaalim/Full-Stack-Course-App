@@ -1,6 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import signupImg from '../../images/signup.svg'
 

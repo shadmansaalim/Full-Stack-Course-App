@@ -1,7 +1,6 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { Redirect, Route } from 'react-router';
-import { Spinner } from 'react-bootstrap';
 
 const PrivateForm = ({ children, ...rest }) => {
     const { user } = useAuth();

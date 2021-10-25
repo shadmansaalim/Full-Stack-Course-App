@@ -2,15 +2,12 @@ import React from 'react';
 import { Navbar, Container, Nav, Button, Offcanvas, Modal } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart, faForward } from '@fortawesome/free-solid-svg-icons';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
-import { getStoredCart, cartItemCount } from '../../utilities/LocalStorage';
 import useCourses from '../../hooks/useCourses';
 import Cart from '../Cart/Cart';
-import useCart from '../../hooks/useCart';
-import { useEffect } from 'react';
 import useCartContext from '../../hooks/useCartContext';
 const Header = () => {
     const history = useHistory();
@@ -91,7 +88,7 @@ const Header = () => {
 
                         <Modal show={modalShow} onHide={handleModalClose}>
                             <Modal.Header closeButton>
-                                <Modal.Title>Modal heading</Modal.Title>
+                                <Modal.Title>Courses Added</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
                                 <Cart cart={cart}></Cart>
@@ -101,7 +98,7 @@ const Header = () => {
                                     Close
                                 </Button>
                                 <Button variant="primary" onClick={handleModalClose}>
-                                    Save Changes
+                                    Review Order <FontAwesomeIcon icon={faForward} />
                                 </Button>
                             </Modal.Footer>
                         </Modal>

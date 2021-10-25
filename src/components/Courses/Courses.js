@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import Course from '../Course/Course';
 import { Row, Container } from 'react-bootstrap';
 import useCourses from '../../hooks/useCourses';
