@@ -25,7 +25,7 @@ const CourseDetails = () => {
     const [courses] = useCourses();
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
-    const [cart, setCart, count, setCount] = useCartContext();
+    const [cart, setCart] = useCartContext();
     console.log(cart);
     const history = useHistory();
 
@@ -54,7 +54,7 @@ const CourseDetails = () => {
         addToDb(course._id);
         setAdded(true);
         toast.success('Course Added To Cart')
-        setCount(cartItemCount());
+
     }
 
 

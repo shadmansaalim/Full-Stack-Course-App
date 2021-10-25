@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react"
-import { getStoredCart } from "../utilities/LocalStorage";
+import { getStoredCart, cartItemCount } from "../utilities/LocalStorage";
 
 
 const useCart = (courses) => {
     const [cart, setCart] = useState([]);
-    const [count, setCount] = useState(0);
+    const count = cartItemCount();
 
     useEffect(() => {
         if (courses?.length) {
@@ -25,7 +25,7 @@ const useCart = (courses) => {
 
     }, [courses]);
 
-    return [cart, setCart, count, setCount];
+    return [cart, setCart, count];
 }
 
 export default useCart;
