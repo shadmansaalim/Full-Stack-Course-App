@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav, Button, Offcanvas } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button, Offcanvas, Modal } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -14,11 +14,15 @@ const Header = () => {
     const [cart] = useCartContext();
     const [courses, setCourses] = useCourses();
     const { user, logOut } = useAuth();
-    const [show, setShow] = useState(false);
+    const [offCanvasShow, setOffCanvasShow] = useState(false);
+    const [modalShow, setModalShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
+    const handleOffCanvasClose = () => setOffCanvasShow(false);
+    const handleOffCanvasShow = () => setOffCanvasShow(true);
+
+    const handleModalClose = () => setModalShow(false);
+    const handleModalShow = () => setModalShow(true);
 
 
     //Getting courses that are added to cart using local storage
@@ -78,22 +82,37 @@ const Header = () => {
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>Developer</NavLink>
-                        <NavLink className="text-decoration-none" exact to="/developer">
-                            <button className="btn btn-outline-dark px-2 py-1 position-relative"><FontAwesomeIcon icon={faShoppingCart} />
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                                    {getCartCount()}
-                                    <span class="visually-hidden">Course Cart</span>
-                                </span>
-                            </button>
-                        </NavLink>
+
+                        <button className="btn btn-outline-dark px-2 py-1 position-relative" onClick={handleModalShow}><FontAwesomeIcon icon={faShoppingCart} />
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                                {getCartCount()}
+                                <span class="visually-hidden">Course Cart</span>
+                            </span>
+                        </button>
+
+                        <Modal show={modalShow} onHide={handleModalClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Modal heading</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleModalClose}>
+                                    Close
+                                </Button>
+                                <Button variant="primary" onClick={handleModalClose}>
+                                    Save Changes
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+
                     </Nav>
                     <Nav className="ms-auto">
                         {
                             user.email ?
                                 user.photoURL ?
-                                    <img className="img-fluid rounded-circle mx-auto mt-2 mt-lg-0" src={user.photoURL} alt="User" style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} onClick={handleShow} ></img>
+                                    <img className="img-fluid rounded-circle mx-auto mt-2 mt-lg-0" src={user.photoURL} alt="User" style={{ width: 40, height: 40 }} data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} onClick={handleOffCanvasShow} ></img>
                                     :
-                                    <FontAwesomeIcon className="fs-1 text-secondary mx-auto mt-2 mt-lg-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} onClick={handleShow} />
+                                    <FontAwesomeIcon className="fs-1 text-secondary mx-auto mt-2 mt-lg-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} icon={faUserCircle} onClick={handleOffCanvasShow} />
 
                                 :
                                 <div className="d-flex flex-column flex-lg-row mt-2 mt-lg-0">
@@ -102,7 +121,7 @@ const Header = () => {
                                 </div>
                         }
 
-                        <Offcanvas show={show} onHide={handleClose} placement="end" style={{ maxWidth: 300 }}>
+                        <Offcanvas show={offCanvasShow} onHide={handleOffCanvasClose} placement="end" style={{ maxWidth: 300 }}>
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title></Offcanvas.Title>
                             </Offcanvas.Header>
@@ -121,7 +140,7 @@ const Header = () => {
                                     </div>
                                     <button onClick={() => {
                                         logOut();
-                                        handleClose();
+                                        handleOffCanvasClose();
                                     }} className="btn btn-warning">Log Out</button>
 
 
@@ -129,6 +148,7 @@ const Header = () => {
 
                             </Offcanvas.Body>
                         </Offcanvas>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
