@@ -8,13 +8,14 @@ import { Spinner } from 'react-bootstrap';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { addToDb } from '../../utilities/LocalStorage';
 import useCartContext from '../../hooks/useCartContext';
 
 const CourseDetails = () => {
     const { id } = useParams();
     const [course, setCourse] = useState({});
+    const [added, setAdded] = useState(false);
     const [cart, setCart] = useCartContext();
     const history = useHistory();
 
@@ -41,6 +42,7 @@ const CourseDetails = () => {
         setCart(newCart);
         // Saving to local storage
         addToDb(course._id);
+        setAdded(true);
     }
 
 
@@ -94,7 +96,14 @@ const CourseDetails = () => {
                                     <br />
                                     <small>Created by <a href="!#">{course.instructor}</a></small>
                                     <br />
-                                    <button onClick={() => handleAddToCart(course)} className="btn text-white mt-3" style={{ backgroundColor: 'rgb(69, 82, 110)' }}>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+                                    <button onClick={() => handleAddToCart(course)} className={added === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
+                                        {
+                                            added === true ?
+                                                <p className="m-0">Added to Cart <FontAwesomeIcon icon={faCheck} /></p>
+                                                :
+                                                <p className="m-0">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>
+                                        }
+                                    </button>
                                 </div>
 
                             </section>
