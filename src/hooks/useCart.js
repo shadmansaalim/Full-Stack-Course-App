@@ -5,10 +5,10 @@ import { getStoredCart } from "../utilities/LocalStorage";
 
 const useCart = (courses) => {
     const [cart, setCart] = useState([]);
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
-
-        if (courses.length) {
+        if (courses?.length) {
             const savedCart = getStoredCart();
             const storedCart = [];
             for (const id in savedCart) {
@@ -25,7 +25,7 @@ const useCart = (courses) => {
 
     }, [courses]);
 
-    return [cart, setCart];
+    return [cart, setCart, count, setCount];
 }
 
 export default useCart;

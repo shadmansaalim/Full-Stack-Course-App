@@ -9,13 +9,14 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { addToDb } from '../../utilities/LocalStorage';
+import { addToDb, cartItemCount } from '../../utilities/LocalStorage';
 
 // import swal from 'sweetalert';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useCart from '../../hooks/useCart';
 import useCourses from '../../hooks/useCourses';
+import useCartContext from '../../hooks/useCartContext';
 
 toast.configure()
 
@@ -24,7 +25,7 @@ const CourseDetails = () => {
     const [courses] = useCourses();
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
-    const [cart, setCart] = useCart(courses);
+    const [cart, setCart, count, setCount] = useCartContext();
     console.log(cart);
     const history = useHistory();
 
@@ -53,6 +54,7 @@ const CourseDetails = () => {
         addToDb(course._id);
         setAdded(true);
         toast.success('Course Added To Cart')
+        setCount(cartItemCount());
     }
 
 

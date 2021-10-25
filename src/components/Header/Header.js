@@ -6,17 +6,21 @@ import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart } from '@fortawes
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
-import { getStoredCart } from '../../utilities/LocalStorage';
+import { getStoredCart, cartItemCount } from '../../utilities/LocalStorage';
 import useCourses from '../../hooks/useCourses';
 import Cart from '../Cart/Cart';
 import useCart from '../../hooks/useCart';
+import { useEffect } from 'react';
+import useCartContext from '../../hooks/useCartContext';
 const Header = () => {
     const history = useHistory();
     const [courses, setCourses] = useCourses();
-    const [cart] = useCart(courses);
+    const [cart, setCart, count] = useCartContext();
     const { user, logOut } = useAuth();
     const [offCanvasShow, setOffCanvasShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
+
+
 
 
     const handleOffCanvasClose = () => setOffCanvasShow(false);
@@ -27,16 +31,10 @@ const Header = () => {
 
 
     //Getting courses that are added to cart using local storage
-    const getCartCount = () => {
-        let count = 0;
-        if (courses.length) {
-            const savedCart = getStoredCart();
-            for (const key in savedCart) {
-                count += 1;
-            }
-        }
-        return count;
-    }
+    // for (const item of cart) {
+    //     console.log(item);
+    // }
+
     return (
         // Website Top Navigation Bar
         <Navbar className="shadow-lg pt-lg-3" expand="lg">
@@ -84,9 +82,9 @@ const Header = () => {
                                 color: "#0275d8"
                             }}>Developer</NavLink>
 
-                        <button className="btn btn-outline-dark px-2 py-1 position-relative" onClick={handleModalShow}><FontAwesomeIcon icon={faShoppingCart} />
+                        <button className="btn btn-outline-dark mt-2 mt-lg-0 px-2 py-1 position-relative" onClick={handleModalShow}><FontAwesomeIcon icon={faShoppingCart} />
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                                {getCartCount()}
+                                {count}
                                 <span class="visually-hidden">Course Cart</span>
                             </span>
                         </button>

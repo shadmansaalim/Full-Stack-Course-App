@@ -39,4 +39,17 @@ const clearTheCart = () => {
     localStorage.removeItem('course_cart');
 }
 
-export { addToDb, removeFromDb as deleteFromDb, clearTheCart, getStoredCart }
+const cartItemCount = () => {
+    const exists = getDb();
+    if (exists) {
+        const course_cart = JSON.parse(exists);
+        let count = 0;
+        for (const item in course_cart) {
+            count++
+        }
+        return count;
+    }
+    return 0;
+}
+
+export { addToDb, removeFromDb as deleteFromDb, clearTheCart, getStoredCart, cartItemCount }
