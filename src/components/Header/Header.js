@@ -7,14 +7,31 @@ import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
 import useCartContext from '../../hooks/useCartContext';
+import { getStoredCart } from '../../utilities/LocalStorage';
+import useCourses from '../../hooks/useCourses';
 const Header = () => {
     const history = useHistory();
     const [cart] = useCartContext();
+    const [courses, setCourses] = useCourses();
     const { user, logOut } = useAuth();
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
+
+    //Getting courses that are added to cart using local storage
+    const getCartCount = () => {
+        let count = 0;
+        if (courses.length) {
+            const savedCart = getStoredCart();
+            for (const key in savedCart) {
+                count += 1;
+            }
+        }
+        return count;
+    }
     return (
         // Website Top Navigation Bar
         <Navbar className="shadow-lg pt-lg-3" expand="lg">
@@ -64,7 +81,7 @@ const Header = () => {
                         <NavLink className="text-decoration-none" exact to="/developer">
                             <button className="btn btn-outline-dark px-2 py-1 position-relative"><FontAwesomeIcon icon={faShoppingCart} />
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                                    {cart.length}
+                                    {getCartCount()}
                                     <span class="visually-hidden">Course Cart</span>
                                 </span>
                             </button>
