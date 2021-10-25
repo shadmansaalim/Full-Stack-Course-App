@@ -15,6 +15,7 @@ const Home = () => {
     //Filtering courses to only show 6 courses in the Home Page
     const displayCourses = courses.filter(course => courses.indexOf(course) < 4);
 
+
     return (
         <Container className="my-5">
             <Introduction></Introduction>

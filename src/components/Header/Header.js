@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav, Button, Offcanvas } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserPlus, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
@@ -15,7 +15,7 @@ const Header = () => {
     const handleShow = () => setShow(true);
     return (
         // Website Top Navigation Bar
-        <Navbar className="shadow-lg" expand="lg">
+        <Navbar className="shadow-lg pt-lg-3" expand="lg">
             <Container>
                 <Navbar.Brand href="/home">
                     <img
@@ -28,37 +28,45 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <NavLink className="text-decoration-none me-lg-4" exact to="/"
+                    <Nav className="me-auto d-flex align-items-center">
+                        <NavLink className="text-decoration-none ms-lg-2 me-lg-3" exact to="/"
                             style={{ color: '#161c2d' }}
                             activeStyle={{
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>Home</NavLink>
-                        <NavLink className="text-decoration-none me-lg-4" exact to="/courses"
+                        <NavLink className="text-decoration-none me-lg-3" exact to="/courses"
                             style={{ color: '#161c2d' }}
                             activeStyle={{
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>Courses</NavLink>
-                        <NavLink className="text-decoration-none me-lg-4" exact to="/my-classes"
+                        <NavLink className="text-decoration-none me-lg-3" exact to="/my-classes"
                             style={{ color: '#161c2d' }}
                             activeStyle={{
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>My Classes</NavLink>
-                        <NavLink className="text-decoration-none me-lg-4" exact to="/about"
+                        <NavLink className="text-decoration-none me-lg-3" exact to="/about"
                             style={{ color: '#161c2d' }}
                             activeStyle={{
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>About</NavLink>
-                        <NavLink className="text-decoration-none" exact to="/developer"
+                        <NavLink className="text-decoration-none me-lg-3" exact to="/developer"
                             style={{ color: '#161c2d' }}
                             activeStyle={{
                                 fontWeight: "bold",
                                 color: "#0275d8"
                             }}>Developer</NavLink>
+                        <NavLink className="text-decoration-none" exact to="/developer">
+                            <button className="btn btn-outline-dark px-2 py-1 position-relative"><FontAwesomeIcon icon={faShoppingCart} />
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                                    4
+                                    <span class="visually-hidden">Course Cart</span>
+                                </span>
+                            </button>
+                        </NavLink>
                     </Nav>
                     <Nav className="ms-auto">
                         {
@@ -70,7 +78,7 @@ const Header = () => {
 
                                 :
                                 <div className="d-flex flex-column flex-lg-row mt-2 mt-lg-0">
-                                    <Button className="me-lg-4" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
+                                    <Button className="me-lg-3" onClick={() => history.push('/sign-up')} variant="outline-primary">Sign Up <FontAwesomeIcon icon={faUserPlus} /></Button>
                                     <Button className="mt-1 mt-lg-0" onClick={() => history.push('/login')} variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
                                 </div>
                         }
@@ -105,7 +113,7 @@ const Header = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 };
 
