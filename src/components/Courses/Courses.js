@@ -29,12 +29,11 @@ const Courses = () => {
                             <nav aria-label="...">
                                 <ul className="pagination">
                                     {
-                                        // <li className={activePage !== 1 ? 'page-item' : 'page-item disabled'}>
-                                        //     <button
-                                        //         onClick={setActivePage(activePage - 1)}
-                                        //         className="page-link">Previous
-                                        //     </button>
-                                        // </li>
+                                        <li class={activePage === 0 ? 'page-item disabled' : 'page-item'}>
+                                            <button onClick={() => setActivePage(activePage - 1)} class="page-link" aria-label="Previous">
+                                                Previous
+                                            </button>
+                                        </li>
 
 
                                     }
@@ -51,17 +50,11 @@ const Courses = () => {
                                         </li>)
                                     }
                                     {
-                                        // activePage !== (pageNumbers.length) ?
-                                        //     <li className="page-item">
-                                        //         <a href="#" onClick={() => {
-                                        //             paginate(activePage + 1)
-                                        //             setActivePage(activePage + 1)
-                                        //         }} className="page-link">Next</a>
-                                        //     </li>
-                                        //     :
-                                        //     <li className="page-item disabled">
-                                        //         <a href="#" className="page-link">Next</a>
-                                        //     </li>
+                                        <li className={activePage === pageCount - 1 ? 'page-item disabled' : 'page-item'}>
+                                            <button onClick={() => setActivePage(activePage + 1)} class="page-link" aria-label="Next">
+                                                Next
+                                            </button>
+                                        </li>
                                     }
                                 </ul>
                             </nav>
