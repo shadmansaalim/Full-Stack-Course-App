@@ -27,10 +27,10 @@ const Header = () => {
     const handleModalShow = () => setModalShow(true);
 
 
-    //Getting courses that are added to cart using local storage
-    // for (const item of cart) {
-    //     console.log(item);
-    // }
+    const goToReview = () => {
+        handleModalClose();
+        history.push('/review');
+    }
 
     return (
         // Website Top Navigation Bar
@@ -86,22 +86,55 @@ const Header = () => {
                             </span>
                         </button>
 
-                        <Modal show={modalShow} onHide={handleModalClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Courses Added</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <Cart cart={cart}></Cart>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleModalClose}>
-                                    Close
-                                </Button>
-                                <Button variant="primary" onClick={handleModalClose}>
-                                    Review Order <FontAwesomeIcon icon={faForward} />
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
+                        {
+                            cart.length
+                                ?
+                                <Modal show={modalShow} onHide={handleModalClose}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Courses Added</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+
+                                        <Cart cart={cart}></Cart>
+
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={handleModalClose}>
+                                            Close
+                                        </Button>
+                                        <Button variant="primary" onClick={goToReview}>
+                                            Review Order <FontAwesomeIcon icon={faForward} />
+                                        </Button>
+                                    </Modal.Footer>
+                                </Modal>
+                                :
+                                <Modal show={modalShow} onHide={handleModalClose}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Courses Added</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+
+                                        <div className="container-fluid my-5">
+                                            <div className="offset-lg-3 col-12 text-center mx-auto">
+                                                <img src="https://codescandy.com/coach/rtl/assets/images/bag.svg" alt="" className="img-fluid mb-4" />
+                                                <h3 className="fw-bold">Your shopping cart is empty</h3>
+                                                <p className="mb-4">
+                                                    Add some courses for your delivery slot. Before proceeding to checkout you must add some courses to your shopping cart. You will find a lot of amazing courses on our courses page with limited offers.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="primary" onClick={() => {
+                                            handleModalClose();
+                                            history.push('/courses')
+                                        }}>
+                                            Browse Courses
+                                        </Button>
+                                    </Modal.Footer>
+                                </Modal>
+                        }
 
                     </Nav>
                     <Nav className="ms-auto">
