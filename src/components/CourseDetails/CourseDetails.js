@@ -9,7 +9,7 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { addToDb, cartItemCount } from '../../utilities/LocalStorage';
+import { addToDb, cartItemCount, getStoredCart } from '../../utilities/LocalStorage';
 
 // import swal from 'sweetalert';
 import { toast } from 'react-toastify';
@@ -26,7 +26,6 @@ const CourseDetails = () => {
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
     const [cart, setCart] = useCartContext();
-    console.log(cart);
     const history = useHistory();
 
     // Fetching single course from Database 
@@ -34,7 +33,15 @@ const CourseDetails = () => {
         const url = `http://localhost:5000/course/${id}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setCourse(data))
+            .then(data => {
+                setCourse(data)
+                const courseCart = getStoredCart();
+                for (const item in courseCart) {
+                    if (item === data._id) {
+                        setAdded(true);
+                    }
+                }
+            })
     }, []);
 
     const opts = {
@@ -52,7 +59,7 @@ const CourseDetails = () => {
         setCart(newCart);
         // Saving to local storage
         addToDb(course._id);
-        setAdded(true);
+        // setAdded(true);
         toast.success('Course Added To Cart')
 
     }
