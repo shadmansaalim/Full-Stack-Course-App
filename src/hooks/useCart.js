@@ -4,8 +4,11 @@ import { getStoredCart, cartItemCount } from "../utilities/LocalStorage";
 
 
 const useCart = (courses) => {
+    const [countLoading, setCountLoading] = useState(true);
     const [cart, setCart] = useState([]);
     const count = cartItemCount();
+
+
 
     useEffect(() => {
         if (courses?.length) {
@@ -21,11 +24,12 @@ const useCart = (courses) => {
                 }
             }
             setCart(storedCart);
+            setCountLoading(false)
         }
 
     }, [courses]);
 
-    return [cart, setCart, count];
+    return [cart, setCart, count, countLoading];
 }
 
 export default useCart;
