@@ -18,6 +18,7 @@ import useCart from '../../hooks/useCart';
 import useCourses from '../../hooks/useCourses';
 import useCartContext from '../../hooks/useCartContext';
 
+
 toast.configure()
 
 const CourseDetails = () => {
@@ -55,13 +56,13 @@ const CourseDetails = () => {
 
 
     const handleAddToCart = (course) => {
+
         const newCart = [...cart, course];
         setCart(newCart);
         // Saving to local storage
         addToDb(course._id);
-        // setAdded(true);
+        setAdded(true);
         toast.success('Course Added To Cart')
-
     }
 
 
