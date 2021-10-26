@@ -6,6 +6,7 @@ import { Row, Col, Accordion } from 'react-bootstrap';
 import './Home.css'
 import useCourses from '../../hooks/useCourses';
 import { Spinner } from 'react-bootstrap';
+import { getStoredCart } from '../../utilities/LocalStorage';
 
 
 const Home = () => {

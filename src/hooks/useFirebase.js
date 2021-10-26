@@ -21,7 +21,6 @@ const useFirebase = () => {
     const facebookProvider = new FacebookAuthProvider();
     const twitterProvider = new TwitterAuthProvider();
     const history = useHistory();
-    console.log(user);
 
 
 
@@ -195,7 +194,6 @@ const useFirebase = () => {
 
             })
             .catch(error => {
-                console.log(error.message)
             })
     }
 

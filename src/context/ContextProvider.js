@@ -9,7 +9,7 @@ export const Context = createContext();
 const ContextProvider = ({ children }) => {
     const [courses] = useCourses();
     const authContext = useFirebase();
-    const cartContext = useCart(courses);
+    const cartContext = useCart();
     return (
         <Context.Provider value={[authContext, cartContext]}>
             {children}

@@ -3,30 +3,48 @@ import { useState } from "react"
 import { getStoredCart, cartItemCount } from "../utilities/LocalStorage";
 
 
-const useCart = (courses) => {
+const useCart = () => {
     const [cart, setCart] = useState([]);
     const count = cartItemCount();
 
 
-
     useEffect(() => {
-        if (courses?.length) {
-            const savedCart = getStoredCart();
-            const storedCart = [];
-            for (const id in savedCart) {
-                const addedCourse = courses.find(product => product._id === id);
-                if (addedCourse) {
-                    // set quantity
-                    const quantity = savedCart[id];
-                    addedCourse.quantity = quantity;
-                    storedCart.push(addedCourse);
-                }
-            }
-            setCart(storedCart);
+        const savedCart = getStoredCart();
+        const keys = Object.keys(savedCart);
+        const intKeys = [];
+        for (const key of keys) {
+            intKeys.push(parseInt(key));
         }
 
-    }, [courses]);
+        fetch('http://localhost:5000/courses/byKeys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(intKeys)
+        })
+            .then(res => res.json())
+            .then(courses => {
+                console.log(courses);
+                if (courses.length) {
+                    const storedCart = [];
+                    for (const id in savedCart) {
+                        const addedCourse = courses.find(course => parseInt(course.courseID) === parseInt(id));
+                        if (addedCourse) {
+                            // set quantity
+                            const quantity = savedCart[id];
+                            addedCourse.quantity = quantity;
+                            storedCart.push(addedCourse);
+                        }
+                    }
+                    setCart(storedCart);
+                }
+            })
 
+    }, [])
+
+
+    console.log(cart);
     return [cart, setCart, count];
 }
 

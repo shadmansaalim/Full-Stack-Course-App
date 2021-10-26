@@ -13,7 +13,7 @@ const OrderReview = () => {
     const [cart, setCart, count] = useCartContext();
     const history = useHistory();
     const handleRemove = id => {
-        const newCart = cart.filter(course => course._id !== id)
+        const newCart = cart.filter(course => course.courseID !== id)
         setCart(newCart);
         deleteFromDb(id);
     }

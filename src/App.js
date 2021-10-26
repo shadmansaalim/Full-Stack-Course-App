@@ -24,6 +24,7 @@ import PrivateForm from './components/PrivateRoute/PrivateForm';
 import AddCourses from './components/AddCourses/AddCourses';
 import UserProfile from './components/UserProfile/UserProfile';
 import OrderReview from './components/OrderReview/OrderReview';
+import Shipping from './components/Shipping/Shipping';
 
 
 
@@ -67,6 +68,9 @@ function App() {
               </Route>
               <Route path="/review">
                 <OrderReview ></OrderReview>
+              </Route>
+              <Route path="/shipping">
+                <Shipping ></Shipping>
               </Route>
               <Route exact path="/profile">
                 <UserProfile></UserProfile>

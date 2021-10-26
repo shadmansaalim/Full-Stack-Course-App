@@ -38,7 +38,7 @@ const CourseDetails = () => {
                 setCourse(data)
                 const courseCart = getStoredCart();
                 for (const item in courseCart) {
-                    if (item === data._id) {
+                    if (parseInt(item) === data.courseID) {
                         setAdded(true);
                     }
                 }
@@ -60,7 +60,7 @@ const CourseDetails = () => {
         const newCart = [...cart, course];
         setCart(newCart);
         // Saving to local storage
-        addToDb(course._id);
+        addToDb(course.courseID);
         setAdded(true);
         toast.success('Course Added To Cart')
     }

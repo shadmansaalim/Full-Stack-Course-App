@@ -17,7 +17,7 @@ const Header = () => {
     const [offCanvasShow, setOffCanvasShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
 
-
+    console.log(cart);
 
 
     const handleOffCanvasClose = () => setOffCanvasShow(false);
@@ -80,9 +80,9 @@ const Header = () => {
                             }}>Developer</NavLink>
 
                         <button className="btn btn-outline-dark mt-2 mt-lg-0 px-2 py-1 position-relative" onClick={handleModalShow}><FontAwesomeIcon icon={faShoppingCart} />
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
                                 {count}
-                                <span class="visually-hidden">Course Cart</span>
+                                <span className="visually-hidden">Course Cart</span>
                             </span>
                         </button>
 
@@ -94,7 +94,7 @@ const Header = () => {
                                 {
                                     count > 0
                                         ?
-                                        <Cart cart={cart}></Cart>
+                                        <Cart key={cart.map(c => c._id)} cart={cart}></Cart>
                                         :
                                         <div className="container-fluid my-5">
                                             <div className="offset-lg-3 col-12 text-center mx-auto">

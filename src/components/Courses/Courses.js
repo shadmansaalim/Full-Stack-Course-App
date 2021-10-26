@@ -111,8 +111,8 @@ const Courses = () => {
                             <nav aria-label="...">
                                 <ul className="pagination">
                                     {
-                                        <li class={activePage === 0 ? 'page-item disabled' : 'page-item'}>
-                                            <button onClick={() => setActivePage(activePage - 1)} class="page-link" aria-label="Previous">
+                                        <li className={activePage === 0 ? 'page-item disabled' : 'page-item'}>
+                                            <button onClick={() => setActivePage(activePage - 1)} className="page-link" aria-label="Previous">
                                                 Previous
                                             </button>
                                         </li>
@@ -133,7 +133,7 @@ const Courses = () => {
                                     }
                                     {
                                         <li className={activePage === pageCount - 1 ? 'page-item disabled' : 'page-item'}>
-                                            <button onClick={() => setActivePage(activePage + 1)} class="page-link" aria-label="Next">
+                                            <button onClick={() => setActivePage(activePage + 1)} className="page-link" aria-label="Next">
                                                 Next
                                             </button>
                                         </li>
