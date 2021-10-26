@@ -86,34 +86,16 @@ const Header = () => {
                             </span>
                         </button>
 
-                        {
-                            cart.length
-                                ?
-                                <Modal show={modalShow} onHide={handleModalClose}>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Courses Added</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>
-
+                        <Modal show={modalShow} onHide={handleModalClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Courses Added</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                {
+                                    count > 0
+                                        ?
                                         <Cart cart={cart}></Cart>
-
-                                    </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleModalClose}>
-                                            Close
-                                        </Button>
-                                        <Button variant="primary" onClick={goToReview}>
-                                            Review Order <FontAwesomeIcon icon={faForward} />
-                                        </Button>
-                                    </Modal.Footer>
-                                </Modal>
-                                :
-                                <Modal show={modalShow} onHide={handleModalClose}>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>Courses Added</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>
-
+                                        :
                                         <div className="container-fluid my-5">
                                             <div className="offset-lg-3 col-12 text-center mx-auto">
                                                 <img src="https://codescandy.com/coach/rtl/assets/images/bag.svg" alt="" className="img-fluid mb-4" />
@@ -123,18 +105,33 @@ const Header = () => {
                                                 </p>
                                             </div>
                                         </div>
+                                }
 
-                                    </Modal.Body>
-                                    <Modal.Footer>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                {
+                                    count > 0
+                                        ?
+                                        <div>
+                                            <Button variant="secondary" onClick={handleModalClose}>
+                                                Close
+                                            </Button>
+                                            <Button className="ms-2" variant="primary" onClick={goToReview}>
+                                                Review Order <FontAwesomeIcon icon={faForward} />
+                                            </Button>
+                                        </div>
+                                        :
                                         <Button variant="primary" onClick={() => {
                                             handleModalClose();
                                             history.push('/courses')
                                         }}>
                                             Browse Courses
                                         </Button>
-                                    </Modal.Footer>
-                                </Modal>
-                        }
+                                }
+
+
+                            </Modal.Footer>
+                        </Modal>
 
                     </Nav>
                     <Nav className="ms-auto">

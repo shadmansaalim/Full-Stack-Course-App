@@ -24,7 +24,7 @@ import PrivateForm from './components/PrivateRoute/PrivateForm';
 import AddCourses from './components/AddCourses/AddCourses';
 import UserProfile from './components/UserProfile/UserProfile';
 import OrderReview from './components/OrderReview/OrderReview';
-import PrivateOrderReview from './components/PrivateRoute/PrivateOrderReview';
+
 
 
 function App() {
@@ -65,9 +65,9 @@ function App() {
               <Route exact path="/add-courses">
                 <AddCourses></AddCourses>
               </Route>
-              <PrivateOrderReview path="/review">
+              <Route path="/review">
                 <OrderReview ></OrderReview>
-              </PrivateOrderReview>
+              </Route>
               <Route exact path="/profile">
                 <UserProfile></UserProfile>
               </Route>

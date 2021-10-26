@@ -4,7 +4,6 @@ import { getStoredCart, cartItemCount } from "../utilities/LocalStorage";
 
 
 const useCart = (courses) => {
-    const [countLoading, setCountLoading] = useState(true);
     const [cart, setCart] = useState([]);
     const count = cartItemCount();
 
@@ -24,12 +23,11 @@ const useCart = (courses) => {
                 }
             }
             setCart(storedCart);
-            setCountLoading(false)
         }
 
     }, [courses]);
 
-    return [cart, setCart, count, countLoading];
+    return [cart, setCart, count];
 }
 
 export default useCart;
