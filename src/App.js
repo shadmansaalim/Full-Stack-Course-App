@@ -66,7 +66,7 @@ function App() {
                 <AddCourses></AddCourses>
               </Route>
               <PrivateOrderReview path="/review">
-                <OrderReview></OrderReview>
+                <OrderReview ></OrderReview>
               </PrivateOrderReview>
               <Route exact path="/profile">
                 <UserProfile></UserProfile>

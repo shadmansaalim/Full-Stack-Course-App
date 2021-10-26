@@ -24,7 +24,7 @@ const OrderReview = () => {
     }
     return (
         <div className="container">
-            <div className="row g-5 mt-3">
+            <div className="row g-5 mt-3 vh-100">
 
                 <div className="col-md-7 col-lg-8">
                     <p className="text-center bg-dark text-white p-2 rounded-3">You added the following courses <FontAwesomeIcon className="ms-1" icon={faShoppingBag} />
