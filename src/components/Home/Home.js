@@ -36,8 +36,10 @@ const Home = () => {
                         </Row>
 
                         :
-                        <div className="p-5 d-flex align-items-center mx-auto justify-content-center my-5">
-                            <Spinner animation="border" />
+                        <div className="d-flex flex-column align-items-center mx-auto text-dark" style={{ marginBottom: 200 }}>
+                            <h3>Loading...</h3>
+                            <Spinner animation="grow" />
+
                         </div>
                 }
             </section>

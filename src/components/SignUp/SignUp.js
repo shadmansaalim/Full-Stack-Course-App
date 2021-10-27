@@ -4,7 +4,7 @@ import signupImg from '../../images/signup.svg'
 
 const SignUp = () => {
 
-    const { user, error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser, handleTwitterSignUp, setIsLoading } = useAuth();
+    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser, handleTwitterSignUp, setIsLoading } = useAuth();
 
     const signUpSubmission = (e) => {
         e.preventDefault();
@@ -15,26 +15,6 @@ const SignUp = () => {
                 setError('');
                 verifyEmail();
                 setUserDetails()
-                    .then(() => {
-                        const { displayName, email, photoURL, emailVerified } = result.user;
-                        const userData = {
-                            name: displayName,
-                            email: email,
-                            photo: photoURL,
-                            emailVerified: emailVerified
-                        }
-                        fetch('http://localhost:5000/sign-up', {
-                            method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(userData)
-                        })
-                    })
-                    .catch(error => {
-                        setError(error.message);
-                    })
-                    .finally(() => setIsLoading(false));
             })
             .catch(error => {
                 setUser({});
