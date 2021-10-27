@@ -8,14 +8,27 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart'
 import './OrderReview.css'
 import empty from '../../images/empty.svg'
+import swal from 'sweetalert';
 
 const OrderReview = () => {
     const [cart, setCart, count] = useCartContext();
     const history = useHistory();
     const handleRemove = id => {
-        const newCart = cart.filter(course => course.courseID !== id)
-        setCart(newCart);
-        deleteFromDb(id);
+        swal({
+            title: "Are you sure?",
+            text: "Selected course will be removed from cart",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    const newCart = cart.filter(course => course.courseID !== id)
+                    setCart(newCart);
+                    deleteFromDb(id);
+                }
+            });
+
     }
     const handleShipping = () => {
         history.push('/shipping');
@@ -29,7 +42,7 @@ const OrderReview = () => {
             {
                 count > 0
                     ?
-                    <div className="row g-5 mt-3 vh-100">
+                    <div className="row g-5 mt-3">
                         <div className="col-md-7 col-lg-8">
                             <p className="text-center bg-dark text-white p-2 rounded-3">You added the following courses <FontAwesomeIcon className="ms-1" icon={faShoppingBag} />
                             </p>
