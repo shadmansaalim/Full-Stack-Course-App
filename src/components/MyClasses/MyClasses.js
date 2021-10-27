@@ -42,7 +42,7 @@ const MyClasses = () => {
                     myCourses.length
                         ?
                         <section className="my-5">
-                            <h3 className="fw-bold mb-5">Welcome back <span className="text-primary">{user.displayName}</span>, ready for your next lesson?</h3>
+                            <h3 className="fw-light mb-5">Welcome back <span className="fw-normal">{user.displayName}</span>, ready for your next lesson?</h3>
                             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
                                 {
                                     myCourses.map(course => {
