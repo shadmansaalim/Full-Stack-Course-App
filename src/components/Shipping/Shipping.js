@@ -2,10 +2,12 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import useCartContext from '../../hooks/useCartContext';
 import { clearTheCart, getStoredCart } from '../../utilities/LocalStorage';
 import './Shipping.css'
 
 const Shipping = () => {
+    const [cart, setCart] = useCartContext();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
@@ -23,8 +25,9 @@ const Shipping = () => {
             .then(result => {
                 console.log(result);
                 if (result.insertedId) {
-                    alert('Order Processed Successfully')
                     clearTheCart();
+                    setCart([]);
+                    alert('Order Processed Successfully')
                     reset();
                 }
             })
