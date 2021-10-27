@@ -11,17 +11,14 @@ const useCart = () => {
     useEffect(() => {
         const savedCart = getStoredCart();
         const keys = Object.keys(savedCart);
-        const intKeys = [];
-        for (const key of keys) {
-            intKeys.push(parseInt(key));
-        }
+
 
         fetch('http://localhost:5000/courses/byKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(intKeys)
+            body: JSON.stringify(keys)
         })
             .then(res => res.json())
             .then(courses => {

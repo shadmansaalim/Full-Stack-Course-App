@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { clearTheCart, getStoredCart } from '../../utilities/LocalStorage';
+import './Shipping.css'
 
 const Shipping = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -41,7 +42,7 @@ const Shipping = () => {
 
                 <input placeholder="Your Name" defaultValue={user.displayName} {...register("name")} />
 
-                <input defaultValue={user.email}  {...register("email", { required: true })} />
+                <input placeholder="Your Email" defaultValue={user.email}  {...register("email", { required: true })} />
                 {/* errors will return when field validation fails  */}
                 {errors.email && <span>This field is required</span>}
                 <input placeholder="Address" defaultValue="" {...register("address")} />

@@ -38,7 +38,7 @@ const CourseDetails = () => {
                 setCourse(data)
                 const courseCart = getStoredCart();
                 for (const item in courseCart) {
-                    if (parseInt(item) === data.courseID) {
+                    if (item === data.courseID) {
                         setAdded(true);
                     }
                 }
