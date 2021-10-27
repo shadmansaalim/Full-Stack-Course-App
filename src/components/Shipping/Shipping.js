@@ -29,7 +29,7 @@ const Shipping = () => {
                 if (result.insertedId) {
                     clearTheCart();
                     setCart([]);
-                    alert('Order Processed Successfully')
+                    history.push('/order-confirmed');
                     reset();
                 }
             })
@@ -79,9 +79,11 @@ const Shipping = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-4 mb-4 d-flex justify-content-between"> <button onClick={() => history.push('/review')} className="btn btn-secondary px-3"
-                            ><FontAwesomeIcon icon={faBackward} /> Previous</button> <button
-                                className="btn btn-primary px-3">Proceed <FontAwesomeIcon icon={faForward} /></button> </div>
+                            <div className="mt-4 mb-4 d-flex justify-content-between">
+                                <button onClick={() => history.push('/review')} className="btn btn-secondary px-3"
+                                ><FontAwesomeIcon icon={faBackward} /> Previous</button>
+                                <button type="submit"
+                                    className="btn btn-primary px-3">Proceed <FontAwesomeIcon icon={faForward} /></button> </div>
                         </form>
                     </div>
                 </div>

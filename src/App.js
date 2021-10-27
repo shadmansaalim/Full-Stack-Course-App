@@ -25,6 +25,7 @@ import AddCourses from './components/AddCourses/AddCourses';
 import UserProfile from './components/UserProfile/UserProfile';
 import OrderReview from './components/OrderReview/OrderReview';
 import Shipping from './components/Shipping/Shipping';
+import OrderConfirmed from './components/OrderConfirmed/OrderConfirmed';
 
 
 
@@ -69,6 +70,10 @@ function App() {
               <PrivateBuyCourse path="/shipping">
                 <Shipping ></Shipping>
               </PrivateBuyCourse>
+              <PrivateBuyCourse path="/order-confirmed">
+                <OrderConfirmed></OrderConfirmed>
+              </PrivateBuyCourse>
+
               <Route exact path="/profile">
                 <UserProfile></UserProfile>
               </Route>
