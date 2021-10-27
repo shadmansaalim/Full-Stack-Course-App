@@ -40,11 +40,12 @@ const Shipping = () => {
     return (
         <div>
             <div className="container mt-5 px-5">
-                <div className="mb-4">
-                    <h2 className="fw-light">Provide Personal Details</h2> <span>Please provide your details in order to confirm subscription of courses.</span>
-                </div>
+
                 <div className="row">
                     <div className="col-md-6 mx-auto">
+                        <div className="mb-4">
+                            <h2 className="fw-light">Provide Personal Details</h2> <span>Please provide your details in order to confirm subscription of courses.</span>
+                        </div>
                         <form onSubmit={handleSubmit(onSubmit)} className="card pay-card p-3">
                             <h6 className="text-uppercase">User Information</h6>
                             <div className="inputbox mt-3">

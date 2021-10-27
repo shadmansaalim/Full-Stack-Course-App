@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import useCartContext from '../../hooks/useCartContext';
-import { deleteFromDb } from '../../utilities/LocalStorage';
+import { cartItemCount, deleteFromDb } from '../../utilities/LocalStorage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import ReviewItem from '../ReviewItem/ReviewItem';
@@ -9,10 +9,17 @@ import Cart from '../Cart/Cart'
 import './OrderReview.css'
 import empty from '../../images/empty.svg'
 import swal from 'sweetalert';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const OrderReview = () => {
-    const [cart, setCart, count] = useCartContext();
+    const [cart, setCart] = useCartContext();
     const history = useHistory();
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        setCount(cartItemCount());
+    }, [cart.length])
     const handleRemove = id => {
         swal({
             title: "Are you sure?",
@@ -37,7 +44,7 @@ const OrderReview = () => {
         history.push('/courses')
     }
     return (
-        <div className="container">
+        <div className="container my-5">
 
             {
                 count > 0
@@ -90,7 +97,6 @@ const OrderReview = () => {
                     </div>
 
             }
-
         </div>
     );
 };

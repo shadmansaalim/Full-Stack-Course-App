@@ -9,11 +9,21 @@ import './Header.css'
 import useCourses from '../../hooks/useCourses';
 import Cart from '../Cart/Cart';
 import useCartContext from '../../hooks/useCartContext';
+import { useEffect } from 'react';
+import { cartItemCount } from '../../utilities/LocalStorage';
 const Header = () => {
     const history = useHistory();
     const [courses, setCourses] = useCourses();
-    const [cart, setCart, count] = useCartContext();
+    const [cart, setCart] = useCartContext();
     const { user, logOut } = useAuth();
+
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        setCount(cartItemCount());
+    }, [cart.length])
+
+
     const [offCanvasShow, setOffCanvasShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
 

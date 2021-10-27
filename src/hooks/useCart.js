@@ -5,7 +5,6 @@ import { getStoredCart, cartItemCount } from "../utilities/LocalStorage";
 
 const useCart = () => {
     const [cart, setCart] = useState([]);
-    const count = cartItemCount();
 
 
     useEffect(() => {
@@ -42,7 +41,7 @@ const useCart = () => {
 
 
     console.log(cart);
-    return [cart, setCart, count];
+    return [cart, setCart];
 }
 
 export default useCart;
