@@ -5,7 +5,7 @@ import './AddCourses.css'
 const AddCourses = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/courses', {
+        fetch('https://sleepy-sierra-74627.herokuapp.com/courses', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
