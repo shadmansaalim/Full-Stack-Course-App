@@ -26,7 +26,7 @@ const useCart = () => {
                 if (courses.length) {
                     const storedCart = [];
                     for (const id in savedCart) {
-                        const addedCourse = courses.find(course => parseInt(course.courseID) === parseInt(id));
+                        const addedCourse = courses.find(course => (course.courseID) === (id));
                         if (addedCourse) {
                             // set quantity
                             const quantity = savedCart[id];
