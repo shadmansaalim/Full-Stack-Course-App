@@ -45,9 +45,6 @@ function App() {
               <Route exact path="/course/:id">
                 <CourseDetails></CourseDetails>
               </Route>
-              <PrivateBuyCourse exact path="/course/:_id/buy-course">
-                <BuyCourse></BuyCourse>
-              </PrivateBuyCourse>
               <PrivateBuyCourse exact path="/my-classes">
                 <MyClasses></MyClasses>
               </PrivateBuyCourse>
@@ -69,9 +66,9 @@ function App() {
               <Route path="/review">
                 <OrderReview ></OrderReview>
               </Route>
-              <Route path="/shipping">
+              <PrivateBuyCourse path="/shipping">
                 <Shipping ></Shipping>
-              </Route>
+              </PrivateBuyCourse>
               <Route exact path="/profile">
                 <UserProfile></UserProfile>
               </Route>
