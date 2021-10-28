@@ -6,6 +6,10 @@ import { Button } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 import { useHistory, useLocation } from 'react-router-dom';
 import './Login.css';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import swal from 'sweetalert';
+import { useState } from 'react';
 
 const Login = () => {
     const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
@@ -15,6 +19,23 @@ const Login = () => {
     const location = useLocation();
     const redirectURL = location.state?.from || '/home';
 
+
+
+    if (location.state?.from.pathname === "/my-classes") {
+        swal("Please Login!", "You can only view your classes after logging in", "warning");
+    }
+    else if (location.state?.from.pathname === "/shipping") {
+        swal("Please Login!", "You can only purchase a course after logging in", "warning");
+    }
+
+
+
+
+
+
+
+
+
     const loginSubmission = (e) => {
         e.preventDefault();
         handleLogin()
@@ -23,7 +44,14 @@ const Login = () => {
                 e.target.reset();
             })
             .catch(error => {
-                console.log(error.message);
+
+                if (error.message == "Firebase: Error (auth/wrong-password).") {
+                    swal("Invalid Password!", "Please check your email & password and then try again", "error");
+                }
+                else if (error.message == "Firebase: Error (auth/user-not-found).") {
+                    swal("User Not Found!", "Please check your email & password and then try again", "warning");
+                }
+
             })
 
     }
@@ -82,8 +110,8 @@ const Login = () => {
 
                             <div className="text-center text-lg-start mt-4 pt-2">
                                 <Button type="submit" variant="primary">Login <FontAwesomeIcon icon={faSignInAlt} /></Button>
-                                <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/sign-up"
-                                    className="link-danger">Sign Up</a></p>
+                                <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to="/sign-up"
+                                    className="link-danger">Sign Up</Link></p>
 
                             </div>
 

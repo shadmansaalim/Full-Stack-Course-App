@@ -64,7 +64,6 @@ const useFirebase = () => {
 
         onAuthStateChanged(auth, user => {
             if (user) {
-                console.log('Inside State Change', user)
                 setUser(user);
             }
             else {
@@ -99,7 +98,6 @@ const useFirebase = () => {
 
         signInWithPopup(auth, googleProvider)
             .then(result => {
-                console.log(result.user)
             })
             .catch(error => {
                 setError(error.message)
@@ -112,7 +110,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, facebookProvider)
             .then(result => {
-                console.log(result.user)
+
             })
             .catch(error => {
                 setError(error.message)
@@ -124,7 +122,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, twitterProvider)
             .then((result) => {
-                console.log(result.user)
+
             })
             .catch(error => {
                 setError(error.message)

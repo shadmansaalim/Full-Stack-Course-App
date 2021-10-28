@@ -28,7 +28,6 @@ const UserProfile = () => {
     }
 
     const handleUpdateUser = (e) => {
-        console.log('user updated')
         e.preventDefault();
     }
 

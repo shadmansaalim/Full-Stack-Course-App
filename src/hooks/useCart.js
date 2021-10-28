@@ -12,7 +12,7 @@ const useCart = () => {
         const keys = Object.keys(savedCart);
 
 
-        fetch('http://localhost:5000/byKeys', {
+        fetch('http://localhost:5000/courses/byKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -21,8 +21,7 @@ const useCart = () => {
         })
             .then(res => res.json())
             .then(courses => {
-                console.log(courses);
-                if (courses.length) {
+                if (courses?.length) {
                     const storedCart = [];
                     for (const id in savedCart) {
                         const addedCourse = courses.find(course => (course.courseID) === (id));
@@ -39,8 +38,6 @@ const useCart = () => {
 
     }, [])
 
-
-    console.log(cart);
     return [cart, setCart];
 }
 

@@ -12,7 +12,6 @@ const Shipping = () => {
     const [cart, setCart] = useCartContext();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         const savedCart = getStoredCart();
         data.order = savedCart;
 
@@ -25,7 +24,6 @@ const Shipping = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 if (result.insertedId || (result.modifiedCount > 0)) {
                     clearTheCart();
                     setCart([]);

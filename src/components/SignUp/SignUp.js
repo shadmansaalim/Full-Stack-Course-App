@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import signupImg from '../../images/signup.svg'
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
 
@@ -128,7 +129,7 @@ const SignUp = () => {
 
 
 
-                                            <div className="text-center mt-4"> <span>Already a member?</span> <a href="/login">Login</a> </div>
+                                            <div className="text-center mt-4"> <span>Already a member?</span> <Link to="/login">Login</Link> </div>
 
 
                                         </form>

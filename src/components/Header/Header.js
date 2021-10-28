@@ -27,8 +27,6 @@ const Header = () => {
     const [offCanvasShow, setOffCanvasShow] = useState(false);
     const [modalShow, setModalShow] = useState(false);
 
-    console.log(cart);
-
 
     const handleOffCanvasClose = () => setOffCanvasShow(false);
     const handleOffCanvasShow = () => setOffCanvasShow(true);
