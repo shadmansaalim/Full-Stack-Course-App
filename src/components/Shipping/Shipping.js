@@ -16,7 +16,7 @@ const Shipping = () => {
         const savedCart = getStoredCart();
         data.order = savedCart;
 
-        fetch('https://sleepy-sierra-74627.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -26,7 +26,7 @@ const Shipping = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
-                if (result.insertedId) {
+                if (result.insertedId || (result.modifiedCount > 0)) {
                     clearTheCart();
                     setCart([]);
                     history.push('/order-confirmed');

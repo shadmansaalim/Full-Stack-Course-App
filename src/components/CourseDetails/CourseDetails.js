@@ -31,7 +31,7 @@ const CourseDetails = () => {
 
     // Fetching single course from Database 
     useEffect(() => {
-        const url = `https://sleepy-sierra-74627.herokuapp.com/course/${id}`;
+        const url = `http://localhost:5000/course/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

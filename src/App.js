@@ -18,7 +18,6 @@ import Login from './components/Login/Login';
 import CourseDetails from './components/CourseDetails/CourseDetails'
 import ContextProvider from './context/ContextProvider';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import BuyCourse from './components/BuyCourse/BuyCourse';
 import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
 import PrivateForm from './components/PrivateRoute/PrivateForm';
 import AddCourses from './components/AddCourses/AddCourses';
