@@ -20,14 +20,15 @@ const Login = () => {
     const redirectURL = location.state?.from || '/home';
 
 
-
-    if (location.state?.from.pathname === "/my-classes") {
-        swal("Please Login!", "You can only view your classes after logging in", "warning");
+    //Displaying the modal only once using modalCount from location otherwise modal will be displayed everytime after user reloads [Bug Fixed]
+    for (let i = 0; i <= location.modalCount; i++) {
+        if (location.state?.from.pathname === "/my-classes") {
+            swal("Please Login!", "You can only view your classes after logging in", "warning");
+        }
+        else if (location.state?.from.pathname === "/shipping") {
+            swal("Please Login!", "You can only purchase a course after logging in", "warning");
+        }
     }
-    else if (location.state?.from.pathname === "/shipping") {
-        swal("Please Login!", "You can only purchase a course after logging in", "warning");
-    }
-
 
 
 

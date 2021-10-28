@@ -23,7 +23,9 @@ const PrivateRoute = ({ children, ...rest }) => {
                 <Redirect
                     to={{
                         pathname: "/login",
-                        state: { from: location }
+                        state: { from: location },
+                        //Sending modal count to detect how many time to show modal
+                        modalCount: 1
                     }}
                 ></Redirect>}
         >
