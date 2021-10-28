@@ -12,7 +12,7 @@ import swal from 'sweetalert';
 import { useState } from 'react';
 
 const Login = () => {
-    const { handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
+    const { user, handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
     const history = useHistory();
 
     //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
@@ -21,15 +21,19 @@ const Login = () => {
 
 
     //Displaying the modal only once using modalCount from location otherwise modal will be displayed everytime after user reloads [Bug Fixed]
-    for (let i = 0; i <= location.modalCount; i++) {
-        if (location.state?.from.pathname === "/my-classes") {
-            swal("Please Login!", "You can only view your classes after logging in", "warning");
+    useEffect(() => {
+        for (let i = 0; i < location.modalCount; i++) {
+            if (!user.email) {
+                if (location.state?.from.pathname === "/my-classes") {
+                    swal("Please Login!", "You can only view your classes after logging in", "warning");
+                }
+                else if (location.state?.from.pathname === "/shipping") {
+                    swal("Please Login!", "You can only purchase a course after logging in", "warning");
+                }
+            }
         }
-        else if (location.state?.from.pathname === "/shipping") {
-            swal("Please Login!", "You can only purchase a course after logging in", "warning");
-        }
-    }
 
+    }, [])
 
 
 
