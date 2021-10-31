@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import useCart from '../../hooks/useCart';
 import useCourses from '../../hooks/useCourses';
 import useCartContext from '../../hooks/useCartContext';
+import useAuth from '../../hooks/useAuth';
 
 
 toast.configure()
@@ -28,6 +29,11 @@ const CourseDetails = () => {
     const [added, setAdded] = useState(false);
     const [cart, setCart] = useCartContext();
     const history = useHistory();
+
+
+    const [purchased, setPurhcased] = useState(false);
+    const { user } = useAuth();
+
 
     // Fetching single course from Database 
     useEffect(() => {
@@ -56,7 +62,6 @@ const CourseDetails = () => {
 
 
     const handleAddToCart = (course) => {
-
         const newCart = [...cart, course];
         setCart(newCart);
         // Saving to local storage
@@ -116,12 +121,16 @@ const CourseDetails = () => {
                                     <br />
                                     <small>Created by <a href="!#">{course.instructor}</a></small>
                                     <br />
-                                    <button onClick={() => handleAddToCart(course)} className={added === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
+                                    <button onClick={() => handleAddToCart(course)} className={added === false || purchased === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
                                         {
-                                            added === true ?
-                                                <p className="m-0">Added to Cart <FontAwesomeIcon icon={faCheck} /></p>
+                                            purchased === true
+                                                ?
+                                                <p className="m-0">Purchased<FontAwesomeIcon icon={faCheck} /></p>
                                                 :
-                                                <p className="m-0">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>
+                                                (added === true ?
+                                                    <p className="m-0">Added to Cart <FontAwesomeIcon icon={faCheck} /></p>
+                                                    :
+                                                    <p className="m-0">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>)
                                         }
                                     </button>
                                 </div>

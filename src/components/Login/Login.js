@@ -9,7 +9,6 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import swal from 'sweetalert';
-import { useState } from 'react';
 
 const Login = () => {
     const { user, handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
