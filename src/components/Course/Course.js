@@ -19,7 +19,7 @@ const Course = (props) => {
             {/* Creating card to display */}
             <Card className="h-100">
                 <Card.Img variant="top" src={img} />
-                <Card.Body>
+                <Card.Body className="d-flex flex-column justify-content-around">
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
                         <small>{instructor}</small>
