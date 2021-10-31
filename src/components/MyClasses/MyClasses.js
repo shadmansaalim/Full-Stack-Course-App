@@ -17,7 +17,7 @@ const MyClasses = () => {
 
     useEffect(() => {
         if (user.email) {
-            fetch('http://localhost:5000/myClasses', {
+            fetch('https://gory-ghoul-93342.herokuapp.com/myClasses', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

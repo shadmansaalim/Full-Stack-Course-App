@@ -37,7 +37,7 @@ const CourseDetails = () => {
 
     // Fetching single course from Database 
     useEffect(() => {
-        const url = `http://localhost:5000/course/${id}`;
+        const url = `https://gory-ghoul-93342.herokuapp.com/course/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
