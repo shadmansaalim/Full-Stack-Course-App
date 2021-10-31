@@ -45,18 +45,6 @@ const useFirebase = () => {
 
 
     const handleSignUp = () => {
-
-        // if (!/(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}/.test(password)) {
-        //     setError(<ul>
-        //         <h4>Invalid Password! Please check whether your password contains the following characters</h4>
-        //         <li>8 characters length</li>
-        //         <li>2 letters in Upper Case</li>
-        //         <li>1 Special Character (!@#$&*)</li>
-        //         <li>2 numerals (0-9)</li>
-        //         <li>3 letters in Lower Case</li>
-        //     </ul>)
-        //     return;
-        // }
         return createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword);
     }
 

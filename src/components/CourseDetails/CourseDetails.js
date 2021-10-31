@@ -72,13 +72,13 @@ const CourseDetails = () => {
 
 
 
-
     return (
-        <div className="bg-dark text-white py-5">
-            <Container>
-                {
-                    course.name ?
-                        <section>
+        <div>
+
+            {
+                course.name ?
+                    <section className="bg-dark text-white py-5">
+                        <Container>
                             <section className="row mb-5 d-flex mt-lg-4">
                                 <div className="col-lg-6 col-xl-5 mx-auto">
                                     <div
@@ -180,18 +180,13 @@ const CourseDetails = () => {
                                     </div>
                                 </div>
                             </section>
-
-
-
-                        </section>
-                        :
-                        <div className="vh-100 d-flex flex-column align-items-center mx-auto text-white" style={{ marginTop: 150 }}>
-                            <h3 >Loading...</h3>
-                            <Spinner animation="grow" />
-
-                        </div>
-                }
-            </Container>
+                        </Container>
+                    </section>
+                    :
+                    <div className="vh-100 d-flex justify-content-center align-items-center">
+                        <div class="spinner"></div>
+                    </div>
+            }
         </div >
     );
 };

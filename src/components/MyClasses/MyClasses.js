@@ -36,37 +36,40 @@ const MyClasses = () => {
     const history = useHistory();
     return (
         // MyClasses Page used React FontAwesome for Good UI/UX
-        <section className="text-center mt-5" style={{ marginBottom: '150px' }}>
+        <section className="text-center">
             <Container>
                 {
                     myCourses.length
                         ?
-                        <section className="my-5">
-                            <h3 className="fw-light mb-5">Welcome back <span className="fw-normal">{user.displayName}</span>, ready for your next lesson?</h3>
-                            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-                                {
-                                    myCourses.map(course => {
 
-                                        return (
-                                            <div class="col">
-                                                <div class="card h-100">
-                                                    <img src={course.img} class="card-img-top" alt="..." />
-                                                    <div class="card-body course">
-                                                        <p class="card-title fw-bold">{course.name}</p>
-                                                        <div class="card-text">
-                                                            <small>{course.instructor}</small>
-                                                            <div class="progress col-10 mx-auto mt-2">
-                                                                <div class="progress-bar " role="progressbar" style={{ width: '25%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        <section style={{ marginBottom: '150px' }}>
+                            <div className="my-5">
+                                <h3 className="fw-light mb-5">Welcome back <span className="fw-normal">{user.displayName}</span>, ready for your next lesson?</h3>
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+                                    {
+                                        myCourses.map(course => {
+
+                                            return (
+                                                <div class="col">
+                                                    <div class="card h-100">
+                                                        <img src={course.img} class="card-img-top" alt="..." />
+                                                        <div class="card-body course">
+                                                            <p class="card-title fw-bold">{course.name}</p>
+                                                            <div class="card-text">
+                                                                <small>{course.instructor}</small>
+                                                                <div class="progress col-10 mx-auto mt-2">
+                                                                    <div class="progress-bar " role="progressbar" style={{ width: '25%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                                                </div>
+                                                                <button className="btn btn-outline-dark rounded-pill mt-3" >Continue Course</button>
                                                             </div>
-                                                            <button className="btn btn-outline-dark rounded-pill mt-3" >Continue Course</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        );
-                                    })
-                                }
+                                            );
+                                        })
+                                    }
 
+                                </div>
                             </div>
                         </section>
                         :
@@ -74,7 +77,7 @@ const MyClasses = () => {
                             {
                                 myCourses === 0
                                     ?
-                                    <Row>
+                                    <Row style={{ marginBottom: '150px' }}>
                                         <Col lg="6" className="mx-auto shadow-lg mb-5 p-5 rounded-3">
                                             <img className="img-fluid mb-3 col-6" src={img} alt="" />
                                             <h3>No Courses Added</h3>
@@ -86,10 +89,8 @@ const MyClasses = () => {
                                         </Col>
                                     </Row>
                                     :
-                                    <div className="vh-100 d-flex flex-column align-items-center mx-auto text-dark" style={{ marginTop: 150 }}>
-                                        <h3 className="text-muted">Loading...</h3>
-                                        <Spinner animation="grow" />
-
+                                    <div className="vh-100 d-flex justify-content-center align-items-center">
+                                        <div class="spinner"></div>
                                     </div>
                             }
                         </>
