@@ -77,7 +77,7 @@ const MyClasses = () => {
                             {
                                 myCourses === 0
                                     ?
-                                    <Row style={{ marginBottom: '150px' }}>
+                                    <Row style={{ marginTop: '80px', marginBottom: '80px' }}>
                                         <Col lg="6" className="mx-auto shadow-lg mb-5 p-5 rounded-3">
                                             <img className="img-fluid mb-3 col-6" src={img} alt="" />
                                             <h3>No Courses Added</h3>
