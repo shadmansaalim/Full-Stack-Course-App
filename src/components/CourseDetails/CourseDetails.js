@@ -18,6 +18,7 @@ import useCourses from '../../hooks/useCourses';
 toast.configure()
 
 const CourseDetails = () => {
+    const [url, setUrl] = useState();
     const { id } = useParams();
     const [courses] = useCourses();
     const [course, setCourse] = useState({});
@@ -29,7 +30,12 @@ const CourseDetails = () => {
 
     // Fetching single course from Database 
     useEffect(() => {
-        const url = `https://gory-ghoul-93342.herokuapp.com/course/${id}?email=${user.email}`;
+        if (user.email) {
+            setUrl(`https://gory-ghoul-93342.herokuapp.com/course/${id}?email=${user.email}`);
+        }
+        else {
+            setUrl(`https://gory-ghoul-93342.herokuapp.com/course/${id}`);
+        }
         fetch(url)
             .then(res => res.json())
             .then(data => {
