@@ -12,7 +12,7 @@ import { addToDb, getStoredCart } from '../../utilities/LocalStorage';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useCartContext from '../../hooks/useCartContext';
-import addCartSound from '../../audios/Google_Event-1.mp3';
+import addCartSound from '../../audios/sound.wav';
 
 toast.configure()
 
