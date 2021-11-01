@@ -54,3 +54,8 @@ html,body{
   width: 100%;
 }
 
+
+
+.swal-modal .swal-text {
+  text-align: center;
+}

@@ -24,7 +24,7 @@ const Login = () => {
         for (let i = 0; i < location.modalCount; i++) {
             if (!user.email) {
                 if (location.state?.from.pathname === "/my-classes") {
-                    swal("Please Login!", "You can only view your classes after logging in", "warning");
+                    swal("Please Login!", "You can only view your classes after Logging in", "warning");
                 }
                 else if (location.state?.from.pathname === "/shipping") {
                     swal("Please Login!", "You can only purchase a course after logging in", "warning");
