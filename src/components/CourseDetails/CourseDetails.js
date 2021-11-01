@@ -14,13 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import useCartContext from '../../hooks/useCartContext';
 import addCartSound from '../../audios/sound.wav';
 import useAuth from '../../hooks/useAuth';
-import useCourses from '../../hooks/useCourses';
 toast.configure()
 
 const CourseDetails = () => {
-    const [url, setUrl] = useState();
     const { id } = useParams();
-    const [courses] = useCourses();
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
     const [cart, setCart] = useCartContext();
@@ -28,13 +25,14 @@ const CourseDetails = () => {
     const [purchased, setPurchased] = useState(false);
 
 
+    let url;
     // Fetching single course from Database 
     useEffect(() => {
         if (user.email) {
-            setUrl(`https://gory-ghoul-93342.herokuapp.com/course/${id}?email=${user.email}`);
+            url = (`http://localhost:5000/course/${id}?email=${user.email}`);
         }
         else {
-            setUrl(`https://gory-ghoul-93342.herokuapp.com/course/${id}`);
+            url = (`http://localhost:5000/course/${id}`);
         }
         fetch(url)
             .then(res => res.json())
