@@ -21,7 +21,6 @@ const useCart = () => {
         })
             .then(res => res.json())
             .then(courses => {
-                console.log(courses);
                 if (courses?.length) {
                     const storedCart = [];
                     for (const id in savedCart) {

@@ -13,34 +13,42 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useCartContext from '../../hooks/useCartContext';
 import addCartSound from '../../audios/sound.wav';
-
+import useAuth from '../../hooks/useAuth';
+import useCourses from '../../hooks/useCourses';
 toast.configure()
 
 const CourseDetails = () => {
     const { id } = useParams();
+    const [courses] = useCourses();
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
     const [cart, setCart] = useCartContext();
+    const { user } = useAuth();
+    const [purchased, setPurchased] = useState(false);
 
 
     // Fetching single course from Database 
     useEffect(() => {
-        const url = `https://gory-ghoul-93342.herokuapp.com/course/${id}`;
+        const url = `http://localhost:5000/course/${id}?email=${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setCourse(data)
-                const courseCart = getStoredCart();
-                for (const item in courseCart) {
-                    if (item === data.courseID) {
-                        setAdded(true);
+                setCourse(data.course)
+                if (data.purchased) {
+                    setPurchased(true);
+                }
+                else {
+                    const courseCart = getStoredCart();
+                    for (const item in courseCart) {
+                        if (item === data.course.courseID) {
+                            setAdded(true);
+                        }
                     }
                 }
+
             })
-    }, []);
 
-
-
+    }, [user]);
 
 
     const handleAddToCart = (course) => {
@@ -106,13 +114,16 @@ const CourseDetails = () => {
                                     <br />
                                     <small>Created by <a href="!#">{course.instructor}</a></small>
                                     <br />
-                                    <button onClick={() => handleAddToCart(course)} className={added === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
+                                    <button onClick={() => handleAddToCart(course)} className={added === false && purchased === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
                                         {
-
-                                            added === true ?
-                                                <p className="m-0">Added to Cart <FontAwesomeIcon icon={faCheck} /></p>
+                                            purchased
+                                                ?
+                                                <p className="m-0">Purchased <FontAwesomeIcon icon={faCheck} /></p>
                                                 :
-                                                <p className="m-0">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>
+                                                added === true ?
+                                                    <p className="m-0">Added to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>
+                                                    :
+                                                    <p className="m-0">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>
                                         }
                                     </button>
                                 </div>
