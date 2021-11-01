@@ -1,30 +1,23 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Rating from 'react-rating';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import { Spinner } from 'react-bootstrap';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { addToDb, cartItemCount, getStoredCart } from '../../utilities/LocalStorage';
-
-// import swal from 'sweetalert';
+import { addToDb, getStoredCart } from '../../utilities/LocalStorage';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useCart from '../../hooks/useCart';
-import useCourses from '../../hooks/useCourses';
 import useCartContext from '../../hooks/useCartContext';
-import useAuth from '../../hooks/useAuth';
-
+import addCartSound from '../../audios/Google_Event-1.mp3';
 
 toast.configure()
 
 const CourseDetails = () => {
     const { id } = useParams();
-    const [courses] = useCourses();
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
     const [cart, setCart] = useCartContext();
@@ -46,14 +39,8 @@ const CourseDetails = () => {
             })
     }, []);
 
-    const opts = {
-        height: '250',
-        width: '100%',
-        playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
-        },
-    };
+
+
 
 
     const handleAddToCart = (course) => {
@@ -63,6 +50,9 @@ const CourseDetails = () => {
         addToDb(course.courseID);
         setAdded(true);
         toast.success('Course Added To Cart')
+        const audio = new Audio();
+        audio.src = addCartSound;
+        audio.play();
     }
 
 
