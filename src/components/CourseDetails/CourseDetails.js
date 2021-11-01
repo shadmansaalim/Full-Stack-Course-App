@@ -28,11 +28,6 @@ const CourseDetails = () => {
     const [course, setCourse] = useState({});
     const [added, setAdded] = useState(false);
     const [cart, setCart] = useCartContext();
-    const history = useHistory();
-
-
-    const [purchased, setPurhcased] = useState(false);
-    const { user } = useAuth();
 
 
     // Fetching single course from Database 
@@ -121,16 +116,13 @@ const CourseDetails = () => {
                                     <br />
                                     <small>Created by <a href="!#">{course.instructor}</a></small>
                                     <br />
-                                    <button onClick={() => handleAddToCart(course)} className={added === false || purchased === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
+                                    <button onClick={() => handleAddToCart(course)} className={added === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
                                         {
-                                            purchased === true
-                                                ?
-                                                <p className="m-0">Purchased<FontAwesomeIcon icon={faCheck} /></p>
+
+                                            added === true ?
+                                                <p className="m-0">Added to Cart <FontAwesomeIcon icon={faCheck} /></p>
                                                 :
-                                                (added === true ?
-                                                    <p className="m-0">Added to Cart <FontAwesomeIcon icon={faCheck} /></p>
-                                                    :
-                                                    <p className="m-0">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>)
+                                                <p className="m-0">Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></p>
                                         }
                                     </button>
                                 </div>
@@ -184,7 +176,7 @@ const CourseDetails = () => {
                     </section>
                     :
                     <div className="vh-100 d-flex justify-content-center align-items-center">
-                        <div class="spinner"></div>
+                        <div className="spinner"></div>
                     </div>
             }
         </div >

@@ -89,7 +89,7 @@ const Home = () => {
                     </section>
                     :
                     <div className="vh-100 d-flex justify-content-center align-items-center">
-                        <div class="spinner"></div>
+                        <div className="spinner"></div>
                     </div>
             }
         </Container>

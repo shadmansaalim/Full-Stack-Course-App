@@ -12,7 +12,7 @@ const useCart = () => {
         const keys = Object.keys(savedCart);
 
 
-        fetch('https://gory-ghoul-93342.herokuapp.com/byKeys', {
+        fetch('https://gory-ghoul-93342.herokuapp.com/courses/byKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -21,6 +21,7 @@ const useCart = () => {
         })
             .then(res => res.json())
             .then(courses => {
+                console.log(courses);
                 if (courses?.length) {
                     const storedCart = [];
                     for (const id in savedCart) {
@@ -37,7 +38,6 @@ const useCart = () => {
             })
 
     }, [])
-
     return [cart, setCart];
 }
 
