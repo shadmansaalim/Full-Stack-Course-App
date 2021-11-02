@@ -8,25 +8,37 @@ import './MyClasses.css'
 import { useEffect } from 'react';
 import useAuth from '../../hooks/useAuth'
 import { useState } from 'react';
+import swal from 'sweetalert';
 
 const MyClasses = () => {
 
     const { user } = useAuth();
     const [myCourses, setMyCourses] = useState([])
+    const history = useHistory();
 
     useEffect(() => {
-        if (user.email) {
-            fetch(`http://localhost:5000/myClasses?email=${user.email}`)
-                .then(res => res.json())
-                .then(result => {
-                    setMyCourses(result);
-                })
+        fetch(`http://localhost:5000/myClasses?email=${user.email}`, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 200) {
+                    return res.json();
+                }
+                else if (res.status === 401) {
+                    swal("Unauthorized User!", "Please Login and Try Again", "warning");
+                    history.push('/login');
+                }
+            })
+            .then(result => {
+                setMyCourses(result);
+            })
 
-        }
     }, [])
 
 
-    const history = useHistory();
+
     return (
         // MyClasses Page used React FontAwesome for Good UI/UX
         <section className="text-center">
