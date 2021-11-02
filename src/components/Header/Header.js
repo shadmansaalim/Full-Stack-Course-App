@@ -11,6 +11,7 @@ import Cart from '../Cart/Cart';
 import useCartContext from '../../hooks/useCartContext';
 import { useEffect } from 'react';
 import { cartItemCount } from '../../utilities/LocalStorage';
+import profile from '../../images/profileImage.934e5b10.png';
 const Header = () => {
     const history = useHistory();
     const [courses, setCourses] = useCourses();
