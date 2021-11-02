@@ -16,6 +16,9 @@ const MyClasses = () => {
     const [myCourses, setMyCourses] = useState([])
     const history = useHistory();
 
+
+    //Secured user classes details API by using firebase token and keeping it in local storage
+
     useEffect(() => {
         fetch(`http://localhost:5000/myClasses?email=${user.email}`, {
             headers: {
@@ -27,7 +30,7 @@ const MyClasses = () => {
                     return res.json();
                 }
                 else if (res.status === 401) {
-                    swal("Unauthorized User!", "Please Login and Try Again", "warning");
+                    swal("Unauthorized User!", "Please Login and Try Again Later", "warning");
                     history.push('/login');
                 }
             })
