@@ -16,13 +16,7 @@ const MyClasses = () => {
 
     useEffect(() => {
         if (user.email) {
-            fetch('https://gory-ghoul-93342.herokuapp.com/myClasses', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            })
+            fetch(`http://localhost:5000/myClasses?email=${user.email}`)
                 .then(res => res.json())
                 .then(result => {
                     setMyCourses(result);
@@ -56,6 +50,7 @@ const MyClasses = () => {
                                                             <p className="card-title fw-bold">{course.name}</p>
                                                             <div className="card-text">
                                                                 <small>{course.instructor}</small>
+                                                                <br />
                                                                 <div className="progress col-10 mx-auto mt-2">
                                                                     <div className="progress-bar " role="progressbar" style={{ width: '25%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                                                                 </div>
