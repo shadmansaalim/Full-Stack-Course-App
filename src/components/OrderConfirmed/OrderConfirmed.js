@@ -7,10 +7,10 @@ import img from '../../images/payment.svg'
 const OrderConfirmed = () => {
     const history = useHistory();
     return (
-        <div className="text-center my-5 col-lg-6 mx-auto" >
-            <img className="img-fluid w-25 mx-auto mb-4" src={img} alt="" />
+        <div className="text-center my-5 col-9 col-md-8 col-lg-6 mx-auto" >
+            <img className="img-fluid col-8 col-md-6 mx-auto mb-4" src={img} alt="" />
             <h1 className="display-3" > Thank You!</h1 >
-            <p className="lead" > <strong>Course Purchased Successfully</strong> Please check your email for subscription details and order invoice. You will now be able to see course details on <strong>My Classes</strong></p >
+            <p className="lead" > <strong>Course Purchased Successfully</strong> Please check your email for subscription details. Check carefully it might be on your spam folder. You will now be able to see course details on <strong>My Classes</strong></p >
             <hr></hr>
             <p>
                 Having trouble? <a target="_blank" rel="noreferrer" href="https://github.com/shadmansaalim">Contact us</a>
