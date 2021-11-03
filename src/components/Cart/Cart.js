@@ -1,15 +1,43 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
+import { deleteFromDb } from '../../utilities/LocalStorage';
 
 
 
 const Cart = (props) => {
     const { cart } = props;
+    // const { user } = useAuth();
 
+
+    // useEffect(() => {
+    //     if (user.email) {
+    //         fetch(`https://stormy-taiga-36853.herokuapp.com/myClasses?email=${user.email}`, {
+    //             headers: {
+    //                 'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
+    //             }
+    //         })
+    //             .then(res => res.json())
+    //             .then(result => {
+    //                 for (const course of cart) {
+    //                     for (const userCourse of result) {
+    //                         if (course.courseID === userCourse.courseID) {
+    //                             deleteFromDb(course.courseID);
+    //                         }
+    //                     }
+
+    //                 }
+    //             })
+    //     }
+
+    // }, [user])
 
 
     let total = 0;
     for (const course of cart) {
         total = total + course.discountedPrice;
+
     }
 
     let grandtotal = 0;

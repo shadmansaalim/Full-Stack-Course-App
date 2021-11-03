@@ -6,23 +6,45 @@ import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart, faForward } from
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
-import useCourses from '../../hooks/useCourses';
 import Cart from '../Cart/Cart';
 import useCartContext from '../../hooks/useCartContext';
 import { useEffect } from 'react';
-import { cartItemCount } from '../../utilities/LocalStorage';
-import profile from '../../images/profileImage.934e5b10.png';
+import { cartItemCount, deleteFromDb } from '../../utilities/LocalStorage';
+
 const Header = () => {
     const history = useHistory();
-    const [courses, setCourses] = useCourses();
     const [cart, setCart] = useCartContext();
     const { user, logOut } = useAuth();
 
     const [count, setCount] = useState(0);
 
+    //Checking whether the course added to cart is already purchased or not
     useEffect(() => {
+        if (user.email && cart.length) {
+            fetch(`https://stormy-taiga-36853.herokuapp.com/myClasses?email=${user.email}`, {
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(result => {
+                    for (const course of cart) {
+                        for (const userCourse of result) {
+                            if (course.courseID === userCourse.courseID) {
+                                console.log(cart.indexOf(course));
+                                const newCart = cart.filter(c => cart.indexOf(c) !== cart.indexOf(course));
+                                setCart(newCart);
+                                deleteFromDb(course.courseID);
+                            }
+                        }
+
+                    }
+                })
+        }
         setCount(cartItemCount());
-    }, [cart.length])
+    }, [cart.length, user])
+
+
 
 
     const [offCanvasShow, setOffCanvasShow] = useState(false);
