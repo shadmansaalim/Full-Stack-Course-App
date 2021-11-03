@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const SignUp = () => {
 
-    const { error, handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setError, setUser, handleTwitterSignUp, setIsLoading } = useAuth();
+    const { handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setUser, handleTwitterSignUp, setIsLoading } = useAuth();
 
     const signUpSubmission = (e) => {
         e.preventDefault();
@@ -13,23 +13,20 @@ const SignUp = () => {
         handleSignUp()
             .then(result => {
                 setUser(result.user);
-                setError('');
                 verifyEmail();
                 setUserDetails()
             })
             .catch(error => {
                 setUser({});
-                setError(error.message);
             })
             .finally(() => {
                 setIsLoading(false);
             });
     }
     return (
-        <section className="mb-5">
+        <section className="my-5">
             <div className="container h-100">
-                <div className="text-danger mb-4 col-8 mx-auto">{error}</div>
-                <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="row d-flex justify-content-center align-items-center h-10 mt-4">
                     <div className="col-lg-12 col-xl-11">
                         <div className="card text-black" style={{ borderRadius: 25 }}>
                             <div className="card-body p-md-5">

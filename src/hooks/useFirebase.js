@@ -14,7 +14,6 @@ const useFirebase = () => {
     const [signUpEmail, setSignUpEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [signUpPassword, setSignUpPassword] = useState('');
-    const [error, setError] = useState('');
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const googleProvider = new GoogleAuthProvider();
@@ -78,7 +77,7 @@ const useFirebase = () => {
             .then(() => {
             })
             .catch(error => {
-                setError(error.message);
+
             })
             .finally(() => setIsLoading(false));
     }
@@ -90,7 +89,7 @@ const useFirebase = () => {
             .then(result => {
             })
             .catch(error => {
-                setError(error.message)
+
             })
             .finally(() => setIsLoading(false));
 
@@ -103,7 +102,7 @@ const useFirebase = () => {
 
             })
             .catch(error => {
-                setError(error.message)
+
             })
             .finally(() => setIsLoading(false));
     }
@@ -115,7 +114,7 @@ const useFirebase = () => {
 
             })
             .catch(error => {
-                setError(error.message)
+
             })
             .finally(() => setIsLoading(false));
     }
@@ -153,8 +152,6 @@ const useFirebase = () => {
     return {
         user,
         setUser,
-        setError,
-        error,
         handleNameChange,
         handleSignUpEmailChange,
         handleImageChange,
