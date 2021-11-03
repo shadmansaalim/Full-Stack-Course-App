@@ -15,7 +15,7 @@ const Shipping = () => {
         const savedCart = getStoredCart();
         data.order = savedCart;
 
-        fetch('https://gory-ghoul-93342.herokuapp.com/orders', {
+        fetch('https://stormy-taiga-36853.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

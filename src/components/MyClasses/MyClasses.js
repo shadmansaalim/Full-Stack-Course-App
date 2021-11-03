@@ -20,7 +20,7 @@ const MyClasses = () => {
     //Secured user classes details API by using firebase token and keeping it in local storage
 
     useEffect(() => {
-        fetch(`https://gory-ghoul-93342.herokuapp.com/myClasses?email=${user.email}`, {
+        fetch(`https://stormy-taiga-36853.herokuapp.com/myClasses?email=${user.email}`, {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
             }
