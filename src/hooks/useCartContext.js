@@ -2,7 +2,8 @@ import { useContext } from "react"
 import { Context } from '../context/ContextProvider'
 
 const useCartContext = () => {
-    return useContext(Context)[1];
+    const [authContext, cartContext] = useContext(Context);
+    return cartContext;
 }
 
 export default useCartContext;

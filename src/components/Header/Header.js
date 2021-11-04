@@ -14,33 +14,34 @@ import { cartItemCount, deleteFromDb } from '../../utilities/LocalStorage';
 const Header = () => {
     const history = useHistory();
     const [cart, setCart] = useCartContext();
+    console.log(cart);
     const { user, logOut } = useAuth();
 
     const [count, setCount] = useState(0);
 
-    //Checking whether the course added to cart is already purchased or not
+    // Checking whether the course added to cart is already purchased or not
     useEffect(() => {
-        if (user.email && cart.length) {
-            fetch(`https://stormy-taiga-36853.herokuapp.com/myClasses?email=${user.email}`, {
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
-                }
-            })
-                .then(res => res.json())
-                .then(result => {
-                    for (const course of cart) {
-                        for (const userCourse of result) {
-                            if (course.courseID === userCourse.courseID) {
-                                console.log(cart.indexOf(course));
-                                const newCart = cart.filter(c => cart.indexOf(c) !== cart.indexOf(course));
-                                setCart(newCart);
-                                deleteFromDb(course.courseID);
-                            }
-                        }
+        // if (user.email && cart.length) {
+        //     fetch(`https://stormy-taiga-36853.herokuapp.com/myClasses?email=${user.email}`, {
+        //         headers: {
+        //             'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
+        //         }
+        //     })
+        //         .then(res => res.json())
+        //         .then(result => {
+        //             for (const course of cart) {
+        //                 for (const userCourse of result) {
+        //                     if (course.courseID === userCourse.courseID) {
+        //                         console.log(cart.indexOf(course));
+        //                         const newCart = cart.filter(c => cart.indexOf(c) !== cart.indexOf(course));
+        //                         setCart(newCart);
+        //                         deleteFromDb(course.courseID);
+        //                     }
+        //                 }
 
-                    }
-                })
-        }
+        //             }
+        //         })
+        // }
         setCount(cartItemCount());
     }, [cart.length, user])
 
