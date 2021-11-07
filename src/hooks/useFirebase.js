@@ -21,11 +21,9 @@ const useFirebase = () => {
 
 
     const registerUser = (name, email, password, history) => {
-        console.log(email, password);
-        setIsLoading(false);
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-
                 const newUser = { email, displayName: name };
                 setUser(newUser);
 
@@ -45,7 +43,6 @@ const useFirebase = () => {
 
             })
             .catch((error) => {
-                console.log(error);
                 // ..
             })
             .finally(() => setIsLoading(false));
@@ -58,13 +55,14 @@ const useFirebase = () => {
                     .then(courseIdToken => {
                         localStorage.setItem('courseIdToken', courseIdToken)
                         setUser(user);
+                        setIsLoading(false);
                     })
 
 
             } else {
                 setUser({})
             }
-            setIsLoading(false);
+
         });
     }, [])
 
@@ -123,7 +121,7 @@ const useFirebase = () => {
 
 
     const loginUser = (email, password, location, history) => {
-        setIsLoading(false);
+        setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
@@ -143,7 +141,6 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
     const logOut = () => {
-        setIsLoading(false);
         signOut(auth).then(() => {
             // Sign-out successful.
             setUser({});

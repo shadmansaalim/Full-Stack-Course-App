@@ -32,22 +32,20 @@ const Login = () => {
 
 
     //Displaying the modal only once using modalCount from location otherwise modal will be displayed everytime after user reloads [Bug Fixed]
-    useEffect(() => {
-        for (let i = 0; i < location.modalCount; i++) {
-            if (!user.email) {
-                if (location.state?.from.pathname === "/my-classes") {
-                    swal("Please Login!", "You can only view your classes after Logging in", "warning");
-                }
-                else if (location.state?.from.pathname === "/shipping") {
-                    swal("Please Login!", "You can only purchase a course after logging in", "warning");
-                }
-            }
-        }
+    // useEffect(() => {
+    //     for (let i = 0; i < location.modalCount; i++) {
+    //         if (!user.email) {
+    //             if (location.state?.from.pathname === "/my-classes") {
+    //                 swal("Please Login!", "You can only view your classes after Logging in", "warning");
+    //             }
+    //             else if (location.state?.from.pathname === "/shipping") {
+    //                 swal("Please Login!", "You can only purchase a course after logging in", "warning");
+    //             }
+    //         }
+    //     }
 
-    }, [])
+    // }, [])
 
-
-    console.log(loginData);
 
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, location, history);

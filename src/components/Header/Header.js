@@ -28,12 +28,12 @@ const Header = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result);
+
                     if (result !== 0) {
                         for (const course of cart) {
                             for (const userCourse of result) {
                                 if (course.courseID === userCourse.courseID) {
-                                    console.log(cart.indexOf(course));
+
                                     const newCart = cart.filter(c => cart.indexOf(c) !== cart.indexOf(course));
                                     setCart(newCart);
                                     deleteFromDb(course.courseID);
@@ -199,14 +199,18 @@ const Header = () => {
                                             <FontAwesomeIcon className="fs-1 text-secondary settings-user-img" icon={faUserCircle} />
                                     }
                                     <p className="mt-2">{user.displayName}</p>
-                                    <button className="btn btn-block rounded-pill btn-dark">View Profile</button>
                                     <div className="divider d-flex align-items-center my-4">
 
                                     </div>
+                                    <NavLink to="/my-classes" onClick={handleOffCanvasClose}>
+                                        <button className="drawer-buttons btn btn-primary w-100 mb-2">My Classes</button>
+                                    </NavLink>
+                                    <button className="drawer-buttons btn btn-primary w-100 mb-2">Make Admin</button>
+                                    <button className="drawer-buttons btn btn-primary w-100 mb-2">Add Course</button>
                                     <button onClick={() => {
                                         logOut();
                                         handleOffCanvasClose();
-                                    }} className="btn btn-warning">Log Out</button>
+                                    }} className="btn btn-dark w-100">Log Out</button>
 
 
                                 </div>

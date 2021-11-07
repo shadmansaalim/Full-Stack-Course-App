@@ -21,10 +21,10 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
 import PrivateForm from './components/PrivateRoute/PrivateForm';
 import AddCourses from './components/AddCourses/AddCourses';
-import UserProfile from './components/UserProfile/UserProfile';
 import OrderReview from './components/OrderReview/OrderReview';
 import Shipping from './components/Shipping/Shipping';
 import OrderConfirmed from './components/OrderConfirmed/OrderConfirmed';
+import Dashboard from './components/Dashboard/Dashboard';
 
 
 
@@ -73,9 +73,8 @@ function App() {
               <PrivateBuyCourse path="/order-confirmed">
                 <OrderConfirmed></OrderConfirmed>
               </PrivateBuyCourse>
-
-              <Route exact path="/profile">
-                <UserProfile></UserProfile>
+              <Route path="/dashboard">
+                <Dashboard></Dashboard>
               </Route>
               <Route exact path="/">
                 <Home></Home>

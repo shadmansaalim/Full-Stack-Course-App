@@ -52,7 +52,7 @@ const CourseDetails = () => {
 
             })
 
-    }, [user]);
+    }, [user.email]);
 
 
     const handleAddToCart = (course) => {

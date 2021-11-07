@@ -1,21 +1,19 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { Redirect, Route } from 'react-router';
-import { Spinner } from 'react-bootstrap';
 
 
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateBuyCourse = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();
     if (isLoading) {
         return (
-            <div className="vh-100 d-flex flex-column align-items-center mx-auto text-white" style={{ marginTop: 150 }}>
-                <h3 >Loading...</h3>
-                <Spinner animation="grow" />
-
+            <div className="vh-100 d-flex justify-content-center align-items-center">
+                <div className="spinner"></div>
             </div>
         );
 
     }
+
     return (
         <Route
             {...rest}
@@ -34,4 +32,4 @@ const PrivateRoute = ({ children, ...rest }) => {
     );
 };
 
-export default PrivateRoute;
+export default PrivateBuyCourse;
