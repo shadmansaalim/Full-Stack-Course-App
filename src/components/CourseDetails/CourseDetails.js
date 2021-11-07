@@ -37,7 +37,6 @@ const CourseDetails = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setCourse(data.course)
                 if (data.purchased) {
                     setPurchased(true);
                 }
@@ -49,7 +48,7 @@ const CourseDetails = () => {
                         }
                     }
                 }
-
+                setCourse(data.course)
             })
 
     }, [user.email]);
@@ -119,6 +118,7 @@ const CourseDetails = () => {
                                     <small>Created by <a href="!#">{course.instructor}</a></small>
                                     <br />
                                     <button onClick={() => handleAddToCart(course)} className={added === false && purchased === false ? "btn btn-secondary text-white mt-3" : "btn btn-success text-white mt-3 disabled"}>
+
                                         {
                                             purchased
                                                 ?

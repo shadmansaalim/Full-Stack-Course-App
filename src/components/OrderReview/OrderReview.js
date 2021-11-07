@@ -20,6 +20,7 @@ const OrderReview = () => {
     useEffect(() => {
         setCount(cartItemCount());
     }, [cart.length])
+
     const handleRemove = id => {
         swal({
             title: "Are you sure?",

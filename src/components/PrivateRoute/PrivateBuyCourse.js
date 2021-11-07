@@ -11,7 +11,6 @@ const PrivateBuyCourse = ({ children, ...rest }) => {
                 <div className="spinner"></div>
             </div>
         );
-
     }
 
     return (
