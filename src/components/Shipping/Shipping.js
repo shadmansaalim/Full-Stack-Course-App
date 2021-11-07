@@ -15,7 +15,7 @@ const Shipping = () => {
         const savedCart = getStoredCart();
         data.order = savedCart;
 
-        fetch('https://stormy-taiga-36853.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

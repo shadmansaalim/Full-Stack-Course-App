@@ -29,10 +29,10 @@ const CourseDetails = () => {
     // Fetching single course from Database 
     useEffect(() => {
         if (user.email) {
-            url = (`https://stormy-taiga-36853.herokuapp.com/course/${id}?email=${user.email}`);
+            url = (`http://localhost:5000/course/${id}?email=${user.email}`);
         }
         else {
-            url = (`https://stormy-taiga-36853.herokuapp.com/course/${id}`);
+            url = (`http://localhost:5000/course/${id}`);
         }
         fetch(url)
             .then(res => res.json())

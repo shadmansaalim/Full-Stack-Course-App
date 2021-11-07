@@ -30,6 +30,7 @@ const useFirebase = () => {
                 setUser(newUser);
 
                 //Add user to database
+                saveUserToDb(email, name, 'POST');
 
 
                 // Send name to firebase
@@ -78,7 +79,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 //Add user to db
-                // saveUser(user.email, user.displayName, 'PUT');
+                saveUserToDb(user.email, user.displayName, 'PUT');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
 
@@ -92,8 +93,9 @@ const useFirebase = () => {
         signInWithPopup(auth, facebookProvider)
             .then((result) => {
                 const user = result.user;
+
                 //Add user to db
-                // saveUser(user.email, user.displayName, 'PUT');
+                saveUserToDb(user.email, user.displayName, 'PUT');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
 
@@ -108,7 +110,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 //Add user to db
-                // saveUser(user.email, user.displayName, 'PUT');
+                saveUserToDb(user.email, user.displayName, 'PUT');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
 
@@ -152,6 +154,18 @@ const useFirebase = () => {
     }
 
 
+    //Function to add users to database MONGO DB
+    const saveUserToDb = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
 
 
     return {
