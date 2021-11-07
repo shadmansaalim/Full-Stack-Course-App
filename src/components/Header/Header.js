@@ -29,16 +29,18 @@ const Header = () => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    for (const course of cart) {
-                        for (const userCourse of result) {
-                            if (course.courseID === userCourse.courseID) {
-                                console.log(cart.indexOf(course));
-                                const newCart = cart.filter(c => cart.indexOf(c) !== cart.indexOf(course));
-                                setCart(newCart);
-                                deleteFromDb(course.courseID);
+                    if (result !== 0) {
+                        for (const course of cart) {
+                            for (const userCourse of result) {
+                                if (course.courseID === userCourse.courseID) {
+                                    console.log(cart.indexOf(course));
+                                    const newCart = cart.filter(c => cart.indexOf(c) !== cart.indexOf(course));
+                                    setCart(newCart);
+                                    deleteFromDb(course.courseID);
+                                }
                             }
-                        }
 
+                        }
                     }
                 })
         }

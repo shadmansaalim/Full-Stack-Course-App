@@ -9,14 +9,26 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import swal from 'sweetalert';
+import { useState } from 'react';
 
 const Login = () => {
-    const { user, handleLogin, handleLoginEmailChange, handleLoginPasswordChange, handleForgetPassword, handleFacebookSignUp, handleGoogleSignUp, handleTwitterSignUp } = useAuth();
+    const [loginData, setLoginData] = useState({});
+    const { user, loginUser, signInWithGoogle,
+        signInWithFacebook,
+        signInWithTwitter } = useAuth();
+
+
+    const location = useLocation();
     const history = useHistory();
 
-    //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
-    const location = useLocation();
-    const redirectURL = location.state?.from || '/home';
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
+
 
 
     //Displaying the modal only once using modalCount from location otherwise modal will be displayed everytime after user reloads [Bug Fixed]
@@ -35,30 +47,15 @@ const Login = () => {
     }, [])
 
 
+    console.log(loginData);
 
-
-
-
-
-    const loginSubmission = (e) => {
+    const handleLoginSubmit = e => {
+        loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
-        handleLogin()
-            .then(result => {
-                history.push(redirectURL);
-                e.target.reset();
-            })
-            .catch(error => {
-
-                if (error.message == "Firebase: Error (auth/wrong-password).") {
-                    swal("Invalid Password!", "Please check your email & password and then try again", "error");
-                }
-                else if (error.message == "Firebase: Error (auth/user-not-found).") {
-                    swal("User Not Found!", "Please check your email & password and then try again", "warning");
-                }
-
-            })
-
     }
+
+
+
 
 
     return (
@@ -70,18 +67,18 @@ const Login = () => {
                             alt="Sample" />
                     </div>
                     <div className="col-md-8 col-lg-5 col-xl-4 offset-xl-1 shadow-lg p-5 rounded-3 mx-auto">
-                        <form onSubmit={loginSubmission}>
+                        <form onSubmit={handleLoginSubmit}>
                             <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                 <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-                                <button onClick={handleFacebookSignUp} type="button" className="btn btn-outline-primary rounded-circle mx-1">
+                                <button onClick={() => signInWithFacebook(location, history)} type="button" className="btn btn-outline-primary rounded-circle mx-1">
                                     <i className="fab fa-facebook-f"></i>
                                 </button>
 
-                                <button onClick={handleGoogleSignUp} type="button" className="btn btn-outline-primary rounded-circle mx-1">
+                                <button onClick={() => signInWithGoogle(location, history)} type="button" className="btn btn-outline-primary rounded-circle mx-1">
                                     <i className="fab fa-google"></i>
                                 </button>
 
-                                <button onClick={handleTwitterSignUp} type="button" className="btn btn-outline-primary rounded-circle mx-1">
+                                <button onClick={() => signInWithTwitter(location, history)} type="button" className="btn btn-outline-primary rounded-circle mx-1">
                                     <i className="fab fa-twitter"></i>
                                 </button>
                             </div>
@@ -93,11 +90,15 @@ const Login = () => {
 
 
                             <div className="form-floating mb-3">
-                                <input onBlur={handleLoginEmailChange} type="email" className="form-control" id="floatingLoginEmail" placeholder="name@example.com" />
+                                <input onBlur={handleOnBlur}
+                                    name="email"
+                                    type="email" className="form-control" id="floatingLoginEmail" placeholder="name@example.com" />
                                 <label htmlFor="floatingLoginEmail">Email address</label>
                             </div>
                             <div className="form-floating mb-4">
-                                <input onBlur={handleLoginPasswordChange} type="password" className="form-control" id="floatingLoginPassword" placeholder="Password" />
+                                <input onBlur={handleOnBlur}
+                                    name="password"
+                                    type="password" className="form-control" id="floatingLoginPassword" placeholder="Password" />
                                 <label htmlFor="floatingLoginPassword">Password</label>
                             </div>
 
@@ -109,7 +110,7 @@ const Login = () => {
                                         Remember me
                                     </label>
                                 </div>
-                                <a onClick={handleForgetPassword} href="#!" className="text-body">Forgot password?</a>
+                                <a href="#!" className="text-body">Forgot password?</a>
                             </div>
 
                             <div className="text-center text-lg-start mt-4 pt-2">

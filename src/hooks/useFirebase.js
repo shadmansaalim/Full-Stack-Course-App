@@ -1,177 +1,160 @@
 import initializeAuthentication from "../Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, onAuthStateChanged, signOut, TwitterAuthProvider, getIdToken } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, signInWithEmailAndPassword, onAuthStateChanged, signOut, TwitterAuthProvider, getIdToken } from "firebase/auth";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import swal from 'sweetalert';
 
 initializeAuthentication();
 
 const useFirebase = () => {
-    const auth = getAuth();
     const [user, setUser] = useState({})
     const [isLoading, setIsLoading] = useState(true);
-    const [name, setName] = useState('');
-    const [signUpEmail, setSignUpEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [signUpPassword, setSignUpPassword] = useState('');
-    const [loginEmail, setLoginEmail] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
     const twitterProvider = new TwitterAuthProvider();
-    const history = useHistory();
+
+    const auth = getAuth();
 
 
+    const registerUser = (name, email, password, history) => {
+        console.log(email, password);
+        setIsLoading(false);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
 
-    const handleNameChange = e => {
-        setName(e.target.value);
-    }
+                const newUser = { email, displayName: name };
+                setUser(newUser);
 
-    const handleSignUpEmailChange = e => {
-        setSignUpEmail(e.target.value);
-    }
-
-    const handlePhoneChange = e => {
-        setPhone(e.target.value);
-    }
-
-    const handleImageChange = e => {
-    }
-
-    const handleSignUpPasswordChange = e => {
-        setSignUpPassword(e.target.value);
-    }
+                //Add user to database
 
 
-    const handleSignUp = () => {
-        return createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword);
+                // Send name to firebase
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+
+                }).catch((error) => {
+
+                });
+                history.replace('/');
+            })
+            .catch((error) => {
+                console.log(error);
+                // ..
+            })
+            .finally(() => setIsLoading(false));
     }
 
     useEffect(() => {
-
-        onAuthStateChanged(auth, user => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 getIdToken(user)
                     .then(courseIdToken => localStorage.setItem('courseIdToken', courseIdToken))
                 setUser(user);
-            }
-            else {
-                setUser({});
+
+            } else {
+                setUser({})
             }
             setIsLoading(false);
-        })
-    }, []);
+        });
+        return () => unsubscribe;
+    }, [])
 
-    const verifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-            .then(() => {
 
-            })
-            .catch(error => {
 
-            })
-    }
 
-    const setUserDetails = () => {
-        updateProfile(auth.currentUser, { displayName: name, email: signUpEmail })
-            .then(() => {
-            })
-            .catch(error => {
 
-            })
-            .finally(() => setIsLoading(false));
-    }
 
-    const handleGoogleSignUp = () => {
+    const signInWithGoogle = (location, history) => {
         setIsLoading(true);
-
         signInWithPopup(auth, googleProvider)
-            .then(result => {
-            })
-            .catch(error => {
+            .then((result) => {
+                const user = result.user;
+                //Add user to db
+                // saveUser(user.email, user.displayName, 'PUT');
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+
+            }).catch((error) => {
 
             })
             .finally(() => setIsLoading(false));
-
     }
-
-    const handleFacebookSignUp = () => {
+    const signInWithFacebook = (location, history) => {
         setIsLoading(true);
         signInWithPopup(auth, facebookProvider)
-            .then(result => {
+            .then((result) => {
+                const user = result.user;
+                //Add user to db
+                // saveUser(user.email, user.displayName, 'PUT');
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
 
-            })
-            .catch(error => {
+            }).catch((error) => {
 
             })
             .finally(() => setIsLoading(false));
     }
-
-    const handleTwitterSignUp = () => {
+    const signInWithTwitter = (location, history) => {
         setIsLoading(true);
         signInWithPopup(auth, twitterProvider)
             .then((result) => {
+                const user = result.user;
+                //Add user to db
+                // saveUser(user.email, user.displayName, 'PUT');
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
 
-            })
-            .catch(error => {
+            }).catch((error) => {
 
             })
             .finally(() => setIsLoading(false));
     }
 
 
-    const handleLogin = () => {
-        return signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-    }
 
+    const loginUser = (email, password, location, history) => {
+        setIsLoading(false);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+
+
+            })
+            .catch((error) => {
+                if (error.message === "Firebase: Error (auth/wrong-password).") {
+                    swal("Invalid Password!", "Please check your email & password and then try again", "error");
+                }
+                else if (error.message === "Firebase: Error (auth/user-not-found).") {
+                    swal("User Not Found!", "Please check your email & password and then try again", "warning");
+                }
+            })
+            .finally(() => setIsLoading(false));
+    }
     const logOut = () => {
-        signOut(auth)
-            .then(() => {
-                setUser({});
-            })
+        setIsLoading(false);
+        signOut(auth).then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        })
             .finally(() => setIsLoading(false));
     }
 
-    const handleLoginEmailChange = e => {
-        setLoginEmail(e.target.value);
-    }
-    const handleLoginPasswordChange = e => {
-        setLoginPassword(e.target.value);
-    }
 
-    const handleForgetPassword = () => {
-        sendPasswordResetEmail(auth, loginEmail)
-            .then(() => {
-
-            })
-            .catch(error => {
-            })
-    }
 
 
     return {
         user,
-        setUser,
-        handleNameChange,
-        handleSignUpEmailChange,
-        handleImageChange,
-        handleSignUpPasswordChange,
-        handleSignUp,
-        handleGoogleSignUp,
-        handleFacebookSignUp,
-        handleLogin,
-        logOut,
-        handleLoginEmailChange,
-        loginEmail,
-        handleLoginPasswordChange,
-        handleForgetPassword,
-        verifyEmail,
-        setUserDetails,
-        handleTwitterSignUp,
-        setIsLoading,
         isLoading,
-        setName,
-        setSignUpEmail
+        registerUser,
+        loginUser,
+        signInWithGoogle,
+        signInWithFacebook,
+        signInWithTwitter,
+        logOut,
     }
 
 }

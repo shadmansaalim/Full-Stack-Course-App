@@ -1,27 +1,30 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import signupImg from '../../images/signup.svg'
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 const SignUp = () => {
+    const [signUpData, setSignUpData] = useState({});
+    const { registerUser, signInWithGoogle,
+        signInWithFacebook, signInWithTwitter } = useAuth();
 
-    const { handleSignUp, handleNameChange, handleSignUpEmailChange, handleSignUpPasswordChange, handleFacebookSignUp, handleGoogleSignUp, verifyEmail, setUserDetails, setUser, handleTwitterSignUp, setIsLoading } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
 
-    const signUpSubmission = (e) => {
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newSignUpData = { ...signUpData };
+        newSignUpData[field] = value;
+        setSignUpData(newSignUpData);
+    }
+
+    const handleSignUpSubmit = e => {
+        registerUser(signUpData.name, signUpData.email, signUpData.password, history);
+
         e.preventDefault();
-        setIsLoading(true)
-        handleSignUp()
-            .then(result => {
-                setUser(result.user);
-                verifyEmail();
-                setUserDetails()
-            })
-            .catch(error => {
-                setUser({});
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+        e.target.reset();
     }
     return (
         <section className="my-5">
@@ -35,19 +38,24 @@ const SignUp = () => {
 
                                         <p className="text-center fw-bold mb-4 mb-lg-5 mx-1 mx-md-4 mt-4 mt-lg-0">Sign Up and Start Learning from Today!</p>
 
-                                        <form onSubmit={signUpSubmission} className="mx-1 mx-md-4">
+                                        <form onSubmit={handleSignUpSubmit} className="mx-1 mx-md-4">
 
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input onBlur={handleNameChange} type="text" id="form3Example1c" className="form-control" placeholder="Your Name" required />
+                                                    <input
+                                                        onBlur={handleOnBlur}
+                                                        name="name"
+                                                        type="text" id="form3Example1c" className="form-control" placeholder="Your Name" required />
                                                 </div>
                                             </div>
 
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input onBlur={handleSignUpEmailChange} type="email" id="form3Example3c" className="form-control" placeholder="Your Email" required />
+                                                    <input onBlur={handleOnBlur}
+                                                        name="email"
+                                                        type="email" id="form3Example3c" className="form-control" placeholder="Your Email" required />
                                                 </div>
                                             </div>
 
@@ -75,7 +83,9 @@ const SignUp = () => {
                                             <div className="d-flex flex-row align-items-center mb-3">
                                                 <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input onBlur={handleSignUpPasswordChange} type="password" id="form3Example4c" className="form-control" placeholder="Password" required />
+                                                    <input onBlur={handleOnBlur}
+                                                        name="password"
+                                                        type="password" id="form3Example4c" className="form-control" placeholder="Password" required />
                                                 </div>
                                             </div>
 
@@ -110,15 +120,15 @@ const SignUp = () => {
 
                                             <div className="d-flex flex-row align-items-center justify-content-center mb-4">
                                                 <p className="text-center fw-bold mb-0 me-2">Sign Up With</p>
-                                                <button onClick={handleFacebookSignUp} className="btn btn-outline-primary rounded-circle mx-1">
+                                                <button onClick={() => signInWithFacebook(location, history)} className="btn btn-outline-primary rounded-circle mx-1">
                                                     <i className="fab fa-facebook-f"></i>
                                                 </button>
 
-                                                <button onClick={handleGoogleSignUp} className="btn btn-outline-primary  rounded-circle mx-1">
+                                                <button onClick={() => signInWithGoogle(location, history)} className="btn btn-outline-primary  rounded-circle mx-1">
                                                     <i className="fab fa-google"></i>
                                                 </button>
 
-                                                <button onClick={handleTwitterSignUp} className="btn btn-outline-primary  rounded-circle mx-1">
+                                                <button onClick={() => signInWithTwitter(location, history)} className="btn btn-outline-primary  rounded-circle mx-1">
                                                     <i className="fab fa-twitter"></i>
                                                 </button>
                                             </div>
