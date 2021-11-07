@@ -3,8 +3,12 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvi
 import { useState } from "react";
 import { useEffect } from "react";
 import swal from 'sweetalert';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 initializeAuthentication();
+toast.configure()
 
 const useFirebase = () => {
     const [user, setUser] = useState({})
@@ -32,11 +36,12 @@ const useFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
-
+                    history.replace('/');
+                    swal("Account Created Successfully!", "You can now purchase courses and enjoy our services", "success");
                 }).catch((error) => {
 
                 });
-                history.replace('/');
+
             })
             .catch((error) => {
                 console.log(error);
@@ -46,18 +51,20 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, (user) => {
             if (user) {
                 getIdToken(user)
-                    .then(courseIdToken => localStorage.setItem('courseIdToken', courseIdToken))
-                setUser(user);
+                    .then(courseIdToken => {
+                        localStorage.setItem('courseIdToken', courseIdToken)
+                        setUser(user);
+                    })
+
 
             } else {
                 setUser({})
             }
             setIsLoading(false);
         });
-        return () => unsubscribe;
     }, [])
 
 
@@ -120,7 +127,7 @@ const useFirebase = () => {
                 //Using location to redirect the user to his/her desired destination if the user was redirected to login page by the system. Doing this to improve the UX of the user.
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
-
+                toast.success(`Welcome back ${auth.currentUser.displayName.split(' ')[0]}`)
 
             })
             .catch((error) => {
@@ -137,6 +144,7 @@ const useFirebase = () => {
         setIsLoading(false);
         signOut(auth).then(() => {
             // Sign-out successful.
+            setUser({});
         }).catch((error) => {
             // An error happened.
         })

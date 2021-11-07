@@ -3,6 +3,7 @@ import useAuth from '../../hooks/useAuth';
 import signupImg from '../../images/signup.svg'
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import swal from 'sweetalert';
 
 const SignUp = () => {
     const [signUpData, setSignUpData] = useState({});
@@ -21,10 +22,16 @@ const SignUp = () => {
     }
 
     const handleSignUpSubmit = e => {
-        registerUser(signUpData.name, signUpData.email, signUpData.password, history);
+        if (signUpData.password !== signUpData.password2) {
+            swal("Passwords doesn't match!", "Please check password and then try again", "error");
+        }
+        else {
+            registerUser(signUpData.name, signUpData.email, signUpData.password, history);
+            e.target.reset();
+        }
 
         e.preventDefault();
-        e.target.reset();
+
     }
     return (
         <section className="my-5">
@@ -89,12 +96,15 @@ const SignUp = () => {
                                                 </div>
                                             </div>
 
-                                            {/* <div className="d-flex flex-row align-items-center mb-4">
+                                            <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input type="password" id="form3Example4cd" className="form-control" placeholder="Repeat your password" required />
+                                                    <input
+                                                        onBlur={handleOnBlur}
+                                                        name="password2"
+                                                        type="password" id="form3Example4cd" className="form-control" placeholder="Repeat your password" required />
                                                 </div>
-                                            </div> */}
+                                            </div>
 
                                             <div className="form-check d-flex justify-content-center align-items-center mb-3 mt-4">
                                                 <input

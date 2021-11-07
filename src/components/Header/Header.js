@@ -14,7 +14,6 @@ import { cartItemCount, deleteFromDb } from '../../utilities/LocalStorage';
 const Header = () => {
     const history = useHistory();
     const [cart, setCart] = useCartContext();
-    console.log(cart);
     const { user, logOut } = useAuth();
 
     const [count, setCount] = useState(0);
@@ -22,13 +21,14 @@ const Header = () => {
     // Checking whether the course added to cart is already purchased or not
     useEffect(() => {
         if (user.email && cart.length) {
-            fetch(`https://stormy-taiga-36853.herokuapp.com/myClasses?email=${user.email}`, {
+            fetch(`http://localhost:5000/myClasses?email=${user.email}`, {
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
                 }
             })
                 .then(res => res.json())
                 .then(result => {
+                    console.log(result);
                     if (result !== 0) {
                         for (const course of cart) {
                             for (const userCourse of result) {
@@ -45,7 +45,7 @@ const Header = () => {
                 })
         }
         setCount(cartItemCount());
-    }, [cart.length, user])
+    }, [cart, setCart, user.email])
 
 
 
