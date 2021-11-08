@@ -24,7 +24,8 @@ import AddCourse from './components/AddCourse/AddCourse';
 import OrderReview from './components/OrderReview/OrderReview';
 import Shipping from './components/Shipping/Shipping';
 import OrderConfirmed from './components/OrderConfirmed/OrderConfirmed';
-
+import MakeAdmin from './components/MakeAdmin/MakeAdmin';
+import AddReview from './components/AddReview/AddReview';
 
 
 
@@ -37,6 +38,9 @@ function App() {
             <Header></Header>
             <Switch>
               <Route exact path="/home">
+                <Home></Home>
+              </Route>
+              <Route exact path="/">
                 <Home></Home>
               </Route>
               <Route exact path="/courses">
@@ -60,9 +64,6 @@ function App() {
               <PrivateForm exact path="/login">
                 <Login></Login>
               </PrivateForm>
-              <Route exact path="/add-course">
-                <AddCourse></AddCourse>
-              </Route>
               <Route path="/review">
                 <OrderReview ></OrderReview>
               </Route>
@@ -72,8 +73,14 @@ function App() {
               <PrivateBuyCourse path="/order-confirmed">
                 <OrderConfirmed></OrderConfirmed>
               </PrivateBuyCourse>
-              <Route exact path="/">
-                <Home></Home>
+              <Route exact path="/add-review">
+                <AddReview></AddReview>
+              </Route>
+              <Route exact path="/add-course">
+                <AddCourse></AddCourse>
+              </Route>
+              <Route exact path="/make-admin">
+                <MakeAdmin></MakeAdmin>
               </Route>
               <Route path="*">
                 <NotFound></NotFound>
