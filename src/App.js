@@ -20,11 +20,10 @@ import ContextProvider from './context/ContextProvider';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
 import PrivateForm from './components/PrivateRoute/PrivateForm';
-import AddCourses from './components/AddCourses/AddCourses';
+import AddCourse from './components/AddCourse/AddCourse';
 import OrderReview from './components/OrderReview/OrderReview';
 import Shipping from './components/Shipping/Shipping';
 import OrderConfirmed from './components/OrderConfirmed/OrderConfirmed';
-import Dashboard from './components/Dashboard/Dashboard';
 
 
 
@@ -61,8 +60,8 @@ function App() {
               <PrivateForm exact path="/login">
                 <Login></Login>
               </PrivateForm>
-              <Route exact path="/add-courses">
-                <AddCourses></AddCourses>
+              <Route exact path="/add-course">
+                <AddCourse></AddCourse>
               </Route>
               <Route path="/review">
                 <OrderReview ></OrderReview>
@@ -73,9 +72,6 @@ function App() {
               <PrivateBuyCourse path="/order-confirmed">
                 <OrderConfirmed></OrderConfirmed>
               </PrivateBuyCourse>
-              <Route path="/dashboard">
-                <Dashboard></Dashboard>
-              </Route>
               <Route exact path="/">
                 <Home></Home>
               </Route>

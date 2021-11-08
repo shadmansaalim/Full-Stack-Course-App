@@ -1,23 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import './AddCourses.css'
+import './AddCourse.css'
 
 const AddCourses = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/courses', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(result => {
-                if (result.insertedId) {
-                    alert('Course Added Successfully')
-                }
-            })
+
     }
 
 

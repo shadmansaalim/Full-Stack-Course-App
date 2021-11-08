@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav, Button, Offcanvas, Modal } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart, faForward } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUserPlus, faUserCircle, faShoppingCart, faForward, faGraduationCap, faSignOutAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import './Header.css'
@@ -203,14 +203,14 @@ const Header = () => {
 
                                     </div>
                                     <NavLink to="/my-classes" onClick={handleOffCanvasClose}>
-                                        <button className="drawer-buttons btn btn-primary w-100 mb-2">My Classes</button>
+                                        <button className="drawer-buttons btn btn-primary w-100 mb-2"><FontAwesomeIcon icon={faGraduationCap} /> My Classes</button>
                                     </NavLink>
-                                    <button className="drawer-buttons btn btn-primary w-100 mb-2">Make Admin</button>
-                                    <button className="drawer-buttons btn btn-primary w-100 mb-2">Add Course</button>
+                                    <button className="drawer-buttons btn btn-primary w-100 mb-2"><FontAwesomeIcon icon={faUserPlus} /> Make Admin</button>
+                                    <button className="drawer-buttons btn btn-primary w-100 mb-2"><FontAwesomeIcon icon={faPlus} /> Add Course</button>
                                     <button onClick={() => {
                                         logOut();
                                         handleOffCanvasClose();
-                                    }} className="btn btn-dark w-100">Log Out</button>
+                                    }} className="btn btn-dark w-100"><FontAwesomeIcon icon={faSignOutAlt} /> Log Out</button>
 
 
                                 </div>
