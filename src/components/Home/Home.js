@@ -7,6 +7,7 @@ import './Home.css'
 import useCourses from '../../hooks/useCourses';
 import { Spinner } from 'react-bootstrap';
 import { getStoredCart } from '../../utilities/LocalStorage';
+import UserReviews from '../UserReviews/UserReviews';
 
 
 const Home = () => {
@@ -43,7 +44,7 @@ const Home = () => {
 
                         </div>
                         {/* Added a Accordion using React Bootstrap for better UI/UX */}
-                        <div className="mx-auto" style={{ marginTop: 120 }}>
+                        <div className="mx-auto" style={{ marginTop: 120, marginBottom: 120 }}>
                             <h1 className="headline mb-3 text-start">Why Udemy?</h1>
                             <Row className="d-flex justfiy-content-around align-items-center">
                                 <Col lg={6} className="mx-auto">
@@ -84,6 +85,9 @@ const Home = () => {
                                     <img className="img-fluid" src="https://s.udemycdn.com/home/non-student-cta/instructor-2x-v3.jpg" alt="" />
                                 </Col>
                             </Row>
+                        </div>
+                        <div className="mx-auto" style={{ marginTop: 120 }}>
+                            <UserReviews></UserReviews>
                         </div>
 
                     </section>
