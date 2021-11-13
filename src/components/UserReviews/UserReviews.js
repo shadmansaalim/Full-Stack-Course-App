@@ -5,6 +5,9 @@ import Slider from "react-slick";
 import { useState } from 'react';
 import UserReview from '../UserReview/UserReview';
 import { useEffect } from 'react';
+import './UserReviews.css';
+
+
 
 const settings = {
     dots: true,
@@ -20,7 +23,7 @@ const settings = {
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 infinite: true,
-                dots: true
+                dots: true,
             }
         },
         {
@@ -50,7 +53,7 @@ const UserReviews = () => {
     return (
         <div>
             <h1 className="fw-light">Testimonials</h1>
-            <Slider {...settings}>
+            <Slider {...settings} >
                 {
                     reviews.map(review => <UserReview
                         review={review}

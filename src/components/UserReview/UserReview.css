@@ -1,4 +1,4 @@
-.blockquote-custom {
+blockquote-custom {
     position: relative;
     font-size: 1.1rem;
     height: 100%;
@@ -14,4 +14,5 @@
     position: absolute;
     top: -25px;
     left: 50px;
-  }
+  } 
+
