@@ -97,33 +97,34 @@ const CheckoutForm = ({ price }) => {
             console.log(paymentIntent);
             setProcessing(false);
 
-            //Save to DB
-            // const payment = {
-            //     amount: paymentIntent.amount,
-            //     created: paymentIntent.created,
-            //     last4: paymentMethod.card.last4,
-            //     transaction: paymentIntent.client_secret.slice('_secret')[0]
-            // }
-            // const savedCart = getStoredCart();
-            // data.order = savedCart;
-            // data.payment = payment;
+            const savedCart = getStoredCart();
+            // Save to DB
+            const payment = {
+                courses: savedCart,
+                amount: paymentIntent.amount,
+                created: paymentIntent.created,
+                last4: paymentMethod.card.last4,
+                transaction: paymentIntent.client_secret.slice('_secret')[0]
+            }
+            data.order = savedCart;
+            data.payment = payment;
 
-            // fetch('http://localhost:5000/orders', {
-            //     method: 'POST',
-            //     headers: {
-            //         'content-type': 'application/json'
-            //     },
-            //     body: JSON.stringify(data)
-            // })
-            //     .then(res => res.json())
-            //     .then(result => {
-            //         if (result.insertedId || (result.modifiedCount > 0)) {
-            //             clearTheCart();
-            //             setCart([]);
-            //             history.push('/order-confirmed');
-            //             reset();
-            //         }
-            //     })
+            fetch('http://localhost:5000/orders', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(result => {
+                    if (result.insertedId || (result.modifiedCount > 0)) {
+                        clearTheCart();
+                        setCart([]);
+                        history.push('/order-confirmed');
+                        reset();
+                    }
+                })
         }
 
 
@@ -196,9 +197,16 @@ const CheckoutForm = ({ price }) => {
                 <div className="mt-4 mb-4 d-flex justify-content-between">
                     <button onClick={() => history.push('/review')} className="btn btn-secondary px-3"
                     ><FontAwesomeIcon icon={faBackward} /> Previous</button>
-                    <button type="submit"
-                        disabled={!stripe}
-                        className="btn btn-primary px-3">Proceed <FontAwesomeIcon icon={faForward} /></button> </div>
+                    {
+                        processing
+                            ?
+                            <h4>Loading</h4>
+                            :
+                            <button type="submit"
+                                disabled={!stripe || success}
+                                className="btn btn-primary px-3">Proceed <FontAwesomeIcon icon={faForward} /></button>
+                    }
+                </div>
 
             </form>
             {
