@@ -6,7 +6,7 @@ import './UserReview.css';
 const UserReview = ({ review }) => {
     return (
 
-        <Card>
+        <Card style={{ minHeight: '300px', maxHeight: '300px', overflow: 'scroll' }}>
             <Card.Body>
                 <div className="d-flex align-items-center text-start">
                     <img className="img-fluid rounded-circle" src={review.photoURL} alt="User" style={{ width: 48, height: 48 }}></img>
