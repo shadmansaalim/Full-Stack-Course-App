@@ -23,7 +23,7 @@ import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
 import PrivateForm from './components/PrivateRoute/PrivateForm';
 import AddCourse from './components/AddCourse/AddCourse';
 import OrderReview from './components/OrderReview/OrderReview';
-import Shipping from './components/Shipping/Shipping';
+import Payment from './components/Payment/Payment';
 import OrderConfirmed from './components/OrderConfirmed/OrderConfirmed';
 import MakeAdmin from './components/MakeAdmin/MakeAdmin';
 import AddReview from './components/AddReview/AddReview';
@@ -68,8 +68,8 @@ function App() {
               <Route path="/review">
                 <OrderReview ></OrderReview>
               </Route>
-              <PrivateBuyCourse path="/shipping">
-                <Shipping ></Shipping>
+              <PrivateBuyCourse path="/payment">
+                <Payment ></Payment>
               </PrivateBuyCourse>
               <PrivateBuyCourse path="/order-confirmed">
                 <OrderConfirmed></OrderConfirmed>

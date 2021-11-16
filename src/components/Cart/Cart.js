@@ -6,8 +6,7 @@ import { deleteFromDb } from '../../utilities/LocalStorage';
 
 
 
-const Cart = (props) => {
-    const { cart } = props;
+const Cart = ({ cart }) => {
     let total = 0;
     for (const course of cart) {
         total = total + course.discountedPrice;

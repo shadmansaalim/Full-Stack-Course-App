@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import useCartContext from '../../hooks/useCartContext';
 import { cartItemCount, deleteFromDb } from '../../utilities/LocalStorage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faShoppingBag, faAngleDoubleRight, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart'
 import './OrderReview.css'
@@ -38,9 +38,6 @@ const OrderReview = () => {
             });
 
     }
-    const handleShipping = () => {
-        history.push('/shipping');
-    }
     const navigateToCourses = () => {
         history.push('/courses')
     }
@@ -73,7 +70,7 @@ const OrderReview = () => {
                             <Cart cart={cart}></Cart>
 
                             <div className="card p-2">
-                                <button onClick={handleShipping} className="btn btn-success">Proceed to Shipment <FontAwesomeIcon icon={faShoppingCart} /></button>
+                                <button onClick={() => history.replace('/payment')} className="btn btn-success">Checkout <FontAwesomeIcon icon={faAngleDoubleRight} /></button>
                             </div>
                         </div>
                     </div>
