@@ -7,6 +7,9 @@ import CheckoutForm from './CheckoutForm';
 import useCartContext from '../../hooks/useCartContext';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import empty from '../../images/empty.svg';
+import { useHistory } from 'react-router';
+
 
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
@@ -15,6 +18,8 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 const Payment = () => {
     const [cart, setCart] = useCartContext();
     const [price, setPrice] = useState(0);
+    const history = useHistory();
+
     useEffect(() => {
         let total = 0;
         for (const course of cart) {
@@ -33,27 +38,41 @@ const Payment = () => {
     return (
         <div>
             <div className="container my-5">
-                <div className="row shadow-lg rounded-3 col-lg-6 mx-auto p-4">
-
-                    <div className="mb-4">
-                        <h2 className="fw-light">Provide Personal Details</h2> <span>Please provide your details in order to confirm subscription of courses.</span>
-                    </div>
 
 
-                    {
-                        price === 0
-                            ?
-                            <h1 className="text-dark">Loading</h1>
-                            :
-                            <Elements stripe={stripePromise}>
-                                <CheckoutForm
-                                    price={price}
-                                />
-                            </Elements>
 
-                    }
+                {
+                    price === 0
+                        ?
+                        <div className="container-fluid my-5 mx-auto">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="shadow-sm p-4 rounded-3">
+                                        <div className="card-body cart">
+                                            <div className="col-sm-12 empty-cart-cls text-center">
+                                                <img src={empty} className="img-fluid mb-4 mr-3 col-6 col-lg-3" alt="" />
+                                                <h3 className="fw-light">Your Cart is Empty</h3>
+                                                <p className="m-0">Add a course to continue</p>
+                                                <button className="btn btn-outline-primary mt-3" data-abc="true" onClick={() => history.push('/courses')}>
+                                                    Browse Courses
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        :
 
-                </div>
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm
+                                price={price}
+
+                            />
+                        </Elements>
+
+                }
+
             </div>
         </div>
     );
