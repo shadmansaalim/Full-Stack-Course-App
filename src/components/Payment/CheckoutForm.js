@@ -103,8 +103,8 @@ const CheckoutForm = ({ price }) => {
         }
         else {
             setError("");
-            setSuccess("Your payment processed successfully");
-            toast.success("Your Payment processed successfully");
+            setSuccess("Payment processed successfully");
+            toast.success("Payment processed successfully");
             console.log(paymentIntent);
 
 
@@ -145,7 +145,7 @@ const CheckoutForm = ({ price }) => {
 
     console.log(toast);
     return (
-        <div className="row shadow-lg rounded-3 col-lg-6 mx-auto p-4">
+        <div className="row shadow-lg rounded-3 col-lg-8 mx-auto p-4">
 
             <div className="mb-4">
                 <h2 className="fw-light">Provide Personal Details</h2> <span>Please provide your details in order to confirm subscription of courses.</span>
@@ -224,7 +224,7 @@ const CheckoutForm = ({ price }) => {
                                 :
                                 <button type="submit"
                                     disabled={!stripe || success}
-                                    className="btn btn-primary px-3">Proceed <FontAwesomeIcon icon={faForward} /></button>
+                                    className="btn btn-primary px-3">Pay ${price}</button>
                         }
                     </div>
 
