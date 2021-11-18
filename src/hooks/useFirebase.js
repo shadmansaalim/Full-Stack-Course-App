@@ -53,6 +53,7 @@ const useFirebase = () => {
             if (user) {
                 getIdToken(user)
                     .then(courseIdToken => {
+                        console.log(user);
                         localStorage.setItem('courseIdToken', courseIdToken)
                         setUser(user);
                         setIsLoading(false);

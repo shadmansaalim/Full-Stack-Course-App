@@ -11,11 +11,14 @@ import './UserReviews.css';
 
 const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    swipeToSlide: true,
     responsive: [
         {
             breakpoint: 1024,
@@ -29,8 +32,8 @@ const settings = {
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
+                slidesToShow: 1,
+                slidesToScroll: 1
             }
         },
         {
@@ -43,6 +46,7 @@ const settings = {
     ]
 };
 
+
 const UserReviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
@@ -51,16 +55,20 @@ const UserReviews = () => {
             .then(data => setReviews(data));
     }, [])
     return (
-        <div>
-            <h1 className="fw-light">Testimonials</h1>
-            <Slider {...settings} >
+        <div style={{ marginTop: '120px', marginBottom: '80px' }}>
+            <h1 className="fw-bold mb-5" style={{ fontSize: '48px' }}>Testimonials</h1>
+
+            <Slider {...settings}>
+
                 {
                     reviews.map(review => <UserReview
                         review={review}
                     >
                     </UserReview>)
                 }
+
             </Slider>
+
         </div >
 
     );
