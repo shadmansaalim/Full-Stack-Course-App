@@ -13,8 +13,8 @@ const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 2,
+    slidesToScroll: 2,
     initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -23,8 +23,8 @@ const settings = {
         {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 infinite: true,
                 dots: true,
             }
@@ -55,10 +55,10 @@ const UserReviews = () => {
             .then(data => setReviews(data));
     }, [])
     return (
-        <div style={{ marginTop: '120px', marginBottom: '80px' }}>
-            <h1 className="fw-bold mb-5" style={{ fontSize: '48px' }}>Testimonials</h1>
+        <div>
+            <h1 className="fw-bold mb-5" style={{ fontSize: '42px' }}>Course Reviews</h1>
 
-            <Slider {...settings}>
+            <Slider {...settings} className="col-lg-10 mx-auto mt-lg-4 mb-5">
 
                 {
                     reviews.map(review => <UserReview

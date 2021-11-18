@@ -4,3 +4,14 @@
     font-size: 12px;
     line-height: 20px;
 }
+
+
+
+
+.slick-prev:before{
+display: none;
+
+}
+.slick-next:before {
+    display: none;
+}

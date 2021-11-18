@@ -86,10 +86,6 @@ const Home = () => {
                                 </Col>
                             </Row>
                         </div>
-                        <div className="mx-auto" style={{ marginTop: 120 }}>
-                            <UserReviews></UserReviews>
-                        </div>
-
                     </section>
                     :
                     <div className="vh-100 d-flex justify-content-center align-items-center">

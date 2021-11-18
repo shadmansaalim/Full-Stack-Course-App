@@ -9,7 +9,7 @@ const UserReview = ({ review }) => {
     return (
 
         <Col>
-            <Card style={{ minHeight: '300px', maxHeight: '300px', overflow: 'scroll' }} className="mx-2 text-dark">
+            <Card style={{ minHeight: '300px', maxHeight: '300px', overflow: 'scroll' }} className="mx-3 text-dark">
                 <Card.Body>
                     <div className="d-flex align-items-center text-start">
                         {
