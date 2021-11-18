@@ -205,13 +205,6 @@ const Header = () => {
                                     <NavLink to="/my-classes" onClick={handleOffCanvasClose}>
                                         <button className="drawer-buttons btn btn-primary w-100 mb-2"><FontAwesomeIcon icon={faGraduationCap} /> My Classes</button>
                                     </NavLink>
-                                    <NavLink to="/add-review">
-                                        <button
-                                            onClick={() => {
-                                                handleOffCanvasClose();
-                                            }}
-                                            className="drawer-buttons btn btn-primary w-100 mb-2"><FontAwesomeIcon icon={faPen} /> Add Review</button>
-                                    </NavLink>
                                     <NavLink to="/make-admin">
                                         <button
                                             onClick={() => {
