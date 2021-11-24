@@ -77,12 +77,6 @@ function App() {
               <Route exact path="/add-review">
                 <AddReview></AddReview>
               </Route>
-              <Route exact path="/add-course">
-                <AddCourse></AddCourse>
-              </Route>
-              <Route exact path="/make-admin">
-                <MakeAdmin></MakeAdmin>
-              </Route>
               <Route path="*">
                 <NotFound></NotFound>
               </Route>

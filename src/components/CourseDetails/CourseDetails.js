@@ -54,6 +54,13 @@ const CourseDetails = () => {
 
     }, [user.email]);
 
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data[0]?.reviews));
+    }, [id])
+
 
     const handleAddToCart = (course) => {
         const newCart = [...cart, course];
@@ -185,13 +192,19 @@ const CourseDetails = () => {
                                 </div>
                             </section>
                         </div>
-                        <div className="p-5" style={{
-                            backgroundColor: '#f5f7ff'
-                        }}>
+                        <>
+                            {
+                                reviews?.length
+                                &&
+                                <div className="p-5" style={{
+                                    backgroundColor: '#f5f7ff'
+                                }}>
 
-                            <UserReviews id={id}></UserReviews>
+                                    <UserReviews reviews={reviews}></UserReviews>
 
-                        </div>
+                                </div>
+                            }
+                        </>
                     </section>
                     :
                     <div className="vh-100 d-flex justify-content-center align-items-center">
