@@ -21,11 +21,9 @@ import ContextProvider from './context/ContextProvider';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import PrivateBuyCourse from './components/PrivateRoute/PrivateBuyCourse';
 import PrivateForm from './components/PrivateRoute/PrivateForm';
-import AddCourse from './components/AddCourse/AddCourse';
 import OrderReview from './components/OrderReview/OrderReview';
 import Payment from './components/Payment/Payment';
 import OrderConfirmed from './components/OrderConfirmed/OrderConfirmed';
-import MakeAdmin from './components/MakeAdmin/MakeAdmin';
 import AddReview from './components/AddReview/AddReview';
 
 
