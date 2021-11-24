@@ -189,7 +189,7 @@ const CourseDetails = () => {
                             backgroundColor: '#f5f7ff'
                         }}>
 
-                            <UserReviews></UserReviews>
+                            <UserReviews id={id}></UserReviews>
 
                         </div>
                     </section>

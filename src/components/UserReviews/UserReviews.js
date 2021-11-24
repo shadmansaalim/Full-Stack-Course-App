@@ -47,29 +47,35 @@ const settings = {
 };
 
 
-const UserReviews = () => {
+const UserReviews = ({ id }) => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`http://localhost:5000/reviews/${id}`)
             .then(res => res.json())
-            .then(data => setReviews(data));
-    }, [])
+            .then(data => setReviews(data[0]?.reviews));
+    }, [id])
     return (
-        <div>
-            <h1 className="fw-bold mb-5" style={{ fontSize: '42px' }}>Course Reviews</h1>
+        <>
+            {
+                reviews
+                &&
+                <div>
+                    <h1 className="fw-bold mb-5" style={{ fontSize: '42px' }}>Course Reviews</h1>
 
-            <Slider {...settings} className="col-lg-10 mx-auto mt-lg-4 mb-5">
+                    <Slider {...settings} className="col-lg-10 mx-auto mt-lg-4 mb-5">
 
-                {
-                    reviews.map(review => <UserReview
-                        review={review}
-                    >
-                    </UserReview>)
-                }
+                        {
+                            reviews.map(review => <UserReview
+                                review={review}
+                            >
+                            </UserReview>)
+                        }
 
-            </Slider>
+                    </Slider>
 
-        </div >
+                </div >
+            }
+        </>
 
     );
 };

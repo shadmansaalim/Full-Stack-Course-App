@@ -10,7 +10,7 @@ import Cart from '../Cart/Cart';
 import useCartContext from '../../hooks/useCartContext';
 import { useEffect } from 'react';
 import { cartItemCount, deleteFromDb } from '../../utilities/LocalStorage';
-
+import logo from '../../images/logo-udemy.svg';
 const Header = () => {
     const history = useHistory();
     const [cart, setCart] = useCartContext();
@@ -72,7 +72,7 @@ const Header = () => {
             <Container>
                 <Navbar.Brand href="/home">
                     <img
-                        src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg"
+                        src={logo}
                         width="80"
                         height="30"
                         className="d-inline-block align-top"
