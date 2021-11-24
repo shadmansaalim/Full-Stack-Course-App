@@ -21,7 +21,7 @@ const Header = () => {
     // Checking whether the course added to cart is already purchased or not
     useEffect(() => {
         if (user.email && cart.length) {
-            fetch(`http://localhost:5000/myClasses?email=${user.email}`, {
+            fetch(`https://stormy-taiga-36853.herokuapp.com/myClasses?email=${user.email}`, {
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('courseIdToken')}`
                 }

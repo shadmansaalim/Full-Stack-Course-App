@@ -29,7 +29,7 @@ const CheckoutForm = ({ price }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://stormy-taiga-36853.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -120,7 +120,7 @@ const CheckoutForm = ({ price }) => {
             data.order = savedCart;
             data.payment = payment;
 
-            fetch('http://localhost:5000/orders', {
+            fetch('https://stormy-taiga-36853.herokuapp.com/orders', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

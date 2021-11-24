@@ -37,7 +37,7 @@ const MyCourse = ({ course }) => {
         e.preventDefault();
         reviewData.photoURL = user.photoURL;
         reviewData.rating = value;
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://stormy-taiga-36853.herokuapp.com/reviews/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

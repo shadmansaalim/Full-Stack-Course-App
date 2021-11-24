@@ -11,7 +11,7 @@ const useCourses = () => {
 
     // FETCHING DATA FROM DATABASE BACKEND
     useEffect(() => {
-        fetch(`http://localhost:5000/courses?page=${activePage}&&size=${size}`)
+        fetch(`https://stormy-taiga-36853.herokuapp.com/courses?page=${activePage}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setCourses(data.courses)
