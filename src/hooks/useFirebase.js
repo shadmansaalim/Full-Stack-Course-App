@@ -38,7 +38,9 @@ const useFirebase = () => {
                     history.replace('/');
                     swal("Account Created Successfully!", "You can now purchase courses and enjoy our services", "success");
                 }).catch((error) => {
-
+                    if (error.message == 'Firebase: Error (auth/email-already-in-use).') {
+                        swal("Invalid!", "An account already exists with this email'", "error");
+                    }
                 });
 
             })
@@ -84,7 +86,9 @@ const useFirebase = () => {
                 history.replace(destination);
 
             }).catch((error) => {
-
+                if (error.message == 'Firebase: Error (auth/account-exists-with-different-credential).') {
+                    swal("Invalid!", "An account already exists with this email'", "error");
+                }
             })
             .finally(() => setIsLoading(false));
     }
@@ -100,7 +104,9 @@ const useFirebase = () => {
                 history.replace(destination);
 
             }).catch((error) => {
-
+                if (error.message == 'Firebase: Error (auth/account-exists-with-different-credential).') {
+                    swal("Invalid!", "An account already exists with this email'", "error");
+                }
             })
             .finally(() => setIsLoading(false));
     }
@@ -115,7 +121,9 @@ const useFirebase = () => {
                 history.replace(destination);
 
             }).catch((error) => {
-
+                if (error.message == 'Firebase: Error (auth/account-exists-with-different-credential).') {
+                    swal("Invalid!", "An account already exists with this email'", "error");
+                }
             })
             .finally(() => setIsLoading(false));
     }
