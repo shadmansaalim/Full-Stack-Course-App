@@ -1,4 +1,5 @@
-* Live Site : https://react-course-app-88b8d.web.app/ || Server Side Code : https://github.com/shadmansaalim/Full-Stack-Course-Backend.git
+* Live Site : https://react-course-app-88b8d.web.app/
+* Server Side Code : https://github.com/shadmansaalim/Full-Stack-Course-Backend.git
 * Full Stack Course Based Application where users can create account using Email & Password or login if they are already a member. Moreover, to improve UX I also implemented Google,Facebook and Twitter authentication system.
 * Users can look for courses and also can purchase them using any card which will be verified and for this I used Stripe Payment and after successfully purchasing users also get an email for which I used Nodemailer.
 * Users can check the courses that they took on My Classes page and from there they can also even give a review to any course which will be instantly added to course details page.
