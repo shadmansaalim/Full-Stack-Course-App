@@ -77,12 +77,12 @@ const CourseDetails = () => {
 
 
     return (
-        <div>
+        <div style={{ overflowX: 'hidden' }}>
 
             {
                 course.name ?
                     <section>
-                        <div className="p-5" style={{
+                        <div className="py-4 py-lg-5" style={{
                             backgroundColor: '#f5f7ff'
                         }}>
                             <Container>
@@ -146,7 +146,7 @@ const CourseDetails = () => {
                                 </section>
                             </Container>
                         </div>
-                        <div className="p-5">
+                        <div className="p-3 px-lg-0 py-lg-5">
                             <section className="col-lg-9 mb-5 mt-lg-4 mx-auto">
                                 <h3 className="text-start mb-3 fw-light">Description</h3>
                                 <p className="text-start">
@@ -196,7 +196,7 @@ const CourseDetails = () => {
                             {
                                 reviews?.length
                                 &&
-                                <div className="p-5" style={{
+                                <div className="py-lg-5" style={{
                                     backgroundColor: '#f5f7ff'
                                 }}>
 
