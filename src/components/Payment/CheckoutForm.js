@@ -191,6 +191,10 @@ const CheckoutForm = ({ price }) => {
 
                     <div className="mt-3 mb-3">
                         <h6 className="text-uppercase mb-4 text-start">Payment Information</h6>
+                        <span className="d-flex justify-content-between">
+                            <small><b>TEST</b> : 4242424242424242</small>
+                            <small><b>TEST</b> : 04/50 123 45678</small>
+                        </span>
                         <div className="row mt-2">
                             <CardElement
                                 options={{
