@@ -15,7 +15,7 @@ const Courses = () => {
     const [countdownSecond, setCountdownSecond] = useState(0);
 
     const countdown = () => {
-        const countDate = new Date('Feb 29, 2022 00:00:00').getTime();
+        const countDate = new Date('June 20, 2022 00:00:00').getTime();
         const now = new Date().getTime();
         const gap = countDate - now;
 
