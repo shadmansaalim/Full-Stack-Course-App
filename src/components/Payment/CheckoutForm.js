@@ -29,7 +29,7 @@ const CheckoutForm = ({ price }) => {
 
 
     useEffect(() => {
-        fetch('https://stormy-taiga-36853.herokuapp.com/create-payment-intent', {
+        fetch('https://course-app-backend.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -120,7 +120,7 @@ const CheckoutForm = ({ price }) => {
             data.order = savedCart;
             data.payment = payment;
 
-            fetch('https://stormy-taiga-36853.herokuapp.com/orders', {
+            fetch('https://course-app-backend.onrender.com/orders', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

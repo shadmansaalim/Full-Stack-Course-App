@@ -13,7 +13,7 @@ const AddReview = () => {
     const onSubmit = data => {
         data.photoURL = user.photoURL;
         data.rating = value;
-        fetch('https://stormy-taiga-36853.herokuapp.com/reviews', {
+        fetch('https://course-app-backend.onrender.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

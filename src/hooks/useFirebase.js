@@ -164,7 +164,7 @@ const useFirebase = () => {
     //Function to add users to database MONGO DB
     const saveUserToDb = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://stormy-taiga-36853.herokuapp.com/users', {
+        fetch('https://course-app-backend.onrender.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

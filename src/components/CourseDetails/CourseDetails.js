@@ -30,10 +30,10 @@ const CourseDetails = () => {
     // Fetching single course from Database 
     useEffect(() => {
         if (user.email) {
-            url = (`https://stormy-taiga-36853.herokuapp.com/course/${id}?email=${user.email}`);
+            url = (`https://course-app-backend.onrender.com/course/${id}?email=${user.email}`);
         }
         else {
-            url = (`https://stormy-taiga-36853.herokuapp.com/course/${id}`);
+            url = (`https://course-app-backend.onrender.com/course/${id}`);
         }
         fetch(url)
             .then(res => res.json())
@@ -56,7 +56,7 @@ const CourseDetails = () => {
 
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`https://stormy-taiga-36853.herokuapp.com/reviews/${id}`)
+        fetch(`https://course-app-backend.onrender.com/reviews/${id}`)
             .then(res => res.json())
             .then(data => setReviews(data[0]?.reviews));
     }, [id])
